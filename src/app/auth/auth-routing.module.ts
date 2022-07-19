@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PageAuthComponent } from './component/page-auth.component';
+import { AuthComponent } from './component/auth.component';
 /**
  * On part du chemin relatif : /products
  */
@@ -8,7 +8,7 @@ const routes: Routes = [
 
   {
     path: '',
-    component: PageAuthComponent,
+    component: AuthComponent,
     pathMatch: 'full'
   },
 ];
@@ -17,5 +17,5 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class PageAuthRoutingModule { }
+export class AuthRoutingModule { }
 

@@ -1,22 +1,24 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { PageAuthComponent } from './component/page-auth.component';
 import { SharedModule } from '../shared/shared.module';
+import { AuthComponent } from './component/auth.component';
+import { AuthRoutingModule } from './auth-routing.module';
 
 
 
 @NgModule({
 
   declarations: [
-    PageAuthComponent
+    AuthComponent
   ],
 
   imports: [
+    AuthRoutingModule,
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
     SharedModule,
   ]
 })
-export class PageAuthModule { }
+export class AuthModule { }

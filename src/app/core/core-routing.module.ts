@@ -4,8 +4,8 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
 
   {
-    path: '',
-    loadChildren: () => import('../page-auth/page-auth.module').then(m => m.PageAuthModule)
+    path: 'auth',
+    loadChildren: () => import('../auth/auth.module').then(m => m.AuthModule)
   },
   {
     path: '',
