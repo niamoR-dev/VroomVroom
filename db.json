@@ -1,0 +1,143 @@
+{
+  "utilisateurs": [
+    {
+      "id": 1,
+      "idProfil": 1,
+      "login": "Toto",
+      "mdp": "agentDeLaPaix",
+      "nom": "Patulacci",
+      "prenom": "Robert"
+    }
+  ],
+  "profils": [
+    {
+      "id": 1,
+      "libelle": "Administrateur"
+    },
+    {
+      "id": 2,
+      "libelle": "Magasinier"
+    },
+    {
+      "id": 3,
+      "libelle": "Mécanicien"
+    },
+    {
+      "id": 4,
+      "libelle": "Commercial"
+    },
+    {
+      "id": 5,
+      "libelle": "Chef d'atelier"
+    }
+  ],
+  "clients": [
+    {
+      "id": 1,
+      "nom": "Manson",
+      "prenom": "Charles",
+      "adresse": "5 Place du condamné",
+      "codePostal": 66666,
+      "ville": "Hell",
+      "mobile": "0666666666",
+      "telephone": "0266666666"
+    },
+    {
+      "id": 2,
+      "nom": "Creuse",
+      "prenom": "Sigmund",
+      "adresse": "12 rue du petit Hans",
+      "codePostal": 78654,
+      "ville": "Stade-Anne-Ale-Sur-Trône",
+      "mobile": "0687964532",
+      "telephone": "0249875632"
+    }
+  ],
+  "devis": [
+    {
+      "id": 1,
+      "idClient": 1,
+      "idUtilisateur": 1,
+      "idVehicule": 1,
+      "dateCreation": "22/06/2022",
+      "etat": "Validé",
+      "prixHt": 13000,
+      "tauxTva": 20
+    }
+  ],
+  "vehicules": [
+    {
+      "id": 1,
+      "dateConstruction": "21/02/2021",
+      "marque": "Citroën",
+      "modele": "C3",
+      "prixHt": 12000,
+      "quantite": 1
+    }
+  ],
+  "pieces": [
+    {
+      "id": 1,
+      "date_saisie": "13/04/2021",
+      "libelle": "Joint de culasse",
+      "quantite": 25
+    }
+  ],
+  "commandes_pieces": [
+    {
+      "id": 1,
+      "idPiece": 1,
+      "date_cloture": "13/04/2021",
+      "date_creation": "09/03/2021",
+      "quantite": 25
+    }
+  ],
+  "commandes_vehicules": [
+    {
+      "id": 1,
+      "idDevis": 1,
+      "dateCreation": "23/06/2022",
+      "dateCloture": "25/06/2022",
+      "etat": "terminée"
+    }
+  ],
+  "taches": [
+    {
+      "id": 1,
+      "idUtilisateur": 2,
+      "idPieces": [
+        1
+      ],
+      "idPriorite": 2,
+      "commentaire": "Joint de culasse à changer",
+      "desactiver": false,
+      "eattache": false,
+      "quantite": 1
+    }
+  ],
+  "fiches": [
+    {
+      "id": 1,
+      "description": "Changement de joint de culasse",
+      "dateCreation": ""
+    }
+  ],
+  "priorites": [
+    {
+      "id": 1,
+      "libelle": "Très urgent"
+    },
+    {
+      "id": 2,
+      "libelle": "Urgent"
+    },
+    {
+      "id": 3,
+      "libelle": "Normal"
+    },
+    {
+      "id": 4,
+      "libelle": "Non prioritaire"
+    }
+  ]
+}
