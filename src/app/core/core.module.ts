@@ -10,7 +10,6 @@ import { HeaderComponent } from './header/header/header.component';
 
 @NgModule({
   declarations: [
-
     HeaderComponent
   ],
 
@@ -26,7 +25,7 @@ import { HeaderComponent } from './header/header/header.component';
   exports: [
     HttpClientModule,
     ReactiveFormsModule,
-    HeaderComponent
+    HeaderComponent,
   ]
 })
 export class CoreModule {
