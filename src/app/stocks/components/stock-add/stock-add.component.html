@@ -1,0 +1,36 @@
+<div class="card">
+  <div class="card-body">
+
+    <form [formGroup]="angForm" novalidate>
+      <div class="form-group">
+        <label class="col-md-4">ID Product</label>
+        <select name="idProduct" #idProduct (change)="onSelectedIdProduct($event)">
+          <!-- (change)="onSelectedIdProduct($event)"-->
+          <option *ngFor="let product of products" [value]="product.id">
+            {{product.ProductName}} :
+            {{product.ProductDescription}} -
+          </option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4"> Quantity </label>
+        <textarea class="form-control" rows=7 cols="5" formControlName="quantite" #quantite>
+        </textarea>
+      </div>
+
+
+
+      <div class="form-group">
+        <label class="col-md-4">Date Stock</label>
+        <input type="text" class="form-control" formControlName="dateStock" #dateStock />
+      </div>
+
+      <div class="form-group">
+        <button (click)="addStock(quantite.value, dateStock.value)" type="submit" class="btn btn-primary">
+          Validate stock
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
