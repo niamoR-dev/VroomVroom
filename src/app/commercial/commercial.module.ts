@@ -6,12 +6,16 @@ import { VehiculeComponent } from './vehicule/vehicule.component';
 import {CommercialComponent} from "./components/commercial.component";
 import {ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
+import { HeaderComponent } from './components/header/header.component';
+import { EditVehiculeComponent } from './vehicule/edit-vehicule/edit-vehicule.component';
 
 
 @NgModule({
   declarations: [
     CommercialComponent,
-    VehiculeComponent
+    VehiculeComponent,
+    HeaderComponent,
+    EditVehiculeComponent
   ],
   imports: [
     CommonModule,
