@@ -1,11 +1,14 @@
-import { CommonModule } from '@angular/common';
+import {CommonModule, registerLocaleData} from '@angular/common';
 import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
+import localeFr from '@angular/common/locales/fr'
 
+// For date language pipe
+registerLocaleData(localeFr)
 
 @NgModule({
   declarations: [

@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../../environments/environment";
+import {Model} from "../../core/models/model";
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,7 @@ import {environment} from "../../../environments/environment";
 /**
  * Main service for API calls for different objects
  */
-export class ApiService<T extends { id: number }> {
+export class ApiWebService<T extends Model> {
 
   constructor(private http: HttpClient) {
   }

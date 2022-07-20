@@ -1,15 +1,47 @@
 {
-  "utilisateurs": [
+  "utilisateur": [
     {
       "id": 1,
       "idProfil": 1,
-      "login": "Toto",
-      "mdp": "agentDeLaPaix",
-      "nom": "Patulacci",
+      "login": "Admin",
+      "mdp": "admin",
+      "nom": "ElAdmin",
       "prenom": "Robert"
+    },
+    {
+      "id": 2,
+      "idProfil": 2,
+      "login": "Magasinier",
+      "mdp": "magasinier",
+      "nom": "LeMagasinier",
+      "prenom": "Jean-Luc"
+    },
+    {
+      "id": 3,
+      "idProfil": 3,
+      "login": "Mécanicien",
+      "mdp": "mécanicien",
+      "nom": "LeMécanicien",
+      "prenom": "Mario"
+    },
+    {
+      "id": 4,
+      "idProfil": 4,
+      "login": "Commercial",
+      "mdp": "commercial",
+      "nom": "LeCommercial",
+      "prenom": "John"
+    },
+    {
+      "id": 5,
+      "idProfil": 5,
+      "login": "Chef",
+      "mdp": "chef",
+      "nom": "LeChefDatelier",
+      "prenom": "Jacky"
     }
   ],
-  "profils": [
+  "profil": [
     {
       "id": 1,
       "libelle": "Administrateur"
@@ -31,7 +63,7 @@
       "libelle": "Chef d'atelier"
     }
   ],
-  "clients": [
+  "client": [
     {
       "id": 1,
       "nom": "Manson",
@@ -39,6 +71,7 @@
       "adresse": "5 Place du condamné",
       "codePostal": 66666,
       "ville": "Hell",
+      "email": "chacha@gmail.com",
       "mobile": "0666666666",
       "telephone": "0266666666"
     },
@@ -49,6 +82,7 @@
       "adresse": "12 rue du petit Hans",
       "codePostal": 78654,
       "ville": "Stade-Anne-Ale-Sur-Trône",
+      "email": "sig@gmail.com",
       "mobile": "0687964532",
       "telephone": "0249875632"
     }
@@ -57,72 +91,99 @@
     {
       "id": 1,
       "idClient": 1,
-      "idUtilisateur": 1,
+      "idUtilisateur": 4,
       "idVehicule": 1,
       "dateCreation": "22/06/2022",
-      "etat": "Validé",
+      "etat": true,
       "prixHt": 13000,
+      "tauxTva": 20,
+      "montantTtc": 14500
+    }
+  ],
+  "facture_vehicule": [
+    {
+      "id": 1,
+      "idDevis": 1,
+      "detail": "Véhicule livré",
+      "dateCreation": "23/06/2022",
+      "montantTtc": 13000,
       "tauxTva": 20
     }
   ],
-  "vehicules": [
+  "vehicule": [
     {
       "id": 1,
-      "dateConstruction": "21/02/2021",
+      "dateConstruction": "February 15, 2022 16:50:37",
       "marque": "Citroën",
       "modele": "C3",
-      "prixHt": 12000,
+      "prixHt": 13000,
       "quantite": 1
     }
   ],
-  "pieces": [
+  "piece": [
     {
       "id": 1,
+      "dateSaisie": "19/06/2021",
+      "libelle": "Courroie de distribution",
+      "quantite": 2
+    },
+    {
+      "id": 2,
       "date_saisie": "13/04/2021",
       "libelle": "Joint de culasse",
       "quantite": 25
     }
   ],
-  "commandes_pieces": [
+  "commande_piece": [
     {
       "id": 1,
-      "idPiece": 1,
-      "date_cloture": "13/04/2021",
-      "date_creation": "09/03/2021",
-      "quantite": 25
+      "idPiece": 2,
+      "idUtilisateur": 2,
+      "dateCloture": "13/04/2021",
+      "dateCreation": "09/03/2021",
+      "quantite": 25,
+      "commandeComplete": true
     }
   ],
-  "commandes_vehicules": [
+  "commande_vehicule": [
     {
       "id": 1,
       "idDevis": 1,
       "dateCreation": "23/06/2022",
       "dateCloture": "25/06/2022",
-      "etat": "terminée"
+      "commandeComplete": true
     }
   ],
-  "taches": [
+  "tache": [
     {
       "id": 1,
       "idUtilisateur": 2,
       "idPieces": [
         1
       ],
+      "idFiche": 1,
       "idPriorite": 2,
-      "commentaire": "Joint de culasse à changer",
-      "desactiver": false,
-      "eattache": false,
-      "quantite": 1
+      "description": "Courroie de distribution",
+      "commentaire": "Courroie changée mais c'est bizarre, la voiture ne démarre plus",
+      "quantite": 1,
+      "montant": 700,
+      "validationOuvrier": true,
+      "validationChef": false
     }
   ],
-  "fiches": [
+  "fiche_entretien": [
     {
       "id": 1,
-      "description": "Changement de joint de culasse",
-      "dateCreation": ""
+      "idTache": [1],
+      "idUtilisateur": 5,
+      "description": "Changement de courroie de distribution",
+      "dateCreation": "12/05/2022",
+      "dateCloture": "",
+      "ficheTerminee": false
     }
   ],
-  "priorites": [
+  "facture_entretien": [],
+  "priorite": [
     {
       "id": 1,
       "libelle": "Très urgent"

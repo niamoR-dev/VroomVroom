@@ -1,0 +1,54 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4 text-center">Liste des véhicules</h1>
+  </div>
+
+<!--  <div class="form-inline col-4 ">-->
+<!--    <input class="form-control col-12"  [(ngModel)]="searchText" placeholder="rechercher un vehicule" type="search" >-->
+<!--  </div>-->
+
+
+</div>
+
+<table class="table table-striped">
+  <thead class="">
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Marque</th>
+    <th scope="col">Modèle</th>
+    <th scope="col">Quantité</th>
+    <th scope="col">PrixHT</th>
+    <th scope="col">Date de construction</th>
+  </tr>
+  </thead>
+
+
+  <tbody *ngIf="vehicules.length > 0; else elseBlock">
+  <tr *ngFor="let vehicule of vehicules">
+    <th scope="row">{{vehicule.id}}</th>
+    <td>{{vehicule.marque}}</td>
+    <td>{{vehicule.modele}}</td>
+    <td>{{vehicule.quantite}}</td>
+    <td>{{vehicule.prixHt}}</td>
+    <td>{{vehicule.dateConstruction | date:'longDate'}}</td>
+<!--    <td>{{vehicule.desactivation}}</td>-->
+    <td>
+      <!-- Gérer l'événement clic sur ce bouton afin de rediriger vers l'édition -->
+      <button type="button" class="btn btn-primary mr-2" [routerLink]="['edit', vehicule.id]" >Modifier</button>
+
+<!--      <button type="button" class="btn btn-outline-danger" (click)="deleteVehicule(vehicule.id)">Desactiver</button>-->
+    </td>
+  </tr>
+  </tbody>
+  <ng-template #elseBlock>
+    <tbody>
+    <tr>
+      <td colspan="3" class="text-center">Aucune tâche pour le moment...</td>
+    </tr>
+    </tbody>
+  </ng-template>
+</table>
+
+<div>
+<!--  <button type="button" class="btn btn-outline-warning mr-2" (click)="addVehicule()">Ajouter un véhicule</button>-->
+</div>
