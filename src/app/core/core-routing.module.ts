@@ -11,6 +11,22 @@ const routes: Routes = [
     path: 'commercial',
     loadChildren: () => import('../commercial/commercial.module')
       .then(m => m.CommercialModule)
+
+    path: 'admin',
+    loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
+  },
+  {
+    path: 'mecanicien',
+    loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
+  },
+  {
+    path: 'commercial',
+    loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
+  },
+  {
+    path: '',
+    redirectTo: '',
+    pathMatch: 'full'
   }
 ];
 

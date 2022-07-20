@@ -9,6 +9,8 @@ import {LINK_LIST} from "../../shared/utils/link.list";
 export class HeaderComponent implements OnInit {
   listLinks = LINK_LIST;
 
+
+
   constructor() { }
 
   ngOnInit(): void {
