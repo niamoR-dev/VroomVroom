@@ -10,7 +10,6 @@ export class CommercialComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log('Commercial oui')
   }
 
 }

@@ -19,7 +19,6 @@ import { HeaderComponent } from './header/header.component';
     HttpClientModule,
     SharedModule,
     CommonModule
-
   ],
 
   exports: [

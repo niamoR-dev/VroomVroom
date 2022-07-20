@@ -1,0 +1,47 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">{{ vehicule.id == 0 ? "Ajout" : "Modification" }} d'un véhicule</h1>
+    <p class="lead">Utiliser le formulaire suivant afin {{ vehicule.id == 0 ? "d'ajouter" : "de modifier" }} un vehicule
+    </p>
+  </div>
+</div>
+
+<div class="container">
+  <form [formGroup]="vForm" (ngSubmit)="onSubmit()" novalidate>
+    <div class="form-group">
+      <label for="marqueInput">Marque</label>
+      <input type="text" class="form-control" name="marqueInput" id="marqueInput" placeholder="{{vehicule.marque}}" formControlName="marque">
+      <div *ngIf="vForm.controls['marque'].invalid && (vForm.controls['marque'].dirty || vForm.controls['marque'].touched)" class="alert alert-danger">La marque est obligatoire</div>
+    </div>
+
+
+    <div class="form-group">
+      <label for="modeleInput">Modèle</label>
+      <input type="text" class="form-control" name="modeleInput" id="modeleInput" placeholder="{{vehicule.modele}}" formControlName="modele">
+      <div *ngIf="vForm.controls['modele'].invalid && (vForm.controls['modele'].dirty || vForm.controls['modele'].touched)" class="alert alert-danger">Le modèle est obligatoire</div>
+    </div>
+
+    <div class="form-group">
+      <label for="quantiteInput">Quantité</label>
+      <input type="number" class="form-control" name="quantiteInput" id="quantiteInput" placeholder="{{vehicule.quantite}}" formControlName="quantite">
+      <div *ngIf="vForm.controls['quantite'].invalid && (vForm.controls['quantite'].dirty || vForm.controls['quantite'].touched)" class="alert alert-danger">La quantité doit être indiqué et doit être
+        un chiffre
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="prixHTInput">Prix</label>
+      <input type="number" class="form-control" name="prixHTInput" id="prixHTInput" placeholder="{{vehicule.prixHt}}" formControlName="prix">
+      <div *ngIf="vForm.controls['prix'].invalid && (vForm.controls['prix'].dirty || vForm.controls['prix'].touched)" class="alert alert-danger">Le prix doit être indiqué
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="datecreationInput">Date</label>
+      <input type="date" class="form-control" name="datecreationInput" id="datecreationInput" placeholder="{{vehicule.dateConstruction | date:'longDate'}}" formControlName="date">
+      <div *ngIf="vForm.controls['date'].invalid && (vForm.controls['date'].dirty || vForm.controls['date'].touched)" class="alert alert-danger">La date de construction doit être indiqué
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="vForm.pristine || vForm.invalid">Mettre à jour le véhicule</button>
+  </form>
+</div>

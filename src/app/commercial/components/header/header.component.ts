@@ -1,13 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import {LINK_LIST} from "../../shared/utils/link.list";
 
 @Component({
-  selector: 'app-header',
+  selector: 'commercial-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  listLinks = LINK_LIST;
 
   constructor() { }
 
