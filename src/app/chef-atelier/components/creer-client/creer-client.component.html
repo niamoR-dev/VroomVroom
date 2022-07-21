@@ -9,23 +9,11 @@
 </div> -->
 
 <div class="container">
-
-  <form [formGroup]="vForm" (ngSubmit)="onSubmit()">
-
+  <form [formGroup]="vForm" (ngSubmit)="onSubmit()" novalidate>
     <h2>Informations générales</h2>
-
     <div class="form-group">
-      <label for="nomControl">
-        Nom
-      </label>
-
-      <input class="app-error" id="nomControl" type="text"
-
-      [ngClass]="{'app-error': nomControl?.invalid && (nomControl?.dirty || nomControl?.touched)}"
-      formControlName="nomControl"/>
-      <span class="app-message-error" [hidden]="nomControl?.valid || nomControl?.pristine">
-        Il y a une erreur !
-      </span>
+      <label for="nomInput">Nom</label>
+      <input type="text" class="form-control" name="nomInput" id="nomInput" formControlName="nom">
       <!-- <div *ngIf="vForm.controls['nom'].invalid && (vForm.controls['nom'].dirty || vForm.controls['nom'].touched)" class="alert alert-danger">Le nom est obligatoire</div> -->
     </div>
 
