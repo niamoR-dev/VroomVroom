@@ -3,6 +3,7 @@ import {ApiWebService} from "../../../shared/web-services/api.web-service";
 import {Vehicule} from "../../models/vehicule";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ActivatedRoute} from "@angular/router";
+import {URL_LIST} from "../../../shared/utils/url.list";
 
 @Component({
   selector: 'app-edit-vehicule',
@@ -13,7 +14,6 @@ export class EditVehiculeComponent implements OnInit {
   id!: number;
   vehicule!: Vehicule;
   vForm!: FormGroup
-  url = 'vehicule/';
 
   constructor(private service: ApiWebService<Vehicule>,
               private formBuilder: FormBuilder,
@@ -22,7 +22,6 @@ export class EditVehiculeComponent implements OnInit {
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
     this.getVehicule(this.id);
-    console.log('EDIT VEHICULE')
   }
 
   onSubmit(): void {
@@ -38,7 +37,7 @@ export class EditVehiculeComponent implements OnInit {
    * @param id the customer ID
    */
   private getVehicule(id: number){
-    this.service.getData(id, this.url).subscribe({
+    this.service.getData(id, URL_LIST.vehicule).subscribe({
       next: data => {
         this.vehicule = data;
         this.createForm();
