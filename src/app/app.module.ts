@@ -5,7 +5,7 @@ import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
-import localeFr from '@angular/common/locales/fr'
+import localeFr from '@angular/common/locales/fr';
 
 // For date language pipe
 registerLocaleData(localeFr)

@@ -1,4 +1,26 @@
 {
+  "post": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comment": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    },
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 2
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
   "utilisateur": [
     {
       "id": 1,
@@ -73,7 +95,8 @@
       "ville": "Hell",
       "email": "chacha@gmail.com",
       "mobile": "0666666666",
-      "telephone": "0266666666"
+      "telephone": "0266666666",
+      "fiche_entretienId":1
     },
     {
       "id": 2,
@@ -93,7 +116,7 @@
       "idClient": 1,
       "idUtilisateur": 4,
       "idVehicule": 1,
-      "dateCreation": "22/06/2022",
+      "dateCreation": "June 22, 2022 13:50:37",
       "etat": true,
       "prixHt": 13000,
       "tauxTva": 20,
@@ -105,7 +128,7 @@
       "id": 1,
       "idDevis": 1,
       "detail": "Véhicule livré",
-      "dateCreation": "23/06/2022",
+      "dateCreation": "February 23, 2022 18:50:37",
       "montantTtc": 13000,
       "tauxTva": 20
     }
@@ -123,13 +146,13 @@
   "piece": [
     {
       "id": 1,
-      "dateSaisie": "19/06/2021",
+      "dateSaisie": "June 16, 2021 10:50:37",
       "libelle": "Courroie de distribution",
       "quantite": 2
     },
     {
       "id": 2,
-      "date_saisie": "13/04/2021",
+      "date_saisie": "April 13, 2021 10:50:37",
       "libelle": "Joint de culasse",
       "quantite": 25
     }
@@ -157,12 +180,12 @@
   "tache": [
     {
       "id": 1,
-      "idUtilisateur": 2,
-      "idPieces": [
+      "utilisateurId": 2,
+      "pieceId": [
         1
       ],
-      "idFiche": 1,
-      "idPriorite": 2,
+      "ficheId": 1,
+      "prioriteId": 2,
       "description": "Courroie de distribution",
       "commentaire": "Courroie changée mais c'est bizarre, la voiture ne démarre plus",
       "quantite": 1,
@@ -174,12 +197,16 @@
   "fiche_entretien": [
     {
       "id": 1,
-      "idTache": [1],
-      "idUtilisateur": 5,
       "description": "Changement de courroie de distribution",
       "dateCreation": "12/05/2022",
+      "montantTtc": 700,
       "dateCloture": "",
-      "ficheTerminee": false
+      "ficheTerminee": false,
+      "clientId": 1,
+      "tacheId": [
+        1
+      ],
+      "utilisateurId": 5
     }
   ],
   "facture_entretien": [],
