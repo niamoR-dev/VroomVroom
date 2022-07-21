@@ -15,6 +15,7 @@
   <tr>
     <th scope="col">#</th>
     <th scope="col">Client</th>
+    <th scope="col">Description</th>
     <th scope="col">Date Création</th>
     <th scope="col">Tâches restantes à faire</th>
     <th scope="col">Montant TTC</th>
@@ -26,7 +27,8 @@
   <tbody *ngIf="fiches.length > 0; else elseBlock">
   <tr *ngFor="let fiche of fiches">
     <th scope="row">{{fiche.id}}</th>
-    <td>{{fiche.idUtilisateur}}</td>
+    <td>{{fiche.clientId}}</td>
+    <td>{{fiche.description}}</td>
     <td>{{fiche.dateCreation | date: 'longDate'}}</td>
     <td>{{fiche.idTache}}</td>
     <td>{{fiche.montantTtc}}</td>

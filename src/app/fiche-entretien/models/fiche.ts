@@ -2,9 +2,9 @@ import {Model} from "../../core/models/model";
 
 export class Fiche extends Model {
 
-      private _idTache!: number[];
-      private _idUtilisateur!: number;
-      private _idClient!: number;
+      private _tacheId!: number[];
+      private _utilisateurId!: number;
+      private _clientId!: number;
       private _description!: string;
       private _dateCreation!: Date;
       private _dateCloture!: Date;
@@ -12,11 +12,11 @@ export class Fiche extends Model {
       private _montantTtc!: number;
 
 
-  constructor(idTache: number[], idUtilisateur: number, idClient: number, description: string, dateCreation: Date, dateCloture: Date, ficheTerminee: boolean, montantTtc: number) {
+  constructor(idTache: number[], idUtilisateur: number, clientId: number, description: string, dateCreation: Date, dateCloture: Date, ficheTerminee: boolean, montantTtc: number) {
     super();
-    this._idTache = idTache;
-    this._idUtilisateur = idUtilisateur;
-    this._idClient = idClient;
+    this._tacheId = idTache;
+    this._utilisateurId = idUtilisateur;
+    this._clientId = clientId;
     this._description = description;
     this._dateCreation = dateCreation;
     this._dateCloture = dateCloture;
@@ -26,27 +26,27 @@ export class Fiche extends Model {
 
 
   get idTache(): number[] {
-    return this._idTache;
+    return this._tacheId;
   }
 
   set idTache(value: number[]) {
-    this._idTache = value;
+    this._tacheId = value;
   }
 
   get idUtilisateur(): number {
-    return this._idUtilisateur;
+    return this._utilisateurId;
   }
 
   set idUtilisateur(value: number) {
-    this._idUtilisateur = value;
+    this._utilisateurId = value;
   }
 
-  get idClient(): number {
-    return this._idClient;
+  get clientId(): number {
+    return this._clientId;
   }
 
-  set idClient(value: number) {
-    this._idClient = value;
+  set clientId(value: number) {
+    this._clientId = value;
   }
 
   get description(): string {
@@ -80,7 +80,7 @@ export class Fiche extends Model {
   set ficheTerminee(value: boolean) {
     this._ficheTerminee = value;
   }
-  
+
   get montantTtc(): number {
     return this._montantTtc;
   }
