@@ -5,7 +5,10 @@ import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
-import localeFr from '@angular/common/locales/fr'
+import localeFr from '@angular/common/locales/fr';
+import { FicheEntretienComponent } from './fiche-entretien/components/fiche-entretien.component';
+import { ChefAtelierComponent } from './chef-atelier/components/chef-atelier.component';
+import { HeaderComponent } from './chef-atelier/components/header/header.component';
 
 // For date language pipe
 registerLocaleData(localeFr)
@@ -13,6 +16,9 @@ registerLocaleData(localeFr)
 @NgModule({
   declarations: [
     AppComponent,
+    FicheEntretienComponent,
+    ChefAtelierComponent,
+    HeaderComponent,
   ],
   imports: [
     CommonModule,

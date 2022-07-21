@@ -8,6 +8,10 @@ export const LINK_LIST = [
     rooting: './../admin'
   },
   {
+    nameTab: 'Chef d\'atelier',
+    rooting: './../chefAtelier'
+  },
+  {
     nameTab: 'Mécanicien',
     rooting: './../mecanicien'
   },
