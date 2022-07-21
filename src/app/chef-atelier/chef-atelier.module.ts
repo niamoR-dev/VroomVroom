@@ -10,6 +10,7 @@ import {EditPieceComponent} from "../piece/components/edit-piece/edit-piece.comp
 import {ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {AddPieceComponent} from "../piece/components/add-piece/add-piece.component";
+import { CreerClientComponent } from './components/creer-client/creer-client.component';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import {AddPieceComponent} from "../piece/components/add-piece/add-piece.compone
     ListPieceComponent,
     EditPieceComponent,
     AddPieceComponent
+    CreerClientComponent
   ],
   imports: [
     CommonModule,
