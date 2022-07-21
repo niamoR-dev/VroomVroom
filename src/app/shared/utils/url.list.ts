@@ -1,4 +1,5 @@
 export enum URL_LIST {
-  vehicule = 'vehicule',
-  fiche = 'fiche_entretien'
+  vehicule = 'vehicule/',
+  fiche = 'fiche_entretien/',
+  client = 'client/'
 }
