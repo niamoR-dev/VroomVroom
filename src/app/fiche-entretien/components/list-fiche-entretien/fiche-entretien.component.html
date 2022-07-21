@@ -27,17 +27,18 @@
   <tbody *ngIf="fiches.length > 0; else elseBlock">
   <tr *ngFor="let fiche of fiches">
     <th scope="row">{{fiche.id}}</th>
-    <td>{{fiche.clientId}}</td>
+    <td *ngFor="let c of fiche.client">
+      {{c['nom']}} {{c['prenom']}}
+    </td>
     <td>{{fiche.description}}</td>
     <td>{{fiche.dateCreation | date: 'longDate'}}</td>
     <td>{{fiche.idTache}}</td>
     <td>{{fiche.montantTtc}}</td>
-    <td>{{fiche.ficheTerminee}}</td>
-    <!--    <td>{{fiche.desactivation}}</td>-->
+    <td *ngIf="fiche.ficheTerminee == false">Non validée</td>
+    <td *ngIf="fiche.ficheTerminee == true">Validée</td>
     <td>
-      <button type="button" class="btn btn-primary mr-2" [routerLink]="['edit', fiche.id]" >Modifier</button>
+      <button type="button" class="btn btn-primary mr-2" [routerLink]="['edit', fiche.id]">Modifier</button>
 
-      <!--      <button type="button" class="btn btn-outline-danger" (click)="deleteVehicule(fiche.id)">Desactiver</button>-->
     </td>
   </tr>
   </tbody>
@@ -49,7 +50,3 @@
     </tbody>
   </ng-template>
 </table>
-
-<div>
-  <!--  <button type="button" class="btn btn-outline-warning mr-2" (click)="addVehicule()">Ajouter un véhicule</button>-->
-</div>
