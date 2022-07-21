@@ -176,8 +176,10 @@
       "id": 1,
       "idTache": [1],
       "idUtilisateur": 5,
+      "idClient": 1,
       "description": "Changement de courroie de distribution",
       "dateCreation": "12/05/2022",
+      "montantTtc": 700,
       "dateCloture": "",
       "ficheTerminee": false
     }

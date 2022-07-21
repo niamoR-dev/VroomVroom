@@ -11,9 +11,14 @@ const routes: Routes = [
     path: 'commercial',
     loadChildren: () => import('../commercial/commercial.module')
       .then(m => m.CommercialModule)
-
+  },
+  {
     path: 'admin',
     loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
+  },
+  {
+    path: 'chefAtelier',
+    loadChildren: () => import('../chef-atelier/chef-atelier.module').then(m => m.ChefAtelierModule)
   },
   {
     path: 'mecanicien',
