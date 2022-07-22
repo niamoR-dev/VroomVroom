@@ -4,6 +4,7 @@ import {ChefAtelierComponent} from "./components/chef-atelier.component";
 import {FicheEntretienComponent} from "../fiche-entretien/components/list-fiche-entretien/fiche-entretien.component";
 import {ListPieceComponent} from "../piece/components/list-piece/list-piece.component";
 import {EditPieceComponent} from "../piece/components/edit-piece/edit-piece.component";
+import {AddPieceComponent} from "../piece/components/add-piece/add-piece.component";
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
       {
         path: 'stock-pieces/edit/:id',
         component: EditPieceComponent
+      },
+      {
+        path: 'stock-pieces/add',
+        component: AddPieceComponent
       }
     ]
   }

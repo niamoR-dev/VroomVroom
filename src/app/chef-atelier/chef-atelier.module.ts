@@ -9,6 +9,7 @@ import {ListPieceComponent} from "../piece/components/list-piece/list-piece.comp
 import {EditPieceComponent} from "../piece/components/edit-piece/edit-piece.component";
 import {ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
+import {AddPieceComponent} from "../piece/components/add-piece/add-piece.component";
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import {HttpClientModule} from "@angular/common/http";
     FicheEntretienComponent,
     ChefAtelierComponent,
     ListPieceComponent,
-    EditPieceComponent
+    EditPieceComponent,
+    AddPieceComponent
   ],
   imports: [
     CommonModule,
