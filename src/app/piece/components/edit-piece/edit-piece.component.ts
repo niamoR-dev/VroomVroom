@@ -13,7 +13,6 @@ import {URL_LIST} from "../../../shared/utils/url.list";
 export class EditPieceComponent implements OnInit {
   id!: number;
   piece!: Piece;
-  pForm!: FormGroup;
   form = new FormGroup({
     libelle: new FormControl('', [Validators.required, Validators.minLength(4)]),
     quantite: new FormControl('', [Validators.required]),
@@ -55,7 +54,7 @@ export class EditPieceComponent implements OnInit {
    */
   private formValue(controlName: string) {
     // @ts-ignore
-    return this.tForm.get(controlName).value;
+    return this.form.get(controlName).value;
   }
 
 }
