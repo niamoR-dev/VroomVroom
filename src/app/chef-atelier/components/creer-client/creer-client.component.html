@@ -1,0 +1,101 @@
+<h1>Nouvelle fiche client Atelier</h1>
+
+<!-- <div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">{{ client.id == 0 ? "Ajout" : "Modification" }} d'un client</h1>
+    <p class="lead">Utiliser le formulaire suivant afin {{ client.id == 0 ? "d'ajouter" : "de modifier" }} un client
+    </p>
+  </div>
+</div> -->
+
+<div class="container">
+  <form [formGroup]="vForm" (ngSubmit)="onSubmit()">
+    <h2>Informations générales</h2>
+
+    <div class="form-group">
+      <label for="nomControl">Nom</label>
+      <input class="form-control" id="nomControl" type="text" [ngClass]="{
+          'app-error':
+            nomControl?.invalid && (nomControl?.dirty || nomControl?.touched)
+        }" formControlName="nomControl" />
+      <span class="app-message-error" [hidden]="nomControl?.valid || nomControl?.pristine">
+        Il y a une erreur !
+      </span>
+    </div>
+
+    <div class="form-group">
+      <label for="prenomControl">Prénom</label>
+      <input class="form-control" id="prenomControl" type="text" [ngClass]="{
+          'app-error':
+            prenomControl?.invalid &&
+            (prenomControl?.dirty || prenomControl?.touched)
+        }" formControlName="prenomControl" />
+      <span class="app-message-error" [hidden]="prenomControl?.valid || prenomControl?.pristine"></span>
+    </div>
+
+    <div class="form-group">
+      <label for="emailControl">Adresse email</label>
+      <input class="form-control" id="emailControl" type="email" [ngClass]="{
+          'app-error':
+            emailControl?.invalid &&
+            (emailControl?.dirty || emailControl?.touched)
+        }" formControlName="emailControl" />
+      <span class="app-message-error" [hidden]="emailControl?.valid || emailControl?.pristine"></span>
+    </div>
+
+    <div class="form-group">
+      <label for="telephoneControl">Téléphone</label>
+      <input class="form-control" id="telephoneControl" type="tel" [ngClass]="{
+          'app-error':
+            telephoneControl?.invalid &&
+            (telephoneControl?.dirty || telephoneControl?.touched)
+        }" formControlName="telephoneControl" />
+      <span class="app-message-error" [hidden]="telephoneControl?.valid || telephoneControl?.pristine"></span>
+    </div>
+
+    <div class="form-group">
+      <label for="mobileControl">Mobile</label>
+      <input class="form-control" id="mobileControl" type="tel" [ngClass]="{
+          'app-error':
+            mobileControl?.invalid &&
+            (mobileControl?.dirty || mobileControl?.touched)
+        }" formControlName="mobileControl" />
+      <span class="app-message-error" [hidden]="mobileControl?.valid || mobileControl?.pristine"></span>
+    </div>
+
+    <h2>Adresse</h2>
+    <div class="form-group">
+      <label for="adresseControl">Numéro et voie</label>
+      <input class="form-control" id="adresseControl" type="text" [ngClass]="{
+          'app-error':
+            adresseControl?.invalid &&
+            (adresseControl?.dirty || adresseControl?.touched)
+        }" formControlName="adresseControl" />
+      <span class="app-message-error" [hidden]="adresseControl?.valid || adresseControl?.pristine"></span>
+    </div>
+
+    <div class="form-group">
+      <label for="codePostalControl">Code postal</label>
+      <input class="form-control" id="codePostalControl" type="number" [ngClass]="{
+          'app-error':
+            codePostalControl?.invalid &&
+            (codePostalControl?.dirty || codePostalControl?.touched)
+        }" formControlName="codePostalControl" />
+      <span class="app-message-error" [hidden]="codePostalControl?.valid || codePostalControl?.pristine"></span>
+    </div>
+
+    <div class="form-group">
+      <label for="villeControl">Ville</label>
+      <input class="form-control" id="villeControl" type="text" [ngClass]="{
+          'app-error':
+            villeControl?.invalid &&
+            (villeControl?.dirty || villeControl?.touched)
+        }" formControlName="villeControl" />
+      <span class="app-message-error" [hidden]="villeControl?.valid || emailControl?.pristine"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="!vForm.valid">
+      Ajouter le client
+    </button>
+  </form>
+</div>
