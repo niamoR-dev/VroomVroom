@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import {Piece} from "../../models/piece";
-import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
-import {ApiWebService} from "../../../shared/web-services/api.web-service";
-import {ActivatedRoute, Router} from "@angular/router";
-import {URL_LIST} from "../../../shared/utils/url.list";
-import {redirectTo} from "../../../shared/utils/methods";
+import { Piece } from "../../models/piece";
+import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
+import { ApiWebService } from "../../../shared/web-services/api.web-service";
+import { ActivatedRoute, Router } from "@angular/router";
+import { URL_LIST } from "../../../shared/utils/url.list";
+import { redirectTo } from "../../../shared/utils/methods";
+
 
 @Component({
   selector: 'app-edit-piece',
@@ -21,9 +22,9 @@ export class EditPieceComponent implements OnInit {
   })
 
   constructor(private service: ApiWebService<Piece>,
-              private formBuilder: FormBuilder,
-              private route: ActivatedRoute,
-              private router: Router) {}
+    private formBuilder: FormBuilder,
+    private route: ActivatedRoute,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];

@@ -2,12 +2,9 @@
   <div class="container">
     <h1 class="display-4 text-center">Liste des fiches</h1>
   </div>
-
-  <!--  <div class="form-inline col-4 ">-->
-  <!--    <input class="form-control col-12"  [(ngModel)]="searchText" placeholder="rechercher une fiche" type="search" >-->
-  <!--  </div>-->
-
-
+  <div class="form-inline col-4 ">
+    <input class="form-control col-12" [(ngModel)]="searchInput" placeholder="Rechercher une fiche (description)" type="search">
+  </div>
 </div>
 
 <table class="table table-striped">
@@ -25,7 +22,7 @@
 
 
   <tbody *ngIf="fiches.length > 0; else elseBlock">
-  <tr *ngFor="let fiche of fiches">
+  <tr *ngFor="let fiche of fiches | rechercheFiche: searchInput">
     <th scope="row">{{fiche.id}}</th>
     <td *ngFor="let c of fiche.client">
       {{c['nom']}} {{c['prenom']}}

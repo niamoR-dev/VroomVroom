@@ -8,17 +8,17 @@
     <div class="form-group">
       <label class="col-md-4" for="libelle">Libellé</label>
       <input type="text" class="form-control" id="libelle"
-             [ngClass]="{'app-error': form.controls['libelle'].invalid && form.controls['libelle'].dirty}"
-             formControlName="libelle">
+        [ngClass]="{'app-error': form.controls['libelle'].invalid && form.controls['libelle'].dirty}"
+        formControlName="libelle">
       <span class="app-message-error" [hidden]="form.controls['libelle'].valid || form.controls['libelle'].pristine">
-        Veuillez correctement remplir le libelle avec une longueur de 5 lettres minimum
+        Veuillez correctement remplir le libellé avec une longueur de 5 lettres minimum
       </span>
     </div>
     <div class="form-group">
       <label class="col-md-4" for="quantite">Quantité</label>
       <input type="number" class="form-control" id="quantite"
-             [ngClass]="{'app-error': form.controls['quantite'].invalid && form.controls['quantite'].dirty}"
-             formControlName="quantite">
+        [ngClass]="{'app-error': form.controls['quantite'].invalid && form.controls['quantite'].dirty}"
+        formControlName="quantite">
       <span class="app-message-error" [hidden]="form.controls['quantite'].valid || form.controls['quantite'].pristine">
         Veuillez correctement indiquer la quantité restante
       </span>
@@ -26,15 +26,16 @@
     <div class="form-group">
       <label class="col-md-4" for="dateSaisie">Date de saisie</label>
       <input class="form-control" type="date" id="dateSaisie"
-             [ngClass]="{'app-error': form.controls['dateSaisie'].invalid && form.controls['dateSaisie'].dirty}"
-             formControlName="dateSaisie">
-      <span class="app-message-error" [hidden]="form.controls['dateSaisie'].valid || form.controls['dateSaisie'].pristine">
+        [ngClass]="{'app-error': form.controls['dateSaisie'].invalid && form.controls['dateSaisie'].dirty}"
+        formControlName="dateSaisie">
+      <span class="app-message-error"
+        [hidden]="form.controls['dateSaisie'].valid || form.controls['dateSaisie'].pristine">
         Veuillez correctement indiquer la date de saisie
       </span>
     </div>
     <div>
       <button type="submit" class="btn btn-primary" [disabled]="!form.valid">
-        Mettre à jour la pièce
+        Ajouter la pièce
       </button>
     </div>
   </form>
