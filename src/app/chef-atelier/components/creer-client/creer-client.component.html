@@ -1,65 +1,24 @@
 <h1>Nouvelle fiche client Atelier</h1>
 
-<!-- <div class="jumbotron jumbotron-fluid">
-  <div class="container">
-    <h1 class="display-4">{{ client.id == 0 ? "Ajout" : "Modification" }} d'un client</h1>
-    <p class="lead">Utiliser le formulaire suivant afin {{ client.id == 0 ? "d'ajouter" : "de modifier" }} un client
-    </p>
-  </div>
-</div> -->
+  <form (ngSubmit)="onSubmit()" [formGroup]="vForm" >
 
-<div class="container">
-  <form [formGroup]="vForm" (ngSubmit)="onSubmit()" novalidate>
     <h2>Informations générales</h2>
-    <div class="form-group">
-      <label for="nomInput">Nom</label>
-      <input type="text" class="form-control" name="nomInput" id="nomInput" formControlName="nom">
+
+    <div>
+      <label for="nomControl">
+        Nom
+      </label>
+
+      <input class="app-error" id="nomControl" type="text"
+
+      [ngClass]="{'app-error': nomControl?.invalid && (nomControl?.dirty || nomControl?.touched)}"
+      formControlName="nomControl"/>
+      <span class="app-message-error" [hidden]="nomControl?.valid || nomControl?.pristine">
+        Il y a une erreur !
+      </span>
       <!-- <div *ngIf="vForm.controls['nom'].invalid && (vForm.controls['nom'].dirty || vForm.controls['nom'].touched)" class="alert alert-danger">Le nom est obligatoire</div> -->
     </div>
 
 
-    <div class="form-group">
-      <label for="prenomInput">Prénom</label>
-      <input type="text" class="form-control" name="prenomInput" id="prenomInput" formControlName="prenom">
-      <!-- <div *ngIf="vForm.controls['prenom'].invalid && (vForm.controls['prenom'].dirty || vForm.controls['prenom'].touched)" class="alert alert-danger">Le prénom est obligatoire</div> -->
-    </div>
-
-    <div class="form-group">
-      <label for="emailInput">Adresse email</label>
-      <input type="email" class="form-control" name="emailInput" id="emailInput" formControlName="email">
-      <!-- <div *ngIf="vForm.controls['email'].invalid && (vForm.controls['email'].dirty || vForm.controls['email'].touched)" class="alert alert-danger">L'adresse mail est obligatoire</div> -->
-    </div>
-
-    <div class="form-group">
-      <label for="telephoneInput">Téléphone</label>
-      <input type="tel" class="form-control" name="telephoneInput" id="telephoneInput" formControlName="telephone">
-      <!-- <div *ngIf="vForm.controls['telephone'].invalid && (vForm.controls['telephone'].dirty || vForm.controls['telephone'].touched)" class="alert alert-danger">Le téléphone doit être indiqué</div> -->
-    </div>
-
-    <div class="form-group">
-      <label for="mobileInput">Mobile</label>
-      <input type="tel" class="form-control" name="mobileInput" id="mobileInput" formControlName="mobile">
-    </div>
-
-    <h2>Adresse</h2>
-    <div class="form-group">
-      <label for="adresseInput">Numéro et voie</label>
-      <input type="text" class="form-control" name="adresseInput" id="adresseInput" formControlName="adresse">
-      <!-- <div *ngIf="vForm.controls['adresse'].invalid && (vForm.controls['adresse'].dirty || vForm.controls['adresse'].touched)" class="alert alert-danger">L'adresse doit être indiquée</div> -->
-    </div>
-
-    <div class="form-group">
-      <label for="codePostalInput">Code postal</label>
-      <input type="number" class="form-control" name="codePostalInput" id="codePostalInput" formControlName="codePostal">
-      <!-- <div *ngIf="vForm.controls['codePostal'].invalid && (vForm.controls['codePostal'].dirty || vForm.controls['codePostal'].touched)" class="alert alert-danger">Le code postal doit être indiqué</div> -->
-    </div>
-
-    <div class="form-group">
-      <label for="codePostalInput">Ville</label>
-      <input type="text" class="form-control" name="villeInput" id="villeInput" formControlName="ville">
-      <!-- <div *ngIf="vForm.controls['ville'].invalid && (vForm.controls['ville'].dirty || vForm.controls['ville'].touched)" class="alert alert-danger">La ville doit être indiquée</div> -->
-    </div>
-
     <button type="submit" class="btn btn-primary">Ajouter le client</button>
   </form>
-</div>
