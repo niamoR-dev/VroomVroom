@@ -10,6 +10,7 @@ import {JointureFicheClient} from "../../models/jointureFicheClient";
 })
 export class FicheEntretienComponent implements OnInit {
   fiches = new Array<JointureFicheClient>();
+  searchInput!: string;
 
   constructor(private service: ApiWebService<JointureFicheClient>) {
   }

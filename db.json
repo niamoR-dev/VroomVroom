@@ -173,15 +173,15 @@
   "piece": [
     {
       "id": 1,
-      "dateSaisie": "2022-07-21",
+      "dateSaisie": "2022-07-22",
       "libelle": "Courroie de distribution",
-      "quantite": 4
+      "quantite": 30
     },
     {
       "id": 2,
       "dateSaisie": "2022-07-22",
       "libelle": "Joint de culasse",
-      "quantite": 3
+      "quantite": 5
     }
   ],
   "commande_piece": [
