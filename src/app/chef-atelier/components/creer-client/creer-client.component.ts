@@ -13,43 +13,40 @@ export class CreerClientComponent implements OnInit {
 
     nomControl: new FormControl('', [Validators.required]),
 
-    // prenomControl: new FormControl(this.client.prenom, [Validators.required]),
-    // emailControl: new FormControl(this.client.email, [
-    //   Validators.required,
-    //   Validators.minLength(4),
-    //   Validators.pattern("^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$")]),
+    prenomControl: new FormControl('', [Validators.required]),
 
-    // telephoneControl: new FormControl(this.client.telephone,
-    //   [Validators.required,
-    //   Validators.maxLength(10),
-    //   Validators.pattern("^(?:(?:\+|00)33[\s.-]{0,3}(?:\(0\)[\s.-]{0,3})?|0)[1-9](?:(?:[\s.-]?\d{2}){4}|\d{2}(?:[\s.-]?\d{3}){2})$")
-    //   ]
-    // ),
+    emailControl: new FormControl('', [
+      Validators.required,
+      Validators.minLength(4)]),
 
-    // mobileControl: new FormControl(this.client.mobile,
-    //   [Validators.required,
-    //   Validators.minLength(10),
-    //   Validators.maxLength(10),
-    //   Validators.pattern("^(?:(?:\+|00)33[\s.-]{0,3}(?:\(0\)[\s.-]{0,3})?|0)[1-9](?:(?:[\s.-]?\d{2}){4}|\d{2}(?:[\s.-]?\d{3}){2})$")
-    //   ]
-    // ),
-    // adresseControl: new FormControl(this.client.adresse,
-    //   [Validators.required,
-    //   Validators.minLength(3)
-    //   ]
-    // ),
-    // codePostalControl: new FormControl(this.client.codePostal,
-    //   [Validators.required,
-    //   Validators.minLength(4),
-    //   Validators.maxLength(5),
-    //   Validators.pattern("^[0-9]")
-    //   ]
-    // ),
-    // villeControl: new FormControl(this.client.adresse,
-    //   [Validators.required,
-    //   Validators.minLength(2)
-    //   ]
-    // )
+    telephoneControl: new FormControl('',
+      [Validators.required,
+      Validators.maxLength(10),
+      ]
+    ),
+
+    mobileControl: new FormControl('',
+      [Validators.required,
+      Validators.minLength(10),
+      Validators.maxLength(10)
+      ]
+    ),
+    adresseControl: new FormControl('',
+      [Validators.required,
+      Validators.minLength(3)
+      ]
+    ),
+    codePostalControl: new FormControl('',
+      [Validators.required,
+      Validators.minLength(4),
+      Validators.maxLength(5)
+      ]
+    ),
+    villeControl: new FormControl('',
+      [Validators.required,
+      Validators.minLength(2)
+      ]
+    )
   });
 
 
@@ -63,6 +60,20 @@ export class CreerClientComponent implements OnInit {
 
   get nomControl() { return this.vForm.get('nomControl'); }
 
+  get prenomControl() { return this.vForm.get('nomControl'); }
+
+  get emailControl() { return this.vForm.get('emailControl'); }
+
+  get telephoneControl() { return this.vForm.get('telephoneControl'); }
+
+  get mobileControl() { return this.vForm.get('mobileControl'); }
+
+  get adresseControl() { return this.vForm.get('adresseControl'); }
+
+  get codePostalControl() { return this.vForm.get('codePostalControl'); }
+
+  get villeControl() { return this.vForm.get('villeControl'); }
+
   onSubmit(): void {
     console.log(this.vForm.value);
   }
@@ -71,6 +82,8 @@ export class CreerClientComponent implements OnInit {
     // @ts-ignore
     return this.vForm.get(controlName).value;
   }
+
+
 
 
 
