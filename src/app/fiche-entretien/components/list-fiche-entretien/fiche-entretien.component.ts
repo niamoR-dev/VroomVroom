@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {Fiche} from "../models/fiche";
-import {ApiWebService} from "../../shared/web-services/api.web-service";
-import {URL_LIST} from "../../shared/utils/url.list";
+import {ApiWebService} from "../../../shared/web-services/api.web-service";
+import {URL_LIST} from "../../../shared/utils/url.list";
+import {JointureFicheClient} from "../../models/jointureFicheClient";
 
 @Component({
   selector: 'app-fiche-entretien',
@@ -9,9 +9,9 @@ import {URL_LIST} from "../../shared/utils/url.list";
   styleUrls: ['./fiche-entretien.component.scss']
 })
 export class FicheEntretienComponent implements OnInit {
-  fiches = new Array<Fiche>();
+  fiches = new Array<JointureFicheClient>();
 
-  constructor(private service: ApiWebService<Fiche>) {
+  constructor(private service: ApiWebService<JointureFicheClient>) {
   }
 
   ngOnInit(): void {
@@ -19,7 +19,7 @@ export class FicheEntretienComponent implements OnInit {
   }
 
   private getFiches() {
-    this.service.getAllData(URL_LIST.fiche).subscribe({
+    this.service.getAllData(URL_LIST.jointureFicheClient).subscribe({
       next: data => {
         this.fiches.splice(0, this.fiches.length);
         data.forEach(f => {

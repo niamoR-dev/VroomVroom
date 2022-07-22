@@ -61,6 +61,22 @@
       "mdp": "chef",
       "nom": "LeChefDatelier",
       "prenom": "Jacky"
+    },
+    {
+      "id": 6,
+      "idProfil": 3,
+      "login": "MécanicienStagiaire",
+      "mdp": "mécanicien",
+      "nom": "LeStagiaire",
+      "prenom": "Kevin"
+    },
+    {
+      "id": 7,
+      "idProfil": 3,
+      "login": "MécanicienAlternant",
+      "mdp": "mécanicien",
+      "nom": "L'Alternant",
+      "prenom": "Rémy"
     }
   ],
   "profil": [
@@ -96,7 +112,7 @@
       "email": "chacha@gmail.com",
       "mobile": "0666666666",
       "telephone": "0266666666",
-      "fiche_entretienId":1
+      "fiche_entretienId": 1
     },
     {
       "id": 2,
@@ -106,6 +122,17 @@
       "codePostal": 78654,
       "ville": "Stade-Anne-Ale-Sur-Trône",
       "email": "sig@gmail.com",
+      "mobile": "0687964532",
+      "telephone": "0249875632"
+    },
+    {
+      "id": 3,
+      "nom": "Chopelinne",
+      "prenom": "Jeannisse",
+      "adresse": "85 place du tour",
+      "codePostal": 98741,
+      "ville": "Clé-Sur-Sol",
+      "email": "jiji@gmail.com",
       "mobile": "0687964532",
       "telephone": "0249875632"
     }
@@ -152,9 +179,9 @@
     },
     {
       "id": 2,
-      "date_saisie": "April 13, 2021 10:50:37",
+      "dateSaisie": "2022-07-22",
       "libelle": "Joint de culasse",
-      "quantite": 25
+      "quantite": 3
     }
   ],
   "commande_piece": [
@@ -162,8 +189,8 @@
       "id": 1,
       "idPiece": 2,
       "idUtilisateur": 2,
-      "dateCloture": "13/04/2021",
-      "dateCreation": "09/03/2021",
+      "dateCloture": "April 13, 2021 09:50:37",
+      "dateCreation": "March 09, 2021 14:50:37",
       "quantite": 25,
       "commandeComplete": true
     }
@@ -172,8 +199,8 @@
     {
       "id": 1,
       "idDevis": 1,
-      "dateCreation": "23/06/2022",
-      "dateCloture": "25/06/2022",
+      "dateCreation": "June 22, 2022 10:50:37",
+      "dateCloture": "June 25, 2022 10:50:37",
       "commandeComplete": true
     }
   ],
@@ -184,7 +211,7 @@
       "pieceId": [
         1
       ],
-      "ficheId": 1,
+      "fiche_entretienId": 1,
       "prioriteId": 2,
       "description": "Courroie de distribution",
       "commentaire": "Courroie changée mais c'est bizarre, la voiture ne démarre plus",
@@ -198,7 +225,7 @@
     {
       "id": 1,
       "description": "Changement de courroie de distribution",
-      "dateCreation": "12/05/2022",
+      "dateCreation": "May 12, 2022 10:50:37",
       "montantTtc": 700,
       "dateCloture": "",
       "ficheTerminee": false,
