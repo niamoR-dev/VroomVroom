@@ -4,6 +4,7 @@ import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {ApiWebService} from "../../../shared/web-services/api.web-service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {URL_LIST} from "../../../shared/utils/url.list";
+import {redirectTo} from "../../../shared/utils/methods";
 
 @Component({
   selector: 'app-edit-piece',
@@ -34,7 +35,7 @@ export class EditPieceComponent implements OnInit {
     this.piece.quantite = this.formValue('quantite');
     this.piece.dateSaisie = this.formValue('dateSaisie');
     this.service.updateData(this.piece, URL_LIST.piece);
-    this.router.navigate([''])
+    redirectTo('chefAtelier/stock-pieces', this.router)
   }
 
   private getPiece(id: number) {

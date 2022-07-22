@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {Piece} from "../../models/piece";
 import {ApiWebService} from "../../../shared/web-services/api.web-service";
 import {URL_LIST} from "../../../shared/utils/url.list";
+import {Router} from "@angular/router";
+import {redirectTo} from "../../../shared/utils/methods";
 
 @Component({
   selector: 'app-list-piece',
@@ -11,10 +13,16 @@ import {URL_LIST} from "../../../shared/utils/url.list";
 export class ListPieceComponent implements OnInit {
   pieces = new Array<Piece>();
 
-  constructor(private service: ApiWebService<Piece>) { }
+  constructor(private service: ApiWebService<Piece>,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.getPieces();
+  }
+
+  deletePiece(id: number) {
+    this.service.deleteData(id, URL_LIST.piece);
+    redirectTo('chefAtelier/stock-pieces', this.router)
   }
 
   private getPieces() {
