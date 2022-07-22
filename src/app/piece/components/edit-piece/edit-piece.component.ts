@@ -1,18 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-<<<<<<< HEAD
-import {Piece} from "../../models/piece";
-import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
-import {ApiWebService} from "../../../shared/web-services/api.web-service";
-import {ActivatedRoute, Router} from "@angular/router";
-import {URL_LIST} from "../../../shared/utils/url.list";
-import {redirectTo} from "../../../shared/utils/methods";
-=======
 import { Piece } from "../../models/piece";
 import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
 import { ApiWebService } from "../../../shared/web-services/api.web-service";
 import { ActivatedRoute, Router } from "@angular/router";
 import { URL_LIST } from "../../../shared/utils/url.list";
->>>>>>> GMA-page_create_client
+import { redirectTo } from "../../../shared/utils/methods";
+
 
 @Component({
   selector: 'app-edit-piece',
