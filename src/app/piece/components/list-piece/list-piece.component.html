@@ -2,9 +2,9 @@
   <div class="container">
     <h1 class="display-4 text-center">Liste des pièces</h1>
   </div>
-  <!--  <div class="form-inline col-4 ">-->
-  <!--    <input class="form-control col-12"  [(ngModel)]="searchText" placeholder="rechercher une fiche" type="search" >-->
-  <!--  </div>-->
+  <div class="form-inline col-4 ">
+    <input class="form-control col-12" [(ngModel)]="searchInput" placeholder="Rechercher une pièce" type="search">
+  </div>
 </div>
 
 <table class="table table-striped">
@@ -19,7 +19,7 @@
 
 
   <tbody *ngIf="pieces.length > 0; else elseBlock">
-  <tr *ngFor="let piece of pieces">
+  <tr *ngFor="let piece of pieces | recherchePiece:searchInput">
     <th scope="row">{{piece.id}}</th>
     <td>{{piece.libelle}}</td>
     <td>{{piece.quantite}}</td>

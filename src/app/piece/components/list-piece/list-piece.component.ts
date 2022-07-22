@@ -12,6 +12,7 @@ import {redirectTo} from "../../../shared/utils/methods";
 })
 export class ListPieceComponent implements OnInit {
   pieces = new Array<Piece>();
+  searchInput!: string;
 
   constructor(private service: ApiWebService<Piece>,
               private router: Router) { }
