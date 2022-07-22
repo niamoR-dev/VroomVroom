@@ -112,7 +112,7 @@
       "email": "chacha@gmail.com",
       "mobile": "0666666666",
       "telephone": "0266666666",
-      "fiche_entretienId":1
+      "fiche_entretienId": 1
     },
     {
       "id": 2,
@@ -179,9 +179,9 @@
     },
     {
       "id": 2,
-      "dateSaisie": "April 13, 2021 14:50:37",
+      "dateSaisie": "2022-07-22",
       "libelle": "Joint de culasse",
-      "quantite": 25
+      "quantite": 3
     }
   ],
   "commande_piece": [
