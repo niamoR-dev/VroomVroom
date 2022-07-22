@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Piece} from "../../models/piece";
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {ApiWebService} from "../../../shared/web-services/api.web-service";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {URL_LIST} from "../../../shared/utils/url.list";
 
 @Component({
@@ -14,10 +14,16 @@ export class EditPieceComponent implements OnInit {
   id!: number;
   piece!: Piece;
   pForm!: FormGroup;
+  form = new FormGroup({
+    libelle: new FormControl('', [Validators.required, Validators.minLength(4)]),
+    quantite: new FormControl('', [Validators.required]),
+    dateSaisie: new FormControl('', [Validators.required])
+  })
 
   constructor(private service: ApiWebService<Piece>,
               private formBuilder: FormBuilder,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute,
+              private router: Router) {}
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
@@ -27,25 +33,18 @@ export class EditPieceComponent implements OnInit {
   onSubmit(): void {
     this.piece.libelle = this.formValue('libelle');
     this.piece.quantite = this.formValue('quantite');
-    this.piece.dateSaisie = this.formValue('date');
+    this.piece.dateSaisie = this.formValue('dateSaisie');
+    this.service.updateData(this.piece, URL_LIST.piece);
+    this.router.navigate([''])
   }
 
   private getPiece(id: number) {
     this.service.getData(id, URL_LIST.piece).subscribe({
       next: data => {
         this.piece = data;
-        this.createForm();
       },
-      error: err => console.log(`Error while getting vehicle: ` + err),
-      complete: () => console.log('Get vehicle completed')
-    })
-  }
-
-  private createForm() {
-    this.pForm = this.formBuilder.group({
-      marque: [this.piece.libelle, [Validators.required, Validators.minLength(4)]],
-      modele: [this.piece.quantite, [Validators.required, Validators.minLength(4)]],
-      prixHt: [this.piece.dateSaisie, [Validators.required, Validators.nullValidator]],
+      error: err => console.log(`Error while getting piece: ` + err),
+      complete: () => console.log('Get piece completed')
     })
   }
 
@@ -56,7 +55,7 @@ export class EditPieceComponent implements OnInit {
    */
   private formValue(controlName: string) {
     // @ts-ignore
-    return this.pForm.get(controlName).value;
+    return this.tForm.get(controlName).value;
   }
 
 }
