@@ -4,6 +4,7 @@ import {ApiWebService} from "../../../shared/web-services/api.web-service";
 import {Piece} from "../../models/piece";
 import {Router} from "@angular/router";
 import {URL_LIST} from "../../../shared/utils/url.list";
+import {redirectTo} from "../../../shared/utils/methods";
 
 @Component({
   selector: 'app-add-piece',
@@ -28,7 +29,7 @@ export class AddPieceComponent implements OnInit {
   onSubmit(): void {
     let pieceData = this.form.value
     this.addPiece(pieceData.libelle, pieceData.quantite, pieceData.dateSaisie);
-    this.router.navigate(['stock-pieces'])
+    redirectTo('chefAtelier/stock-pieces', this.router)
   }
 
   private addPiece(libelle: string, quantite: number, dateSaisie: Date): void {

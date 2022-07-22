@@ -182,12 +182,6 @@
       "dateSaisie": "2022-07-22",
       "libelle": "Joint de culasse",
       "quantite": 3
-    },
-    {
-      "dateSaisie": "2022-07-22",
-      "libelle": "Pièce test",
-      "quantite": 4,
-      "id": 3
     }
   ],
   "commande_piece": [
