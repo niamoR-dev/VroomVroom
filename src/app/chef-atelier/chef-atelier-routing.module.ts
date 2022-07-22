@@ -6,6 +6,7 @@ import {FicheEntretienComponent} from "../fiche-entretien/components/list-fiche-
 import {EditPieceComponent} from "../piece/components/edit-piece/edit-piece.component";
 import {AddPieceComponent} from "../piece/components/add-piece/add-piece.component";
 import { CreerClientComponent } from './components/creer-client/creer-client.component';
+import { TacheComponent } from '../tache/components/tache.component';
 
 const routes: Routes = [
   {
@@ -31,6 +32,10 @@ const routes: Routes = [
       {
         path: 'creer-client',
         component: CreerClientComponent
+      },
+      {
+        path: 'tache',
+        component: TacheComponent
       }
     ]
   }
