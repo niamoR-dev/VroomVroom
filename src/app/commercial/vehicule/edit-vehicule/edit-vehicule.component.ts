@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {ApiWebService} from "../../../shared/web-services/api.web-service";
-import {Vehicule} from "../../models/vehicule";
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {ActivatedRoute} from "@angular/router";
-import {URL_LIST} from "../../../shared/utils/url.list";
+import { ApiWebService } from "../../../shared/web-services/api.web-service";
+import { Vehicule } from "../../models/vehicule";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: 'app-edit-vehicule',
@@ -11,17 +10,21 @@ import {URL_LIST} from "../../../shared/utils/url.list";
   styleUrls: ['./edit-vehicule.component.scss']
 })
 export class EditVehiculeComponent implements OnInit {
+
   id!: number;
   vehicule!: Vehicule;
   vForm!: FormGroup
 
   constructor(private service: ApiWebService<Vehicule>,
-              private formBuilder: FormBuilder,
-              private route: ActivatedRoute) { }
+    private formBuilder: FormBuilder,
+    private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+
     this.id = this.route.snapshot.params['id'];
     this.getVehicule(this.id);
+    console.log('EDIT VEHICULE')
+
   }
 
   onSubmit(): void {
@@ -30,14 +33,15 @@ export class EditVehiculeComponent implements OnInit {
     this.vehicule.dateConstruction = this.formValue('date');
     this.vehicule.prixHt = this.formValue('prix');
     this.vehicule.quantite = this.formValue('quantite');
+    console.log("coucoucoucoucuocuocuo", this.vehicule)
   }
 
   /**
    * Retrieve vehicle data with given ID and initialize form with it
    * @param id the customer ID
    */
-  private getVehicule(id: number){
-    this.service.getData(id, URL_LIST.vehicule).subscribe({
+  private getVehicule(id: number) {
+    this.service.getData(id, this.url).subscribe({
       next: data => {
         this.vehicule = data;
         this.createForm();
@@ -48,7 +52,7 @@ export class EditVehiculeComponent implements OnInit {
   }
 
   private createForm() {
-    this.vForm = this.formBuilder.group({
+    this.formBuilder = new FormGroup({
       marque: [this.vehicule.marque, [Validators.required, Validators.minLength(4)]],
       modele: [this.vehicule.modele, [Validators.required, Validators.minLength(4)]],
       dateConstruction: [this.vehicule.dateConstruction, [Validators.required,
