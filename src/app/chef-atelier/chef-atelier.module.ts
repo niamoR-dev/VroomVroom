@@ -26,6 +26,7 @@ import { CreerClientComponent } from './components/creer-client/creer-client.com
   imports: [
     CommonModule,
     ReactiveFormsModule,
+    ChefAtelierRoutingModule
   ]
 })
 export class ChefAtelierModule { }
