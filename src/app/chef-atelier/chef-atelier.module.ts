@@ -22,7 +22,7 @@ import { TacheComponent } from '../tache/components/tache.component';
     EditPieceComponent,
     AddPieceComponent,
     CreerClientComponent,
-    TacheComponent
+    TacheComponent,
   ],
   imports: [
     CommonModule,
