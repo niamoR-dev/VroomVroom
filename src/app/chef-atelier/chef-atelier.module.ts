@@ -9,7 +9,7 @@ import { ListPieceComponent } from "../piece/components/list-piece/list-piece.co
 import { EditPieceComponent } from "../piece/components/edit-piece/edit-piece.component";
 import { ReactiveFormsModule } from "@angular/forms";
 import { AddPieceComponent } from "../piece/components/add-piece/add-piece.component";
-import { CreerClientComponent } from './components/creer-client/creer-client.component';
+import { CreerClientComponent } from './components/clients/creer-client/creer-client.component';
 import { TacheComponent } from '../tache/components/tache.component';
 
 

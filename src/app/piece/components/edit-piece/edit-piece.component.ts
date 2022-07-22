@@ -6,7 +6,6 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { URL_LIST } from "../../../shared/utils/url.list";
 import { redirectTo } from "../../../shared/utils/methods";
 
-
 @Component({
   selector: 'app-edit-piece',
   templateUrl: './edit-piece.component.html',

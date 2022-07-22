@@ -75,17 +75,16 @@ export class CreerClientComponent implements OnInit {
   get villeControl() { return this.vForm.get('villeControl'); }
 
   onSubmit(): void {
-    console.log(this.vForm.value);
+
+
+    this.client.nom = this.nomControl?.value;
+
+    console.log(this.client.nom);
   }
 
   private formValue(controlName: string) {
     // @ts-ignore
     return this.vForm.get(controlName).value;
   }
-
-
-
-
-
 
 }
