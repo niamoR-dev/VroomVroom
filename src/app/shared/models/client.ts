@@ -1,4 +1,4 @@
-import {Model} from "../../core/models/model";
+import { Model } from "../../core/models/model";
 
 export class Client extends Model {
   private _nom!: string;
@@ -9,9 +9,11 @@ export class Client extends Model {
   private _email!: string;
   private _mobile!: string;
   private _telephone!: string;
+  private _clientAtelier!: boolean;
+  private _clientVente!: boolean;
 
 
-  constructor(nom: string, prenom: string, adresse: string, codePostal: number, ville: string, email: string, mobile: string, telephone: string) {
+  constructor(nom: string, prenom: string, adresse: string, codePostal: number, ville: string, email: string, mobile: string, telephone: string, clientAtelier: boolean, clientVente: boolean) {
     super();
     this._nom = nom;
     this._prenom = prenom;
@@ -21,6 +23,8 @@ export class Client extends Model {
     this._email = email;
     this._mobile = mobile;
     this._telephone = telephone;
+    this._clientAtelier = clientAtelier;
+    this._clientVente = clientVente;
   }
 
 
@@ -86,5 +90,21 @@ export class Client extends Model {
 
   set telephone(value: string) {
     this._telephone = value;
+  }
+
+  get clientAtelier(): boolean {
+    return this._clientAtelier;
+  }
+
+  set clientAtelier(value: boolean) {
+    this._clientAtelier = value;
+  }
+
+  get clientVente(): boolean {
+    return this._clientVente;
+  }
+
+  set clientVente(value: boolean) {
+    this._clientVente = value;
   }
 }
