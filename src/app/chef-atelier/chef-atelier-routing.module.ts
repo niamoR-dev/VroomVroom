@@ -6,7 +6,9 @@ import { ListPieceComponent } from "../piece/components/list-piece/list-piece.co
 import { EditPieceComponent } from "../piece/components/edit-piece/edit-piece.component";
 import { AddPieceComponent } from "../piece/components/add-piece/add-piece.component";
 import { CreerClientComponent } from './components/clients/creer-client/creer-client.component';
+import { ListeClientComponent } from './components/clients/liste-client/liste-client.component';
 import { TacheComponent } from '../tache/components/tache.component';
+import { ModifierClientComponent } from './components/clients/modifier-client/modifier-client.component';
 
 
 const routes: Routes = [
@@ -31,8 +33,16 @@ const routes: Routes = [
         component: AddPieceComponent
       },
       {
-        path: 'creer-client',
+        path: 'gestion-clients',
+        component: ListeClientComponent
+      },
+      {
+        path: 'gestion-clients/creer-client',
         component: CreerClientComponent
+      },
+      {
+        path: 'gestion-clients/modifier-client/:id',
+        component: ModifierClientComponent
       },
       {
         path: 'tache',

@@ -1,4 +1,4 @@
-<h1>Nouvelle fiche client Atelier</h1>
+<h1>Modification de la fiche client Atelier</h1>
 
 <div class="container">
   <form [formGroup]="vForm" (ngSubmit)="onSubmit()">
@@ -9,7 +9,7 @@
       <input class="form-control" id="nomControl" type="text" [ngClass]="{
           'app-error':
             nomControl?.invalid && (nomControl?.dirty || nomControl?.touched)
-        }" formControlName="nomControl" />
+        }" formControlName="nomControl" [(ngModel)]="client.nom" />
       <span class="app-message-error" [hidden]="nomControl?.valid || nomControl?.pristine">
         Il y a une erreur !
       </span>
@@ -87,7 +87,7 @@
     </div>
 
     <button type="submit" class="btn btn-primary" [disabled]="!vForm.valid">
-      Ajouter le client
+      Valider les modifications
     </button>
   </form>
 </div>

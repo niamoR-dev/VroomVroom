@@ -10,7 +10,9 @@ import { EditPieceComponent } from "../piece/components/edit-piece/edit-piece.co
 import { ReactiveFormsModule } from "@angular/forms";
 import { AddPieceComponent } from "../piece/components/add-piece/add-piece.component";
 import { CreerClientComponent } from './components/clients/creer-client/creer-client.component';
+import { ListeClientComponent } from './components/clients/liste-client/liste-client.component';
 import { TacheComponent } from '../tache/components/tache.component';
+import { ModifierClientComponent } from './components/clients/modifier-client/modifier-client.component';
 
 
 @NgModule({
@@ -23,6 +25,8 @@ import { TacheComponent } from '../tache/components/tache.component';
     AddPieceComponent,
     CreerClientComponent,
     TacheComponent,
+    ListeClientComponent,
+    ModifierClientComponent
   ],
   imports: [
     CommonModule,

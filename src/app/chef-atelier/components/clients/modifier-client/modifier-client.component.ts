@@ -6,16 +6,14 @@ import { redirectTo } from 'src/app/shared/utils/methods';
 import { URL_LIST } from 'src/app/shared/utils/url.list';
 import { ApiWebService } from 'src/app/shared/web-services/api.web-service';
 @Component({
-  selector: 'app-creer-client',
-  templateUrl: './creer-client.component.html',
-  styleUrls: ['./creer-client.component.scss']
+  selector: 'app-modifier-client',
+  templateUrl: './modifier-client.component.html',
+  styleUrls: ['./modifier-client.component.scss']
 })
-export class CreerClientComponent implements OnInit {
+export class ModifierClientComponent implements OnInit {
 
   client!: Client;
   vForm!: FormGroup;
-
-
 
   constructor(private formBuilder: FormBuilder,
     private service: ApiWebService<Client>,
