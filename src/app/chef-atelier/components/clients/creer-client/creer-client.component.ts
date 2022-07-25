@@ -9,45 +9,7 @@ import { Client } from 'src/app/shared/models/client';
 export class CreerClientComponent implements OnInit {
 
   client!: Client;
-  vForm = new FormGroup({
-
-    nomControl: new FormControl('', [Validators.required]),
-
-    prenomControl: new FormControl('', [Validators.required]),
-
-    emailControl: new FormControl('', [
-      Validators.required,
-      Validators.minLength(4)]),
-
-    telephoneControl: new FormControl('',
-      [Validators.required,
-      Validators.maxLength(10),
-      ]
-    ),
-
-    mobileControl: new FormControl('',
-      [Validators.required,
-      Validators.minLength(10),
-      Validators.maxLength(10)
-      ]
-    ),
-    adresseControl: new FormControl('',
-      [Validators.required,
-      Validators.minLength(3)
-      ]
-    ),
-    codePostalControl: new FormControl('',
-      [Validators.required,
-      Validators.minLength(4),
-      Validators.maxLength(5)
-      ]
-    ),
-    villeControl: new FormControl('',
-      [Validators.required,
-      Validators.minLength(2)
-      ]
-    )
-  });
+  vForm!: FormGroup;
 
 
 
@@ -55,8 +17,54 @@ export class CreerClientComponent implements OnInit {
 
 
   ngOnInit(): void {
-    // TODO document why this method 'ngOnInit' is empty
+    this.initForm();
+
   }
+
+  initForm() {
+
+    this.vForm = this.formBuilder.group({
+
+      nomControl: new FormControl('', [Validators.required]),
+
+      prenomControl: new FormControl('', [Validators.required]),
+
+      emailControl: new FormControl('', [
+        Validators.required,
+        Validators.minLength(4)]),
+
+      telephoneControl: new FormControl('',
+        [Validators.required,
+        Validators.maxLength(10),
+        ]
+      ),
+
+      mobileControl: new FormControl('',
+        [Validators.required,
+        Validators.minLength(10),
+        Validators.maxLength(10)
+        ]
+      ),
+      adresseControl: new FormControl('',
+        [Validators.required,
+        Validators.minLength(3)
+        ]
+      ),
+      codePostalControl: new FormControl('',
+        [Validators.required,
+        Validators.minLength(4),
+        Validators.maxLength(5)
+        ]
+      ),
+      villeControl: new FormControl('',
+        [Validators.required,
+        Validators.minLength(2)
+        ]
+      )
+    });
+  }
+
+
 
   get nomControl() { return this.vForm.get('nomControl'); }
 
@@ -74,17 +82,22 @@ export class CreerClientComponent implements OnInit {
 
   get villeControl() { return this.vForm.get('villeControl'); }
 
+
+
   onSubmit(): void {
 
+    this.client = new Client();
 
     this.client.nom = this.nomControl?.value;
-
-    console.log(this.client.nom);
+    this.client.prenom = this.prenomControl?.value;
+    this.client.email = this.emailControl?.value;
+    this.client.telephone = this.telephoneControl?.value;
+    this.client.mobile = this.mobileControl?.value;
+    this.client.adresse = this.adresseControl?.value;
+    this.client.codePostal = this.codePostalControl?.value;
+    this.client.ville = this.villeControl?.value;
   }
 
-  private formValue(controlName: string) {
-    // @ts-ignore
-    return this.vForm.get(controlName).value;
-  }
+
 
 }
