@@ -4,7 +4,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms"
 import { ApiWebService } from "../../../shared/web-services/api.web-service";
 import { ActivatedRoute, Router } from "@angular/router";
 import { URL_LIST } from "../../../shared/utils/url.list";
-import { redirectTo } from "../../../shared/utils/methods";
+import {getFormValue, redirectTo} from "../../../shared/utils/methods";
 
 
 @Component({
@@ -32,9 +32,9 @@ export class EditPieceComponent implements OnInit {
   }
 
   onSubmit(): void {
-    this.piece.libelle = this.formValue('libelle');
-    this.piece.quantite = this.formValue('quantite');
-    this.piece.dateSaisie = this.formValue('dateSaisie');
+    this.piece.libelle = getFormValue(this.form,'libelle');
+    this.piece.quantite =  getFormValue(this.form,'quantite');
+    this.piece.dateSaisie =  getFormValue(this.form,'dateSaisie');
     this.service.updateData(this.piece, URL_LIST.piece);
     redirectTo('chefAtelier/stock-pieces', this.router)
   }
@@ -47,16 +47,6 @@ export class EditPieceComponent implements OnInit {
       error: err => console.log(`Error while getting piece: ` + err),
       complete: () => console.log('Get piece completed')
     })
-  }
-
-  /**
-   * Gets the value of a given form control name
-   * @param controlName the formControlName
-   * @private
-   */
-  private formValue(controlName: string) {
-    // @ts-ignore
-    return this.form.get(controlName).value;
   }
 
 }

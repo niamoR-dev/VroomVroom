@@ -3,5 +3,6 @@ export enum URL_LIST {
   fiche = 'fiche_entretien/',
   client = 'client/',
   piece = 'piece/',
+  utilisateur = 'utilisateur/',
   jointureFicheClient = 'fiche_entretien?_embed=client'
 }

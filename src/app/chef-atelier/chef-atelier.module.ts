@@ -32,7 +32,7 @@ import {RechercheFichePipe} from "../fiche-entretien/recherche-fiche.pipe";
     CommonModule,
     ReactiveFormsModule,
     ChefAtelierRoutingModule,
-    FormsModule
+    FormsModule,
   ]
 })
 export class ChefAtelierModule { }
