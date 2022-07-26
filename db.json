@@ -1,26 +1,4 @@
 {
-  "post": [
-    {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comment": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    },
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 2
-    }
-  ],
-  "profile": {
-    "name": "typicode"
-  },
   "utilisateur": [
     {
       "id": 1,
@@ -179,9 +157,9 @@
     },
     {
       "id": 2,
-      "dateSaisie": "2022-07-22",
+      "dateSaisie": "2022-07-18",
       "libelle": "Joint de culasse",
-      "quantite": 5
+      "quantite": 6
     }
   ],
   "commande_piece": [

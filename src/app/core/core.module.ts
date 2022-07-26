@@ -6,11 +6,13 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import { CoreRoutingModule } from './core-routing.module';
 import { HeaderComponent } from './header/header.component';
+import {AuthComponent} from "./auth/component/auth.component";
 
 
 @NgModule({
   declarations: [
-    HeaderComponent
+    HeaderComponent,
+    AuthComponent
   ],
 
   imports: [

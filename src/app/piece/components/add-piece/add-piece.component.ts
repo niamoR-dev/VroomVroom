@@ -12,11 +12,7 @@ import {redirectTo} from "../../../shared/utils/methods";
   styleUrls: ['./add-piece.component.scss']
 })
 export class AddPieceComponent implements OnInit {
-  form = new FormGroup({
-    libelle: new FormControl('', [Validators.required, Validators.minLength(4)]),
-    quantite: new FormControl('', [Validators.required]),
-    dateSaisie: new FormControl('', [Validators.required])
-  })
+  form!: FormGroup
 
   constructor(private formBuilder: FormBuilder,
               private service: ApiWebService<Piece>,
@@ -24,12 +20,21 @@ export class AddPieceComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.initForm()
   }
 
   onSubmit(): void {
     let pieceData = this.form.value
     this.addPiece(pieceData.libelle, pieceData.quantite, pieceData.dateSaisie);
     redirectTo('chefAtelier/stock-pieces', this.router)
+  }
+
+  initForm(): void {
+    this.form = new FormGroup({
+      libelle: new FormControl('', [Validators.required, Validators.minLength(4)]),
+      quantite: new FormControl('', [Validators.required]),
+      dateSaisie: new FormControl('', [Validators.required])
+    })
   }
 
   private addPiece(libelle: string, quantite: number, dateSaisie: Date): void {
