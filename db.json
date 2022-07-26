@@ -1,26 +1,4 @@
 {
-  "post": [
-    {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comment": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    },
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 2
-    }
-  ],
-  "profile": {
-    "name": "typicode"
-  },
   "utilisateur": [
     {
       "id": 1,
@@ -146,6 +124,15 @@
   "piece": [
     {
       "id": 1,
+      "dateSaisie": "2022-07-25",
+      "libelle": "Courroie de distribution",
+      "quantite": 29
+    },
+    {
+      "id": 2,
+      "dateSaisie": "2022-07-18",
+      "libelle": "Joint de culasse",
+      "quantite": 6
       "dateSaisie": "June 16, 2021 10:50:37",
       "libelle": "Courroie de distribution",
       "quantite": 2

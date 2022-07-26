@@ -1,8 +1,45 @@
 <ul class="nav">
   <a routerLink=""><img class="logo" src="../../../assets/img/VROOM_VROOM_LOGO.png" alt="voiture"></a>
-  <div class="container d-flex justify-content-end">
-    <li class="nav-item" *ngFor="let item of listLinks" routerLinkActive="active-link">
-      <a class="nav-link alert-link" routerLink="{{item.rooting}}">{{item.nameTab}}</a>
+  <div class="container d-flex justify-content-end" *ngIf="authService.canActivate()" >
+<!--    <li class="nav-item" *ngFor="let item of listLinks" routerLinkActive="active-link">-->
+<!--      <a class="nav-link alert-link" routerLink="{{item.rooting}}">{{item.nameTab}}</a>-->
+<!--    </li>-->
+        <li class="nav-item" >
+          <a
+            *ngIf="getRole() == 'Chef d\'atelier' || getRole() == 'Administrateur'" class="nav-link alert-link"
+             [routerLink]="['chefAtelier']"
+             routerLinkActive="active-link">
+            Chef d'atelier
+          </a>
+        </li>
+        <li class="nav-item" >
+          <a
+            *ngIf="getRole() == 'Mécanicien' || getRole() == 'Administrateur'" class="nav-link alert-link"
+             [routerLink]="['mecanicien']"
+             routerLinkActive="active-link">
+            Mécanicien
+          </a>
+        </li>
+        <li class="nav-item" >
+          <a
+            *ngIf="getRole() == 'Commercial' || getRole() == 'Administrateur'" class="nav-link alert-link"
+             [routerLink]="['commercial']"
+             routerLinkActive="active-link">
+            Commercial
+          </a>
+        </li>
+        <li class="nav-item" >
+          <a
+            *ngIf="getRole() == 'Magasinier' || getRole() == 'Administrateur'" class="nav-link alert-link"
+             [routerLink]="['magasinier']"
+             routerLinkActive="active-link">
+            Magasinier
+          </a>
+        </li>
+    <li class="nav-item"  routerLinkActive="active-link">
+      <a class="nav-link alert-link" (click)="authService.logout()"  routerLinkActive="active-link">
+        Déconnexion
+      </a>
     </li>
   </div>
 </ul>

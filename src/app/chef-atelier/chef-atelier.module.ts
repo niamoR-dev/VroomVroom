@@ -40,7 +40,7 @@ import { ListTacheComponent } from '../tache/components/list-tache/list-tache.co
     CommonModule,
     ReactiveFormsModule,
     ChefAtelierRoutingModule,
-    FormsModule
+    FormsModule,
   ]
 })
 export class ChefAtelierModule { }
