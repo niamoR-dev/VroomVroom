@@ -1,12 +1,4 @@
-<h1>Nouvelle fiche client Atelier</h1>
-
-<!-- <div class="jumbotron jumbotron-fluid">
-  <div class="container">
-    <h1 class="display-4">{{ client.id == 0 ? "Ajout" : "Modification" }} d'un client</h1>
-    <p class="lead">Utiliser le formulaire suivant afin {{ client.id == 0 ? "d'ajouter" : "de modifier" }} un client
-    </p>
-  </div>
-</div> -->
+<h1>Modification de la fiche client Atelier</h1>
 
 <div class="container">
   <form [formGroup]="vForm" (ngSubmit)="onSubmit()">
@@ -17,11 +9,12 @@
       <input class="form-control" id="nomControl" type="text" [ngClass]="{
           'app-error':
             nomControl?.invalid && (nomControl?.dirty || nomControl?.touched)
-        }" formControlName="nomControl" />
+        }" formControlName="nomControl" [(ngModel)]="client.nom" />
       <span class="app-message-error" [hidden]="nomControl?.valid || nomControl?.pristine">
         Il y a une erreur !
       </span>
     </div>
+
 
     <div class="form-group">
       <label for="prenomControl">Prénom</label>
@@ -29,7 +22,7 @@
           'app-error':
             prenomControl?.invalid &&
             (prenomControl?.dirty || prenomControl?.touched)
-        }" formControlName="prenomControl" />
+        }" formControlName="prenomControl" [(ngModel)]="client.prenom" />
       <span class="app-message-error" [hidden]="prenomControl?.valid || prenomControl?.pristine"></span>
     </div>
 
@@ -39,7 +32,7 @@
           'app-error':
             emailControl?.invalid &&
             (emailControl?.dirty || emailControl?.touched)
-        }" formControlName="emailControl" />
+        }" formControlName="emailControl" [(ngModel)]="client.email" />
       <span class="app-message-error" [hidden]="emailControl?.valid || emailControl?.pristine"></span>
     </div>
 
@@ -49,7 +42,7 @@
           'app-error':
             telephoneControl?.invalid &&
             (telephoneControl?.dirty || telephoneControl?.touched)
-        }" formControlName="telephoneControl" />
+        }" formControlName="telephoneControl" [(ngModel)]="client.telephone" />
       <span class="app-message-error" [hidden]="telephoneControl?.valid || telephoneControl?.pristine"></span>
     </div>
 
@@ -59,7 +52,7 @@
           'app-error':
             mobileControl?.invalid &&
             (mobileControl?.dirty || mobileControl?.touched)
-        }" formControlName="mobileControl" />
+        }" formControlName="mobileControl" [(ngModel)]="client.mobile" />
       <span class="app-message-error" [hidden]="mobileControl?.valid || mobileControl?.pristine"></span>
     </div>
 
@@ -70,7 +63,7 @@
           'app-error':
             adresseControl?.invalid &&
             (adresseControl?.dirty || adresseControl?.touched)
-        }" formControlName="adresseControl" />
+        }" formControlName="adresseControl" [(ngModel)]="client.adresse" />
       <span class="app-message-error" [hidden]="adresseControl?.valid || adresseControl?.pristine"></span>
     </div>
 
@@ -80,7 +73,7 @@
           'app-error':
             codePostalControl?.invalid &&
             (codePostalControl?.dirty || codePostalControl?.touched)
-        }" formControlName="codePostalControl" />
+        }" formControlName="codePostalControl" [(ngModel)]="client.codePostal" />
       <span class="app-message-error" [hidden]="codePostalControl?.valid || codePostalControl?.pristine"></span>
     </div>
 
@@ -90,12 +83,12 @@
           'app-error':
             villeControl?.invalid &&
             (villeControl?.dirty || villeControl?.touched)
-        }" formControlName="villeControl" />
+        }" formControlName="villeControl" [(ngModel)]="client.ville" />
       <span class="app-message-error" [hidden]="villeControl?.valid || emailControl?.pristine"></span>
     </div>
 
     <button type="submit" class="btn btn-primary" [disabled]="!vForm.valid">
-      Ajouter le client
+      Valider les modifications
     </button>
   </form>
 </div>
