@@ -2,9 +2,10 @@
   <div class="container">
     <h1 class="display-4 text-center">Gestion des clients</h1>
   </div>
-  <!--  <div class="form-inline col-4 ">-->
-  <!--    <input class="form-control col-12"  [(ngModel)]="searchText" placeholder="rechercher une fiche" type="search" >-->
-  <!--  </div>-->
+  <div class="form-inline col-4 ">
+    <input class="form-control col-12" [(ngModel)]="searchInput" placeholder="Rechercher une fiche par nom"
+      type="search">
+  </div>
 </div>
 
 <table class="table table-striped">
@@ -22,7 +23,7 @@
 
 
   <tbody>
-    <tr *ngFor="let client of listeClients">
+    <tr *ngFor="let client of listeClients | rechercheClient:searchInput">
       <th scope="row">{{client.id}}</th>
       <td>{{client.nom}}</td>
       <td>{{client.prenom}}</td>
