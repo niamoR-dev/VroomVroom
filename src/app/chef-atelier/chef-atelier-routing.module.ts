@@ -44,6 +44,8 @@ const routes: Routes = [
       {
         path: 'liste-taches',
         component: ListTacheComponent
+      },
+      {
         path: 'gestion-clients/modifier-client/:id',
         component: ModifierClientComponent
       },

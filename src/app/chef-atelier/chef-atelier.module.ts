@@ -31,7 +31,7 @@ import { ListTacheComponent } from '../tache/components/list-tache/list-tache.co
     ListTacheComponent,
     RecherchePiecePipe,
     RechercheFichePipe,
-    RechercheTachePipe
+    RechercheTachePipe,
     ListeClientComponent,
     ModifierClientComponent,
     FicheTacheComponent,
