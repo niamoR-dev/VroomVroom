@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { ChefAtelierRoutingModule } from './chef-atelier-routing.module';
 import { HeaderComponent } from "./components/header/header.component";
 import { FicheEntretienComponent } from "../fiche-entretien/components/list-fiche-entretien/fiche-entretien.component";
@@ -17,6 +16,7 @@ import { ModifierClientComponent } from './components/clients/modifier-client/mo
 import { FicheTacheComponent } from '../tache/components/fiche-tache/fiche-tache.component';
 import { RechercheTachePipe } from '../tache/recherche-tache.pipe';
 import { ListTacheComponent } from '../tache/components/list-tache/list-tache.component';
+import { RechercheClientPipe } from './components/clients/recherche-client.pipe';
 
 
 @NgModule({
@@ -35,6 +35,7 @@ import { ListTacheComponent } from '../tache/components/list-tache/list-tache.co
     ListeClientComponent,
     ModifierClientComponent,
     FicheTacheComponent,
+    RechercheClientPipe,
   ],
   imports: [
     CommonModule,

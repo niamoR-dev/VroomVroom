@@ -13,6 +13,7 @@ import { ApiWebService } from 'src/app/shared/web-services/api.web-service';
 export class ListeClientComponent implements OnInit {
 
   listeClients: any;
+  searchInput!: string;
 
 
   constructor(private formBuilder: FormBuilder,
