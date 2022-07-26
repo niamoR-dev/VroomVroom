@@ -1,1 +1,95 @@
-<h1>Tâche {{nomTache}}</h1>
+<h1>Tâche {{tache.info}}</h1>
+
+<div class="container">
+  <form [formGroup]="tForm" (ngSubmit)="onSubmit()">
+    <h2>Informations générales</h2>
+
+    <div class="form-group">
+      <label for="infoClientControl">Info du client</label>
+      <input class="form-control" id="infoClientControl" type="text" [ngClass]="{
+          'app-error':
+            infoClientControl?.invalid && (infoClientControl?.dirty || infoClientControl?.touched)
+        }" formControlName="infoClientControl" />
+      <span class="app-message-error" [hidden]="infoClientControl?.valid || infoClientControl?.pristine">
+        Il y a une erreur !
+      </span>
+    </div>
+
+    <div class="form-group">
+      <label for="vehiculeClientControl">Véhicule du client</label>
+      <input class="form-control" id="vehiculeClientControl" type="text" [ngClass]="{
+          'app-error':
+          vehiculeClientControl?.invalid &&
+            (vehiculeClientControl?.dirty || vehiculeClientControl?.touched)
+        }" formControlName="vehiculeClientControl" />
+      <span class="app-message-error" [hidden]="vehiculeClientControl?.valid || vehiculeClientControl?.pristine"></span>
+    </div>
+
+    <div class="form-group">
+      <label for="nomTacheControl">Nom de la tâche</label>
+      <input class="form-control" id="nomTacheControl" type="email" [ngClass]="{
+          'app-error':
+          nomTacheControl?.invalid &&
+            (nomTacheControl?.dirty || nomTacheControl?.touched)
+        }" formControlName="nomTacheControl" />
+      <span class="app-message-error" [hidden]="nomTacheControl?.valid || nomTacheControl?.pristine"></span>
+    </div>
+
+    <div class="form-group">
+      <label for="niveauPrioriteControl">Niveau de priorité</label>
+      <input class="form-control" id="niveauPrioriteControl" type="tel" [ngClass]="{
+          'app-error':
+          niveauPrioriteControl?.invalid &&
+            (niveauPrioriteControl?.dirty || niveauPrioriteControl?.touched)
+        }" formControlName="niveauPrioriteControl" />
+      <span class="app-message-error" [hidden]="niveauPrioriteControl?.valid || niveauPrioriteControl?.pristine"></span>
+    </div>
+
+    <div class="form-group">
+      <label for="tacheDescriptionControl">Description de la tâche</label>
+      <input class="form-control" id="tacheDescriptionControl" type="tel" [ngClass]="{
+          'app-error':
+          tacheDescriptionControl?.invalid &&
+            (tacheDescriptionControl?.dirty || tacheDescriptionControl?.touched)
+        }" formControlName="tacheDescriptionControl" />
+      <span class="app-message-error"
+        [hidden]="tacheDescriptionControl?.valid || tacheDescriptionControl?.pristine"></span>
+    </div>
+
+
+    <div class="form-group">
+      <label for="etatTacheControl">État de la tâche</label>
+      <input class="form-control" id="etatTacheControl" type="text" [ngClass]="{
+          'app-error':
+          etatTacheControl?.invalid &&
+            (etatTacheControl?.dirty || etatTacheControl?.touched)
+        }" formControlName="adresseControl" />
+      <span class="app-message-error" [hidden]="etatTacheControl?.valid || etatTacheControl?.pristine"></span>
+    </div>
+
+    <div class="form-group">
+      <label for="validationTacheControl">Validation de la tâche </label>
+      <input class="form-control" id="validationTacheControl" type="number" [ngClass]="{
+          'app-error':
+          validationTacheControl?.invalid &&
+            (validationTacheControl?.dirty || validationTacheControl?.touched)
+        }" formControlName="validationTacheControl" />
+      <span class="app-message-error"
+        [hidden]="validationTacheControl?.valid || validationTacheControl?.pristine"></span>
+    </div>
+
+    <div class="form-group">
+      <label for="villeControl">Ville</label>
+      <input class="form-control" id="villeControl" type="text" [ngClass]="{
+          'app-error':
+            villeControl?.invalid &&
+            (villeControl?.dirty || villeControl?.touched)
+        }" formControlName="villeControl" />
+      <span class="app-message-error" [hidden]="villeControl?.valid || villeControl?.pristine"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="!tForm.valid">
+      Ajouter le client
+    </button>
+  </form>
+</div>
