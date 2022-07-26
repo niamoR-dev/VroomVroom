@@ -15,6 +15,8 @@ import { RecherchePiecePipe } from "../piece/recherche-piece.pipe";
 import { RechercheFichePipe } from "../fiche-entretien/recherche-fiche.pipe";
 import { ModifierClientComponent } from './components/clients/modifier-client/modifier-client.component';
 import { FicheTacheComponent } from '../tache/components/fiche-tache/fiche-tache.component';
+import { RechercheTachePipe } from '../tache/recherche-tache.pipe';
+import { ListTacheComponent } from '../tache/components/list-tache/list-tache.component';
 
 
 @NgModule({
@@ -26,8 +28,10 @@ import { FicheTacheComponent } from '../tache/components/fiche-tache/fiche-tache
     EditPieceComponent,
     AddPieceComponent,
     CreerClientComponent,
+    ListTacheComponent,
     RecherchePiecePipe,
     RechercheFichePipe,
+    RechercheTachePipe
     ListeClientComponent,
     ModifierClientComponent,
     FicheTacheComponent,
