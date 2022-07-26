@@ -38,7 +38,7 @@ export class ListeClientComponent implements OnInit {
 
   deleteClient(id: number) {
     this.service.deleteData(id, URL_LIST.client);
-    redirectTo('chefAtelier/liste-clients', this.router)
+    redirectTo('chefAtelier/gestion-clients', this.router)
   }
 
 }

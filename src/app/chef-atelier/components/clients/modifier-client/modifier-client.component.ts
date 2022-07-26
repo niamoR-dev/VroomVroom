@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Client } from 'src/app/shared/models/client';
 import { redirectTo } from 'src/app/shared/utils/methods';
 import { URL_LIST } from 'src/app/shared/utils/url.list';
@@ -14,13 +14,17 @@ export class ModifierClientComponent implements OnInit {
 
   client!: Client;
   vForm!: FormGroup;
+  id!: number;
 
   constructor(private formBuilder: FormBuilder,
     private service: ApiWebService<Client>,
-    private router: Router) { }
+    private router: Router,
+    private route: ActivatedRoute) { }
 
 
   ngOnInit(): void {
+    this.id = this.route.snapshot.params['id'];
+    this.getClient(this.id)
     this.initForm();
 
   }
@@ -69,6 +73,16 @@ export class ModifierClientComponent implements OnInit {
   }
 
 
+  getClient(id: number) {
+    this.service.getData(id, URL_LIST.client).subscribe({
+      next: data => {
+        this.client = data;
+      },
+      error: err => console.log(`Error while getting client: ` + err),
+      complete: () => console.log('Get client completed')
+    })
+  }
+
 
   get nomControl() { return this.vForm.get('nomControl'); }
 
@@ -90,8 +104,6 @@ export class ModifierClientComponent implements OnInit {
 
   onSubmit(): void {
 
-    this.client = new Client();
-
     this.client.nom = this.nomControl?.value;
     this.client.prenom = this.prenomControl?.value;
     this.client.email = this.emailControl?.value;
@@ -100,20 +112,13 @@ export class ModifierClientComponent implements OnInit {
     this.client.adresse = this.adresseControl?.value;
     this.client.codePostal = this.codePostalControl?.value;
     this.client.ville = this.villeControl?.value;
+    console.log(this.client.nom);
+    this.modifierClient(this.client);
 
-    this.createClient(this.client);
-
-    redirectTo('chefAtelier/liste-clients', this.router)
+    redirectTo('chefAtelier/gestion-clients', this.router)
   }
 
-  createClient(client: Client) {
-    this.service.addData(client, URL_LIST.client).subscribe({
-      next: () => console.log(client),
-      error: err => console.log(`Erreur lors de l'ajout d'un nouveau client: ` + err),
-      complete: () => console.log('Ajout d\'un client réussi')
-    })
-
-
+  modifierClient(client: Client) {
+    this.service.updateData(client, URL_LIST.client);
   }
-
 }

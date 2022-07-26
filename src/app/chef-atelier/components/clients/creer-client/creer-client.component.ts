@@ -105,7 +105,7 @@ export class CreerClientComponent implements OnInit {
 
     this.createClient(this.client);
 
-    redirectTo('chefAtelier/liste-clients', this.router)
+    redirectTo('chefAtelier/gestion-clients', this.router)
   }
 
   createClient(client: Client) {
