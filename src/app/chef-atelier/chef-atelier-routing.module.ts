@@ -9,6 +9,7 @@ import { CreerClientComponent } from './components/clients/creer-client/creer-cl
 import { ListeClientComponent } from './components/clients/liste-client/liste-client.component';
 import { TacheComponent } from '../tache/components/tache.component';
 import { ModifierClientComponent } from './components/clients/modifier-client/modifier-client.component';
+import { FicheTacheComponent } from '../tache/components/fiche-tache/fiche-tache.component';
 
 
 const routes: Routes = [
@@ -43,6 +44,10 @@ const routes: Routes = [
       {
         path: 'gestion-clients/modifier-client/:id',
         component: ModifierClientComponent
+      },
+      {
+        path: 'fiche-tache',
+        component: FicheTacheComponent
       },
       {
         path: 'tache',
