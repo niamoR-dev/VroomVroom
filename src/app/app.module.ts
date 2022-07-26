@@ -6,13 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import localeFr from '@angular/common/locales/fr';
+import { ListTacheComponent } from './tache/components/list-tache/list-tache.component';
 
 // For date language pipe
 registerLocaleData(localeFr)
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     CommonModule,
