@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {Piece} from "../../models/piece";
-import {ApiWebService} from "../../../shared/web-services/api.web-service";
-import {URL_LIST} from "../../../shared/utils/url.list";
-import {Router} from "@angular/router";
-import {redirectTo} from "../../../shared/utils/methods";
+import { Piece } from "../../models/piece";
+import { ApiWebService } from "../../../shared/web-services/api.web-service";
+import { URL_LIST } from "../../../shared/utils/url.list";
+import { Router } from "@angular/router";
+import { redirectTo } from "../../../shared/utils/methods";
 
 @Component({
   selector: 'app-list-piece',
@@ -15,7 +15,7 @@ export class ListPieceComponent implements OnInit {
   searchInput!: string;
 
   constructor(private service: ApiWebService<Piece>,
-              private router: Router) { }
+    private router: Router) { }
 
   ngOnInit(): void {
     this.getPieces();
