@@ -1,10 +1,10 @@
 import { Model } from "../../core/models/model";
 
 export class Tache extends Model {
-  idUtilisateur: number;
-  idPriorite: number;
-  idFicheEntretien: number;
-  idPiece: number;
+  utilisateurId: number;
+  prioriteId: number;
+  ficheEntretienId: number;
+  pieceId: number;
   description: string;
   commentaire: string;
   dateCreation: Date;
@@ -24,13 +24,12 @@ export class Tache extends Model {
     validationOuvrier: boolean,
     validationChefAtelier: boolean,
     prioriseParChefAtelier: boolean,
-    montant: number)
-    {
+    montant: number) {
       super();
-      this.idUtilisateur = idUtilisateur;
-      this.idPriorite = idPriorite;
-      this.idFicheEntretien = idFicheEntretien;
-      this.idPiece = idPiece;
+      this.utilisateurId = idUtilisateur;
+      this.prioriteId = idPriorite;
+      this.ficheEntretienId = idFicheEntretien;
+      this.pieceId = idPiece;
       this.description = description;
       this.commentaire = commentaire;
       this.dateCreation = dateCreation;
