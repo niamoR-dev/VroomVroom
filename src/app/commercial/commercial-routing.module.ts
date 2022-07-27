@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import {CommercialComponent} from "./components/commercial.component";
 import {ListVehiculeComponent} from "../vehicule/list-vehicule/list-vehicule.component";
 import {AddEditVehiculeComponent} from "../vehicule/add-edit-vehicule/add-edit-vehicule.component";
+import {ListeClientComponent} from "../shared/client/liste-client/liste-client.component";
+import {AddEditClientComponent} from "../shared/client/add-edit-client/add-edit-client.component";
 
 const routes: Routes = [{
   path: '',
@@ -19,6 +21,18 @@ const routes: Routes = [{
     {
       path: 'stock-vehicules/edit/:id',
       component: AddEditVehiculeComponent
+    },
+    {
+      path: 'clients',
+      component: ListeClientComponent
+    },
+    {
+      path: 'clients/add',
+      component: AddEditClientComponent,
+    },
+    {
+      path:'clients/edit/:id',
+      component: AddEditClientComponent
     }
   ]
 }];

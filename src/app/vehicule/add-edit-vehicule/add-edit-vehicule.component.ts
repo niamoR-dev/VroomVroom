@@ -43,7 +43,6 @@ export class AddEditVehiculeComponent implements OnInit {
   }
 
   onSubmit(isNew: boolean) {
-    console.log(this.dateControl?.value)
     this.vehicule.dateConstruction = this.dateControl?.value;
     this.vehicule.quantite = this.quantiteControl?.value;
     this.vehicule.marque = this.marqueControl?.value;
@@ -54,7 +53,6 @@ export class AddEditVehiculeComponent implements OnInit {
     } else {
       this.addVehicule(this.vehicule)
     }
-    // this.addVehicule(this.vehicule.marque, this.vehicule.modele, this.vehicule.prixHt, this.vehicule.quantite, this.vehicule.dateConstruction)
     redirectTo('commercial/stock-vehicules', this.router)
   }
 

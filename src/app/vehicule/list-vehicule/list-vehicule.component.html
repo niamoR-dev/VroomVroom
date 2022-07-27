@@ -29,8 +29,13 @@
     <td>{{vehicule.dateConstruction | date: 'longDate'}}</td>
     <td>{{vehicule.quantite}}</td>
     <td>
-      <button type="button" class="btn btn-primary mr-2" [routerLink]="['edit', vehicule.id]"><i class="fa fa-pencil" aria-hidden="true"></i></button>
-      <button type="button" class="btn btn-danger mr-2" (click)="deleteVehicule(vehicule.id)"><i class="fa fa-trash" aria-hidden="true"></i></button>
+      <button type="button" class="btn btn-primary mr-2" [routerLink]="['edit', vehicule.id]">
+        <i class="fa fa-pencil" aria-hidden="true"></i>
+      </button>
+      <button type="button" class="btn btn-danger mr-2" (click)="deleteVehicule(vehicule.id)">
+        <i class="fa fa-trash" aria-hidden="true">
+        </i>
+      </button>
     </td>
   </tr>
   </tbody>

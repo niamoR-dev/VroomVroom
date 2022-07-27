@@ -9,7 +9,9 @@ import {ListVehiculeComponent} from "../vehicule/list-vehicule/list-vehicule.com
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {AddEditVehiculeComponent} from "../vehicule/add-edit-vehicule/add-edit-vehicule.component";
 import {RouterModule} from "@angular/router";
-import { ListDevisComponent } from './devis/list-devis/list-devis.component';
+import {ListeClientComponent} from "../shared/client/liste-client/liste-client.component";
+import {RechercheClientPipe} from "../shared/client/recherche-client.pipe";
+import {AddEditClientComponent} from "../shared/client/add-edit-client/add-edit-client.component";
 
 
 @NgModule({
@@ -19,7 +21,9 @@ import { ListDevisComponent } from './devis/list-devis/list-devis.component';
     RechercheVehiculePipe,
     ListVehiculeComponent,
     AddEditVehiculeComponent,
-    ListDevisComponent,
+    ListeClientComponent,
+    AddEditClientComponent,
+    RechercheClientPipe
   ],
   imports: [
     CommonModule,
