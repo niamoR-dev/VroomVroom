@@ -15,5 +15,9 @@ export const LINK_LIST = [
     nameTab: 'Mécanicien',
     rooting: './../mecanicien'
   },
+  {
+    nameTab: 'Commercial',
+    rooting: './../commercial'
+  }
 
 ]

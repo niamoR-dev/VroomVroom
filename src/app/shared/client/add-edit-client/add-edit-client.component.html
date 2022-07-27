@@ -1,0 +1,123 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 *ngIf="!isNew" class="display-4 text-center">{{client.nom}} {{client.prenom}}</h1>
+    <h1 *ngIf="isNew" class="display-4 text-center">Ajouter un client</h1>
+  </div>
+</div>
+
+<div class="container">
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit(isNew)">
+
+    <div class="form-group">
+      <label class="col-md-4" for="nom">Nom</label>
+      <input *ngIf="isNew" type="text" class="form-control" id="nom"
+             [ngClass]="{'app-error': nomControl?.invalid && nomControl?.dirty}"
+             formControlName="nom">
+      <input *ngIf="!isNew" type="text" class="form-control" [(ngModel)]="client.nom"
+             [ngClass]="{'app-error': nomControl?.invalid && nomControl?.dirty}"
+             formControlName="nom">
+      <span class="app-message-error" [hidden]="nomControl?.valid || nomControl?.pristine">
+        Veuillez correctement remplir la nom avec une longueur de 2 lettres minimum
+      </span>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-4" for="prenom">Prénom</label>
+      <input *ngIf="isNew" type="text" class="form-control" id="prenom"
+             [ngClass]="{'app-error': prenomControl?.invalid && prenomControl?.dirty}"
+             formControlName="prenom">
+      <input *ngIf="!isNew" type="text" class="form-control" [(ngModel)]="client.prenom"
+             [ngClass]="{'app-error': prenomControl?.invalid && prenomControl?.dirty}"
+             formControlName="prenom">
+      <span class="app-message-error" [hidden]="prenomControl?.valid || prenomControl?.pristine">
+        Veuillez correctement remplir le prénom avec une longueur de 3 lettres minimum
+      </span>
+    </div>
+
+
+    <div class="form-group">
+      <label class="col-md-4" for="adresse">Adresse</label>
+      <input *ngIf="isNew" type="text" class="form-control" id="adresse"
+             [ngClass]="{'app-error': adresseControl?.invalid && adresseControl?.dirty}"
+             formControlName="adresse">
+      <input *ngIf="!isNew" type="text" class="form-control" [(ngModel)]="client.adresse"
+             [ngClass]="{'app-error': adresseControl?.invalid && adresseControl?.dirty}"
+             formControlName="adresse">
+      <span class="app-message-error" [hidden]="adresseControl?.valid || adresseControl?.pristine">
+        Veuillez correctement indiquer l'adresse
+      </span>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-4" for="codePostal">Code Postal</label>
+      <input *ngIf="isNew" class="form-control" type="number" id="codePostal"
+             [ngClass]="{'app-error': codePostalControl?.invalid && codePostalControl?.dirty}"
+             formControlName="codePostal">
+      <input *ngIf="!isNew" class="form-control" type="number" [(ngModel)]="client.codePostal"
+             [ngClass]="{'app-error': codePostalControl?.invalid && codePostalControl?.dirty}"
+             formControlName="codePostal">
+      <span class="app-message-error" [hidden]="codePostalControl?.valid || codePostalControl?.pristine">
+        Veuillez correctement indiquer la date de construction
+      </span>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-4" for="ville">Ville</label>
+      <input *ngIf="isNew" type="text" class="form-control" id="ville"
+             [ngClass]="{'app-error': villeControl?.invalid && villeControl?.dirty}"
+             formControlName="ville">
+      <input *ngIf="!isNew" type="text" class="form-control" [(ngModel)]="client.ville"
+             [ngClass]="{'app-error': villeControl?.invalid && villeControl?.dirty}"
+             formControlName="ville">
+      <span class="app-message-error" [hidden]="villeControl?.valid || villeControl?.pristine">
+        Veuillez correctement indiquer la ville restante
+      </span>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-4" for="email">Email</label>
+      <input *ngIf="isNew" type="email" class="form-control" id="email"
+             [ngClass]="{'app-error': emailControl?.invalid && emailControl?.dirty}"
+             formControlName="email">
+      <input *ngIf="!isNew" type="email" class="form-control" [(ngModel)]="client.email"
+             [ngClass]="{'app-error': emailControl?.invalid && emailControl?.dirty}"
+             formControlName="email">
+      <span class="app-message-error" [hidden]="emailControl?.valid || emailControl?.pristine">
+        Veuillez correctement indiquer la email restante
+      </span>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-4" for="mobile">Téléphone portable</label>
+      <input *ngIf="isNew" type="text" class="form-control" id="mobile"
+             [ngClass]="{'app-error': mobileControl?.invalid && mobileControl?.dirty}"
+             formControlName="mobile">
+      <input *ngIf="!isNew" type="text" class="form-control" [(ngModel)]="client.mobile"
+             [ngClass]="{'app-error': mobileControl?.invalid && mobileControl?.dirty}"
+             formControlName="mobile">
+      <span class="app-message-error" [hidden]="mobileControl?.valid || mobileControl?.pristine">
+        Veuillez correctement indiquer le numéro de mobile
+      </span>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-4" for="telephone">Téléphone fixe</label>
+      <input *ngIf="isNew" type="text" class="form-control" id="telephone"
+             [ngClass]="{'app-error': telephoneControl?.invalid && telephoneControl?.dirty}"
+             formControlName="telephone">
+      <input *ngIf="!isNew" type="text" class="form-control" [(ngModel)]="client.telephone"
+             [ngClass]="{'app-error': telephoneControl?.invalid && telephoneControl?.dirty}"
+             formControlName="telephone">
+      <span class="app-message-error" [hidden]="telephoneControl?.valid || telephoneControl?.pristine">
+        Veuillez correctement indiquer le numéro de téléphone
+      </span>
+    </div>
+
+    <div>
+      <button id="saveBtn" type="submit" class="btn btn-primary col-sm-3" [disabled]="!form.valid">
+        Sauvegarder
+      </button>
+    </div>
+  </form>
+</div>

@@ -1,26 +1,4 @@
 {
-  "post": [
-    {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comment": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    },
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 2
-    }
-  ],
-  "profile": {
-    "name": "typicode"
-  },
   "utilisateur": [
     {
       "id": 1,
@@ -88,34 +66,49 @@
   "client": [
     {
       "id": 1,
-      "nom": "Maison",
-      "prenom": "Raymond",
+      "nom": "Manson",
+      "prenom": "Charles",
       "adresse": "5 Place du condamné",
       "codePostal": 66666,
       "ville": "Hell",
       "email": "chacha@gmail.com",
       "mobile": "0666666666",
       "telephone": "0266666666",
-      "fiche_entretienId": 1
+      "fiche_entretienId": 1,
+      "devisId": ""
     },
     {
       "id": 2,
-      "nom": "hfdsquohfouqz",
-      "prenom": "Lecuqvfdsvgbcfc",
+      "nom": "Freud",
+      "prenom": "Sigmund",
       "adresse": "12 rue du petit Hans",
       "codePostal": 78654,
       "ville": "Stade-Anne-Ale-Sur-Trône",
       "email": "sig@gmail.com",
       "mobile": "0687964532",
-      "telephone": "0249875632"
+      "telephone": "0249875632",
+      "devisId": 1
+    },
+    {
+      "nom": "Hendrix",
+      "prenom": "Jimmy",
+      "adresse": "68 rue de la paix",
+      "codePostal": 44444,
+      "ville": "Woodstock-Sur-Loire",
+      "email": "jimmyboy@yahoo.com",
+      "mobile": "0687563259",
+      "telephone": "0959587649",
+      "clientAtelier": false,
+      "clientVente": false,
+      "id": 3
     }
   ],
   "devis": [
     {
       "id": 1,
-      "idClient": 1,
-      "idUtilisateur": 4,
-      "idVehicule": 1,
+      "utilisateurId": 4,
+      "clientId": 2,
+      "vehiculeId": 1,
       "dateCreation": "June 22, 2022 13:50:37",
       "etat": true,
       "prixHt": 13000,
@@ -136,11 +129,19 @@
   "vehicule": [
     {
       "id": 1,
-      "dateConstruction": "February 15, 2022 16:50:37",
+      "dateConstruction": "2022-07-23",
+      "quantite": 1,
       "marque": "Citroën",
       "modele": "C3",
-      "prixHt": 13000,
-      "quantite": 1
+      "prixHt": 14500
+    },
+    {
+      "dateConstruction": "2022-07-10",
+      "quantite": 1,
+      "marque": "Citroën",
+      "modele": "Cactus",
+      "prixHt": 15000,
+      "id": 2
     }
   ],
   "piece": [

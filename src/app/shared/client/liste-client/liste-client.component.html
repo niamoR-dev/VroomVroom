@@ -1,0 +1,57 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4 text-center">Gestion des clients</h1>
+  </div>
+  <div class="form-inline col-4 ">
+    <input class="form-control col-12" [(ngModel)]="searchInput" placeholder="Rechercher un client"
+      type="search">
+  </div>
+</div>
+
+<table class="table table-striped">
+  <thead class="">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nom</th>
+      <th scope="col">Prénom</th>
+      <th scope="col">Adresse Email</th>
+      <th scope="col">Mobile</th>
+      <th scope="col">Téléphone</th>
+      <th scope="col">Adresse</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+
+
+  <tbody>
+    <tr *ngFor="let client of listeClients | rechercheClient:searchInput">
+      <th scope="row">{{client.id}}</th>
+      <td>{{client.nom}}</td>
+      <td>{{client.prenom}}</td>
+      <td>{{client.email}}</td>
+      <td>{{client.mobile}}</td>
+      <td>{{client.telephone}}</td>
+      <td>{{client.adresse}}, {{client.codePostal}} {{client.ville}} </td>
+      <td>
+        <button type="button" class="btn btn-primary mr-2" [routerLink]="['edit', client.id]">
+          <i class="fa fa-pencil" aria-hidden="true"></i>
+        </button>
+        <button type="button" class="btn btn-danger mr-2" (click)="deleteClient(client.id)">
+          <i class="fa fa-trash" aria-hidden="true">
+          </i>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+
+  <ng-template #elseBlock>
+    <tbody>
+      <tr>
+        <td colspan="3" class="text-center">Aucun client pour le moment...</td>
+      </tr>
+    </tbody>
+  </ng-template>
+</table>
+<div>
+  <button type="button" class="btn btn-info mr-2" [routerLink]="['add']">Ajouter un client</button>
+</div>

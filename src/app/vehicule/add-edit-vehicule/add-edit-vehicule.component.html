@@ -1,0 +1,84 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 *ngIf="!isNew" class="display-4 text-center">{{vehicule.marque}} {{vehicule.modele}}</h1>
+    <h1 *ngIf="isNew" class="display-4 text-center">Ajouter un véhicule</h1>
+  </div>
+</div>
+
+<div class="container">
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit(isNew)">
+
+    <div class="form-group">
+      <label class="col-md-4" for="marque">Marque</label>
+      <input *ngIf="isNew" type="text" class="form-control" id="marque"
+             [ngClass]="{'app-error': marqueControl?.invalid && marqueControl?.dirty}"
+             formControlName="marque">
+      <input *ngIf="!isNew" type="text" class="form-control" [(ngModel)]="vehicule.marque"
+             [ngClass]="{'app-error': marqueControl?.invalid && marqueControl?.dirty}"
+             formControlName="marque">
+      <span class="app-message-error" [hidden]="marqueControl?.valid || marqueControl?.pristine">
+        Veuillez correctement remplir la marque avec une longueur de 2 lettres minimum
+      </span>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-4" for="modele">Modèle</label>
+      <input *ngIf="isNew" type="text" class="form-control" id="modele"
+             [ngClass]="{'app-error': modeleControl?.invalid && modeleControl?.dirty}"
+             formControlName="modele">
+      <input *ngIf="!isNew" type="text" class="form-control" [(ngModel)]="vehicule.modele"
+             [ngClass]="{'app-error': modeleControl?.invalid && modeleControl?.dirty}"
+             formControlName="modele">
+      <span class="app-message-error" [hidden]="modeleControl?.valid || modeleControl?.pristine">
+        Veuillez correctement remplir le modèle avec une longueur de 3 lettres minimum
+      </span>
+    </div>
+
+
+    <div class="form-group">
+      <label class="col-md-4" for="prixHt">Prix HT</label>
+      <input *ngIf="isNew" type="number" class="form-control" id="prixHt"
+             [ngClass]="{'app-error': prixControl?.invalid && prixControl?.dirty}"
+             formControlName="prixHt">
+      <input *ngIf="!isNew" type="number" class="form-control" [(ngModel)]="vehicule.prixHt"
+             [ngClass]="{'app-error': prixControl?.invalid && prixControl?.dirty}"
+             formControlName="prixHt">
+      <span class="app-message-error" [hidden]="prixControl?.valid || prixControl?.pristine">
+        Veuillez correctement indiquer la quantité restante
+      </span>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-4" for="dateConstruction">Date de construction</label>
+      <input *ngIf="isNew" class="form-control" type="date" id="dateConstruction"
+             [ngClass]="{'app-error': dateControl?.invalid && dateControl?.dirty}"
+             formControlName="dateConstruction">
+      <input *ngIf="!isNew" class="form-control" type="date" [(ngModel)]="vehicule.dateConstruction"
+             [ngClass]="{'app-error': dateControl?.invalid && dateControl?.dirty}"
+             formControlName="dateConstruction">
+      <span class="app-message-error" [hidden]="dateControl?.valid || dateControl?.pristine">
+        Veuillez correctement indiquer la date de construction
+      </span>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-4" for="quantite">Quantité</label>
+      <input *ngIf="isNew" type="number" class="form-control" id="quantite"
+             [ngClass]="{'app-error': quantiteControl?.invalid && quantiteControl?.dirty}"
+             formControlName="quantite">
+      <input *ngIf="!isNew" type="number" class="form-control" [(ngModel)]="vehicule.quantite"
+             [ngClass]="{'app-error': quantiteControl?.invalid && quantiteControl?.dirty}"
+             formControlName="quantite">
+      <span class="app-message-error" [hidden]="quantiteControl?.valid || quantiteControl?.pristine">
+        Veuillez correctement indiquer la quantité restante
+      </span>
+    </div>
+
+    <div>
+      <button id="saveBtn" type="submit" class="btn btn-primary col-sm-3" [disabled]="!form.valid">
+        Sauvegarder
+      </button>
+    </div>
+  </form>
+</div>

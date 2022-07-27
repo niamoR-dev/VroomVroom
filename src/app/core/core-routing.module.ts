@@ -21,7 +21,7 @@ const routes: Routes = [
   },
   {
     path: 'commercial',
-    loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
+    loadChildren: () => import('../commercial/commercial.module').then(m => m.CommercialModule)
   },
   {
     path: '',
