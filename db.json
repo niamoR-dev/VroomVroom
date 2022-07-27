@@ -177,36 +177,46 @@
       "commandeComplete": true
     }
   ],
-  "tache": [
-    {
-      "id": 1,
-      "utilisateurId": 2,
-      "pieceId": [
-        1
-      ],
-      "ficheId": 1,
-      "prioriteId": 2,
-      "description": "Courroie de distribution",
-      "commentaire": "Courroie changée mais c'est bizarre, la voiture ne démarre plus",
-      "quantite": 1,
-      "montant": 700,
-      "validationOuvrier": true,
-      "validationChef": false
-    }
-  ],
-  "fiche_entretien": [
+  "entretiens": [
     {
       "id": 1,
       "description": "Changement de courroie de distribution",
       "dateCreation": "12/05/2022",
       "montantTtc": 700,
+      "tacheId" : 1,
       "dateCloture": "",
       "ficheTerminee": false,
       "clientId": 1,
-      "tacheId": [
-        1
-      ],
       "utilisateurId": 5
+    }
+  ],
+  "tache": [
+    {
+      "id": 1,
+      "utilisateurId": 2,
+      "prioriteId": 1,
+      "entretienId": 1,
+      "pieceId": 1,
+      "description": "Courroie de distribution",
+      "commentaire": "Courroie changée mais c'est bizarre, la voiture ne démarre plus",
+      "dateCreation":"09/03/2021",
+      "validationOuvrier": true,
+      "validationChefAtelier": false,
+      "prioriseParChefAtelier": true,
+      "montant": 700
+    },
+    {
+      "id": 2,
+      "utilisateurId": 2,
+      "prioriteId": 1,
+      "entretienId": 1,
+      "description": "Vidange",
+      "commentaire": "On vire tout ça",
+      "dateCreation":"09/03/2021",
+      "validationOuvrier": true,
+      "validationChefAtelier": false,
+      "prioriseParChefAtelier": true,
+      "montant": 120
     }
   ],
   "facture_entretien": [],

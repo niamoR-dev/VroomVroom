@@ -2,8 +2,7 @@ import { Tache } from "./tache";
 
 export class JointureTache extends Tache {
 
-  tache!: [];
-
+  fiche!: [];
 
   constructor(
     idUtilisateur: number,
@@ -16,7 +15,8 @@ export class JointureTache extends Tache {
     validationOuvrier: boolean,
     validationChefAtelier: boolean,
     prioriseParChefAtelier: boolean,
-    montant: number
+    montant: number,
+    fiche: []
   ) {
     super(
       idUtilisateur,
@@ -30,9 +30,6 @@ export class JointureTache extends Tache {
       validationChefAtelier,
       prioriseParChefAtelier,
       montant);
-      this.tache = this.tache;
+      this.fiche = fiche;
   }
-
-
-
 }

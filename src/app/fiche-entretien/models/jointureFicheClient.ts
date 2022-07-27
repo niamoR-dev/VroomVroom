@@ -1,5 +1,6 @@
 import { Fiche } from "./fiche";
 
+
 export class JointureFicheClient extends Fiche {
 
   client!: [];
