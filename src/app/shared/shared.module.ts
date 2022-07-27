@@ -10,22 +10,13 @@ const Modules = [
   ReactiveFormsModule
 ]
 
-const Components = [
-
-]
+const Components = []
 
 
 @NgModule({
-  declarations: [
+  declarations: [],
 
-
-
-  ],
-
-  imports: [
-
-
-  ],
+  imports: [],
 
   exports: [
 

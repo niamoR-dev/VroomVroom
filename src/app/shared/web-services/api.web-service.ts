@@ -28,6 +28,18 @@ export class ApiWebService<T extends Model> {
    * @param urlPart
    */
   getData(id: number, urlPart: string) {
+    console.log(environment.gateway + urlPart + id)
+    return this.http.get<T>(`${environment.gateway + urlPart + id}`)
+  }
+
+  /**
+   * Get data from specified object of given type with ID
+   * @param id
+   * @param urlPart
+   * @param urlJointure
+   */
+  getDataJointure(id: number, urlPart: string, urlJointure: string) {
+    console.log(environment.gateway + urlPart + id + urlJointure)
     return this.http.get<T>(`${environment.gateway + urlPart + id}`)
   }
 
