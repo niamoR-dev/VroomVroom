@@ -75,6 +75,7 @@
       "mobile": "0666666666",
       "telephone": "0266666666",
       "fiche_entretienId": 1,
+      "vehiculeId": 1
       "devis_clientId": ""
     },
     {
@@ -114,6 +115,7 @@
       "clientAtelier": false,
       "clientVente": false,
       "id": 4
+      "fiche_entretienId": 1
     }
   ],
   "devis_client": [
@@ -209,6 +211,7 @@
       ],
       "ficheId": 1,
       "prioriteId": 2,
+      "nom": "Courroie de distribution",
       "description": "Courroie de distribution",
       "commentaire": "Courroie changée mais c'est bizarre, la voiture ne démarre plus",
       "quantite": 1,
@@ -225,6 +228,19 @@
       "montantTtc": 700,
       "dateCloture": "",
       "ficheTerminee": false,
+      "clientId": 1,
+      "tacheId": [
+        1
+      ],
+      "utilisateurId": 5
+    },
+    {
+      "id": 2,
+      "description": "distribution",
+      "dateCreation": "12/05/2010",
+      "montantTtc": 700,
+      "dateCloture": "",
+      "ficheTerminee": true,
       "clientId": 1,
       "tacheId": [
         1

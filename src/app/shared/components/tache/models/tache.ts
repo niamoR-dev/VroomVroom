@@ -1,6 +1,7 @@
 import { Model } from "../../../models/model";
 
 export class Tache extends Model {
+  nom: string;
   description: string;
   commentaire: string;
   dateCreation: Date;
@@ -9,8 +10,9 @@ export class Tache extends Model {
   prioriseParChefAtelier: boolean;
   montant: number;
 
-  constructor(description: string, commentaire: string, dateCreation: Date, validationOuvrier: boolean, validationChefAtelier: boolean, prioriseParChefAtelier: boolean, montant: number) {
+  constructor(nom: string, description: string, commentaire: string, dateCreation: Date, validationOuvrier: boolean, validationChefAtelier: boolean, prioriseParChefAtelier: boolean, montant: number) {
     super();
+    this.nom = nom;
     this.description = description;
     this.commentaire = commentaire;
     this.dateCreation = dateCreation;

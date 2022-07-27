@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { redirectTo } from 'src/app/shared/utils/methods';
 import { URL_LIST } from 'src/app/shared/utils/url.list';
 import { ApiWebService } from 'src/app/shared/web-services/api.web-service';
@@ -19,17 +19,27 @@ export class FicheTacheComponent implements OnInit {
   client: any;
   utilisateur: any;
   vehicule: any;
+  pieces: any;
+  fiche: any;
+  id!: number;
+  pieceAjouterParOuvrier!: any[];
   //niveauDePriorite: PRIORITE;
 
   constructor(private formBuilder: FormBuilder, private service: ApiWebService<Tache>,
-    private router: Router) { }
+    private router: Router, private route: ActivatedRoute) { }
 
 
 
   ngOnInit(): void {
-    this.initForm();
 
+    this.id = this.route.snapshot.params['id'];
+
+    this.getTache(this.id);
+    this.initForm();
   }
+
+
+
 
 
 
@@ -37,90 +47,137 @@ export class FicheTacheComponent implements OnInit {
 
     this.tForm = this.formBuilder.group({
 
-      infoClientControl: new FormControl('', [Validators.required]),
+      infoClientControl: new FormControl(''),
 
-      vehiculeClientControl: new FormControl('', [Validators.required]),
+      vehiculeClientControl: new FormControl(''),
 
-      nomTacheControl: new FormControl('', [
-        Validators.required,
-        Validators.minLength(4)]),
+      nomTacheControl: new FormControl(''),
 
-      niveauPrioriteControl: new FormControl('',
-        [Validators.required,
-        Validators.maxLength(10),
-        ]
-      ),
+      niveauPrioriteControl: new FormControl(''),
 
-      tacheDescriptionControl: new FormControl('',
-        [Validators.required,
-        Validators.minLength(10),
-        Validators.maxLength(10)
-        ]
-      ),
-      etatTacheControl: new FormControl('',
-        [Validators.required,
-        Validators.minLength(3)
-        ]
-      ),
-      validationTacheControl: new FormControl('',
-        [Validators.required,
-        Validators.minLength(4),
-        Validators.maxLength(5)
-        ]
-      ),
-      villeControl: new FormControl('',
-        [Validators.required,
-        Validators.minLength(2)
-        ]
-      )
+      tacheDescriptionControl: new FormControl(''),
+      etatTacheControl: new FormControl(''),
+      validationTacheControl: new FormControl(''),
+      utilisateurNom: new FormControl(''),
+      datePriseEnCharge: new FormControl(''),
+      commentaireOuvrier: new FormControl(''),
+      pieceUtiliseEnCharge: new FormControl(''),
+
     });
+  }
+
+  getTache(id: number) {
+    this.service.getData(id, URL_LIST.tache).subscribe({
+      next: data => {
+        this.tache = data;
+
+        console.log("-------Tache ------- ", this.tache);
+        this.getFiche(this.tache.ficheId)
+
+      },
+      error: err => console.log(`Error while getting tache: ` + err),
+      complete: () => console.log('Get tache completed')
+    })
+  }
+
+  getFiche(id: number) {
+    this.service.getData(id, URL_LIST.fiche).subscribe({
+      next: data => {
+        this.fiche = data;
+
+        console.log("-------FICHE ------- ", this.fiche);
+        this.getClient(this.fiche.clientId);
+        console.log(this.fiche.utilisateurId)
+        this.getUtilisateur(this.fiche.utilisateurId);
+
+      },
+      error: err => console.log(`Error while getting fiche: ` + err),
+      complete: () => console.log('Get fiche completed')
+    })
+  }
+
+  getUtilisateur(id: number) {
+    this.service.getData(id, URL_LIST.utilisateur).subscribe({
+      next: data => {
+        this.utilisateur = data;
+        console.log("-------UTILISATEUR ------- ", this.utilisateur);
+
+      },
+      error: err => console.log(`Error while getting UTILISATEUR: ` + err),
+      complete: () => console.log('Get UTILISATEUR completed')
+    })
+  }
+
+  getClient(id: number) {
+    this.service.getData(id, URL_LIST.client).subscribe({
+      next: data => {
+        this.client = data;
+        console.log("-------CLIENT ------- ", this.client);
+
+      },
+      error: err => console.log(`Error while getting client: ` + err),
+      complete: () => console.log('Get client completed')
+    })
+  }
+
+  getVehicule(id: number) {
+    this.service.getData(id, URL_LIST.vehicule).subscribe({
+      next: data => {
+        this.vehicule = data;
+        console.log("-------VEHICULE ------- ", this.vehicule);
+
+      },
+      error: err => console.log(`Error while getting vehicule: ` + err),
+      complete: () => console.log('Get vehicule completed')
+    })
   }
 
 
 
   get infoClientControl() { return this.tForm.get('infoClientControl'); }
-
   get vehiculeClientControl() { return this.tForm.get('vehiculeClientControl'); }
-
   get nomTacheControl() { return this.tForm.get('nomTacheControl'); }
-
   get niveauPrioriteControl() { return this.tForm.get('niveauPrioriteControl'); }
-
   get tacheDescriptionControl() { return this.tForm.get('tacheDescriptionControl'); }
-
   get etatTacheControl() { return this.tForm.get('etatTacheControl'); }
-
   get validationTacheControl() { return this.tForm.get('validationTacheControl'); }
-
-  get villeControl() { return this.tForm.get('villeControl'); }
-
+  get utilisateurNom() { return this.tForm.get('utilisateurNom'); }
+  get datePriseEnCharge() { return this.tForm.get('datePriseEnCharge'); }
+  get commentaireOuvrier() { return this.tForm.get('commentaireOuvrier'); }
+  get pieceUtiliseEnCharge() { return this.tForm.get('pieceUtiliseEnCharge'); }
 
 
   onSubmit(): void {
 
 
-    this.tache.nom = this.infoClientControl?.value;
-    this.tache.prenom = this.vehiculeClientControl?.value;
+    this.client.nom = this.infoClientControl?.value;
+    this.vehicule.modele = this.vehiculeClientControl?.value;
     this.tache.email = this.nomTacheControl?.value;
     this.tache.telephone = this.niveauPrioriteControl?.value;
-    this.tache.mobile = this.tacheDescriptionControl?.value;
+    this.tache.description = this.tacheDescriptionControl?.value;
     this.tache.adresse = this.etatTacheControl?.value;
     this.tache.codePostal = this.validationTacheControl?.value;
-    this.tache.ville = this.villeControl?.value;
+    this.utilisateur.nom = this.utilisateurNom?.value;
+    this.utilisateur.nom = this.datePriseEnCharge?.value;
+    this.utilisateur.nom = this.commentaireOuvrier?.value;
+    this.utilisateur.nom = this.pieceUtiliseEnCharge?.value;
 
     //this.modifierClient(this.tache);
 
-    redirectTo('chefAtelier/gestion-tache', this.router)
+    redirectTo('chefAtelier/liste-tache', this.router)
   }
 
-  // modifierClient(tache: Tache) {
-  //   this.service.addData(tache, URL_LIST.tache).subscribe({
-  //     next: () => console.log(tache),
-  //     error: err => console.log(`Erreur lors de l'ajout d'un nouveau client: ` + err),
-  //     complete: () => console.log('Ajout d\'un client réussi')
-  //   })
+  modifierTache(tache: Tache) {
+    this.service.addData(tache, URL_LIST.tache).subscribe({
+      next: () => console.log(tache),
+      error: err => console.log(`Erreur lors de l'ajout d'un nouveau client: ` + err),
+      complete: () => console.log('Ajout d\'un client réussi')
+    })
+  }
 
+  supprimerPiece(pieceId: number) {
+
+    // il faut supprimer la tache de la liste d'affichage de l'HTML
+  }
 
 }
-
-

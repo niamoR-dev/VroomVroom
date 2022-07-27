@@ -50,7 +50,7 @@ const routes: Routes = [
         component: ModifierClientComponent
       },
       {
-        path: 'fiche-tache',
+        path: 'liste-taches/edit/:id',
         component: FicheTacheComponent
       }
     ]
