@@ -12,12 +12,12 @@
     <div class="form-group">
       <label class="col-md-4" for="marque">Marque</label>
       <input *ngIf="isNew" type="text" class="form-control" id="marque"
-             [ngClass]="{'app-error': form.controls['marque'].invalid && form.controls['marque'].dirty}"
+             [ngClass]="{'app-error': marqueControl?.invalid && marqueControl?.dirty}"
              formControlName="marque">
       <input *ngIf="!isNew" type="text" class="form-control" [(ngModel)]="vehicule.marque"
-             [ngClass]="{'app-error': form.controls['marque'].invalid && form.controls['marque'].dirty}"
+             [ngClass]="{'app-error': marqueControl?.invalid && marqueControl?.dirty}"
              formControlName="marque">
-      <span class="app-message-error" [hidden]="form.controls['marque'].valid || form.controls['marque'].pristine">
+      <span class="app-message-error" [hidden]="marqueControl?.valid || marqueControl?.pristine">
         Veuillez correctement remplir la marque avec une longueur de 2 lettres minimum
       </span>
     </div>
@@ -25,12 +25,12 @@
     <div class="form-group">
       <label class="col-md-4" for="modele">Modèle</label>
       <input *ngIf="isNew" type="text" class="form-control" id="modele"
-             [ngClass]="{'app-error': form.controls['modele'].invalid && form.controls['modele'].dirty}"
+             [ngClass]="{'app-error': modeleControl?.invalid && modeleControl?.dirty}"
              formControlName="modele">
       <input *ngIf="!isNew" type="text" class="form-control" [(ngModel)]="vehicule.modele"
-             [ngClass]="{'app-error': form.controls['modele'].invalid && form.controls['modele'].dirty}"
+             [ngClass]="{'app-error': modeleControl?.invalid && modeleControl?.dirty}"
              formControlName="modele">
-      <span class="app-message-error" [hidden]="form.controls['modele'].valid || form.controls['modele'].pristine">
+      <span class="app-message-error" [hidden]="modeleControl?.valid || modeleControl?.pristine">
         Veuillez correctement remplir le modèle avec une longueur de 3 lettres minimum
       </span>
     </div>
@@ -39,12 +39,12 @@
     <div class="form-group">
       <label class="col-md-4" for="prixHt">Prix HT</label>
       <input *ngIf="isNew" type="number" class="form-control" id="prixHt"
-             [ngClass]="{'app-error': form.controls['prixHt'].invalid && form.controls['prixHt'].dirty}"
+             [ngClass]="{'app-error': prixControl?.invalid && prixControl?.dirty}"
              formControlName="prixHt">
       <input *ngIf="!isNew" type="number" class="form-control" [(ngModel)]="vehicule.prixHt"
-             [ngClass]="{'app-error': form.controls['prixHt'].invalid && form.controls['prixHt'].dirty}"
+             [ngClass]="{'app-error': prixControl?.invalid && prixControl?.dirty}"
              formControlName="prixHt">
-      <span class="app-message-error" [hidden]="form.controls['prixHt'].valid || form.controls['prixHt'].pristine">
+      <span class="app-message-error" [hidden]="prixControl?.valid || prixControl?.pristine">
         Veuillez correctement indiquer la quantité restante
       </span>
     </div>
@@ -65,12 +65,12 @@
     <div class="form-group">
       <label class="col-md-4" for="quantite">Quantité</label>
       <input *ngIf="isNew" type="number" class="form-control" id="quantite"
-             [ngClass]="{'app-error': form.controls['quantite'].invalid && form.controls['quantite'].dirty}"
+             [ngClass]="{'app-error': quantiteControl?.invalid && quantiteControl?.dirty}"
              formControlName="quantite">
       <input *ngIf="!isNew" type="number" class="form-control" [(ngModel)]="vehicule.quantite"
-             [ngClass]="{'app-error': form.controls['quantite'].invalid && form.controls['quantite'].dirty}"
+             [ngClass]="{'app-error': quantiteControl?.invalid && quantiteControl?.dirty}"
              formControlName="quantite">
-      <span class="app-message-error" [hidden]="form.controls['quantite'].valid || form.controls['quantite'].pristine">
+      <span class="app-message-error" [hidden]="quantiteControl?.valid || quantiteControl?.pristine">
         Veuillez correctement indiquer la quantité restante
       </span>
     </div>

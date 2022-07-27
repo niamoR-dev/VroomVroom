@@ -4,5 +4,7 @@ export enum URL_LIST {
   client = 'client/',
   piece = 'piece/',
   tache = 'tache/',
-  jointureFicheClient = 'fiche_entretien?_embed=client'
+  devis = 'devis/',
+  jointureFicheClient = 'fiche_entretien?_embed=client',
+  jointureDevisClient = 'devis?_embed=client'
 }
