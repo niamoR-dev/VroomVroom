@@ -1,13 +1,13 @@
 import { Model } from "../../core/models/model";
 
 export class Tache extends Model {
-  public description: string;
-  public commentaire: string;
-  public dateCreation: Date;
-  public validationOuvrier: boolean;
-  public validationChefAtelier: boolean;
-  public prioriseParChefAtelier: boolean;
-  public montant: number;
+  description: string;
+  commentaire: string;
+  dateCreation: Date;
+  validationOuvrier: boolean;
+  validationChefAtelier: boolean;
+  prioriseParChefAtelier: boolean;
+  montant: number;
 
   constructor(description: string, commentaire: string, dateCreation: Date, validationOuvrier: boolean, validationChefAtelier: boolean, prioriseParChefAtelier: boolean, montant: number) {
     super();
