@@ -1,0 +1,48 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4 text-center">Liste des véhicules</h1>
+  </div>
+  <div class="form-inline col-4 ">
+    <input class="form-control col-12" [(ngModel)]="searchInput" placeholder="Rechercher un véhicule" type="search">
+  </div>
+</div>
+
+<table class="table table-striped">
+  <thead class="">
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Marque</th>
+    <th scope="col">Modèle</th>
+    <th scope="col">Prix HT</th>
+    <th scope="col">Année de construction</th>
+    <th scope="col">Stock</th>
+    <th scope="col">Actions</th>
+  </tr>
+  </thead>
+
+  <tbody *ngIf="vehicules.length > 0; else elseBlock">
+  <tr *ngFor="let vehicule of vehicules | rechercheVehicule:searchInput">
+    <th scope="row">{{vehicule.id}}</th>
+    <td>{{vehicule.marque}}</td>
+    <td>{{vehicule.modele}}</td>
+    <td>{{vehicule.prixHt}}</td>
+    <td>{{vehicule.dateConstruction | date: 'longDate'}}</td>
+    <td>{{vehicule.quantite}}</td>
+    <td>
+      <button type="button" class="btn btn-primary mr-2" [routerLink]="['edit', vehicule.id]"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+      <button type="button" class="btn btn-danger mr-2" (click)="deleteVehicule(vehicule.id)"><i class="fa fa-trash" aria-hidden="true"></i></button>
+    </td>
+  </tr>
+  </tbody>
+  <ng-template #elseBlock>
+    <tbody>
+    <tr>
+      <td colspan="3" class="text-center">Aucun véhicule pour le moment...</td>
+    </tr>
+    </tbody>
+  </ng-template>
+</table>
+<div>
+  <button type="button" class="btn btn-info mr-2" [routerLink]="['add']">Ajouter un véhicule</button>
+</div>
+
