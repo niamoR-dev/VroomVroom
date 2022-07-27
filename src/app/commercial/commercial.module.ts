@@ -12,6 +12,9 @@ import {RouterModule} from "@angular/router";
 import {ListeClientComponent} from "../shared/client/liste-client/liste-client.component";
 import {RechercheClientPipe} from "../shared/client/recherche-client.pipe";
 import {AddEditClientComponent} from "../shared/client/add-edit-client/add-edit-client.component";
+import {ListDevisComponent} from "./devis/list-devis/list-devis.component";
+import {RechercheDevisPipe} from "./devis/recherche-devis.pipe";
+import { AddEditDevisComponent } from './devis/add-edit-devis/add-edit-devis.component';
 
 
 @NgModule({
@@ -23,7 +26,10 @@ import {AddEditClientComponent} from "../shared/client/add-edit-client/add-edit-
     AddEditVehiculeComponent,
     ListeClientComponent,
     AddEditClientComponent,
-    RechercheClientPipe
+    RechercheClientPipe,
+    ListDevisComponent,
+    RechercheDevisPipe,
+    AddEditDevisComponent
   ],
   imports: [
     CommonModule,
