@@ -75,7 +75,7 @@
       "mobile": "0666666666",
       "telephone": "0266666666",
       "fiche_entretienId": 1,
-      "devisId": ""
+      "devis_clientId": ""
     },
     {
       "id": 2,
@@ -87,7 +87,7 @@
       "email": "sig@gmail.com",
       "mobile": "0687964532",
       "telephone": "0249875632",
-      "devisId": 1
+      "devis_clientId": 1
     },
     {
       "nom": "Hendrix",
@@ -103,12 +103,12 @@
       "id": 3
     }
   ],
-  "devis": [
+  "devis_client": [
     {
       "id": 1,
       "utilisateurId": 4,
       "clientId": 2,
-      "vehiculeId": 1,
+      "vehiculeId": 2,
       "dateCreation": "June 22, 2022 13:50:37",
       "etat": true,
       "prixHt": 13000,
@@ -141,14 +141,15 @@
       "marque": "Citroën",
       "modele": "Cactus",
       "prixHt": 15000,
-      "id": 2
+      "id": 2,
+      "devis_clientId": 1
     }
   ],
   "piece": [
     {
       "id": 1,
       "dateSaisie": "2022-07-14",
-      "libelle": "Courroiee",
+      "libelle": "Courroie",
       "quantite": 2
     },
     {
