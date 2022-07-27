@@ -1,48 +1,49 @@
-<!--<div class="jumbotron jumbotron-fluid">-->
-<!--  <div class="container">-->
-<!--    <h1 class="display-4 text-center">Liste des devis</h1>-->
-<!--  </div>-->
-<!--&lt;!&ndash;  <div class="form-inline col-4 ">&ndash;&gt;-->
-<!--&lt;!&ndash;    <input class="form-control col-12" [(ngModel)]="searchInput" placeholder="Rechercher un devis" type="search">&ndash;&gt;-->
-<!--&lt;!&ndash;  </div>&ndash;&gt;-->
-<!--</div>-->
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4 text-center">Liste des devis</h1>
+  </div>
+  <div class="form-inline col-4 ">
+    <input class="form-control col-12" [(ngModel)]="searchInput" placeholder="Rechercher un devis" type="search">
+  </div>
+</div>
 
-<!--<table class="table table-striped">-->
-<!--  <thead class="">-->
-<!--  <tr>-->
-<!--    <th scope="col">#</th>-->
-<!--    <th scope="col">Marque</th>-->
-<!--    <th scope="col">Modèle</th>-->
-<!--    <th scope="col">Prix HT</th>-->
-<!--    <th scope="col">Année de construction</th>-->
-<!--    <th scope="col">Stock</th>-->
-<!--    <th scope="col">Actions</th>-->
-<!--  </tr>-->
-<!--  </thead>-->
+<table class="table table-striped">
+  <thead class="">
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Client</th>
+    <th scope="col">Véhicule</th>
+    <th scope="col">Etat</th>
+    <th scope="col">Prix Ht</th>
+    <th scope="col">Date création du dossier</th>
+    <th scope="col">Actions</th>
+  </tr>
+  </thead>
 
-<!--  <tbody *ngIf="devis.length > 0; else elseBlock">-->
-<!--  <tr *ngFor="let vehicule of devis">-->
-<!--    <th scope="row">{{vehicule.id}}</th>-->
-<!--    <td>{{vehicule.marque}}</td>-->
-<!--    <td>{{vehicule.modele}}</td>-->
-<!--    <td>{{vehicule.prixHt}}</td>-->
-<!--    <td>{{vehicule.dateConstruction | date: 'longDate'}}</td>-->
-<!--    <td>{{vehicule.quantite}}</td>-->
-<!--    <td>-->
-<!--      <button type="button" class="btn btn-primary mr-2" [routerLink]="['edit', vehicule.id]"><i class="fa fa-pencil" aria-hidden="true"></i></button>-->
-<!--      <button type="button" class="btn btn-danger mr-2" (click)="deleteVehicule(vehicule.id)"><i class="fa fa-trash" aria-hidden="true"></i></button>-->
-<!--    </td>-->
-<!--  </tr>-->
-<!--  </tbody>-->
-<!--  <ng-template #elseBlock>-->
-<!--    <tbody>-->
-<!--    <tr>-->
-<!--      <td colspan="3" class="text-center">Aucun véhicule pour le moment...</td>-->
-<!--    </tr>-->
-<!--    </tbody>-->
-<!--  </ng-template>-->
-<!--</table>-->
-<!--<div>-->
-<!--  <button type="button" class="btn btn-info mr-2" [routerLink]="['add']">Ajouter un véhicule</button>-->
-<!--</div>-->
+  <tbody *ngIf="devis.length > 0; else elseBlock">
+  <tr *ngFor="let devis of devis | rechercheDevis:searchInput">
+    <th scope="row">{{devis.id}}</th>
+    <td *ngFor="let client of devis.client">{{client.nom}} {{client.prenom}}</td>
+    <td>{{devis.vehicule.marque}} {{devis.vehicule.modele}}</td>
+    <td *ngIf="devis.etat == true">Validé</td>
+    <td *ngIf="devis.etat == false">En cours</td>
+    <td>{{devis.prixHt}}€</td>
+    <td>{{devis.dateCreation | date: 'longDate'}}</td>
+    <td>
+      <button type="button" class="btn btn-primary mr-2" [routerLink]="['edit', devis.id]"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+      <button type="button" class="btn btn-danger mr-2" (click)="deleteDevis(devis.id)"><i class="fa fa-trash" aria-hidden="true"></i></button>
+    </td>
+  </tr>
+  </tbody>
+  <ng-template #elseBlock>
+    <tbody>
+    <tr>
+      <td colspan="3" class="text-center">Aucun devis pour le moment...</td>
+    </tr>
+    </tbody>
+  </ng-template>
+</table>
+<div>
+  <button type="button" class="btn btn-info mr-2" [routerLink]="['add']">Ajouter un devis</button>
+</div>
 
