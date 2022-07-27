@@ -113,9 +113,9 @@
   "devis": [
     {
       "id": 1,
-      "idClient": 1,
-      "idUtilisateur": 4,
-      "idVehicule": 1,
+      "clientId": 1,
+      "utilisateurId": 4,
+      "vehiculeId": 1,
       "dateCreation": "June 22, 2022 13:50:37",
       "etat": true,
       "prixHt": 13000,
@@ -136,11 +136,19 @@
   "vehicule": [
     {
       "id": 1,
-      "dateConstruction": "February 15, 2022 16:50:37",
-      "marque": "Citroën",
+      "dateConstruction": "2022-07-05",
+      "marque": "Citroën ",
       "modele": "C3",
-      "prixHt": 13000,
+      "prixHt": 14000,
       "quantite": 1
+    },
+    {
+      "dateConstruction": "2022-07-10",
+      "quantite": 1,
+      "marque": "Citroën",
+      "modele": "Cactus",
+      "prixHt": 15000,
+      "id": 2
     }
   ],
   "piece": [
