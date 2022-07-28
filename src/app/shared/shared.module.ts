@@ -11,14 +11,7 @@ import { RechercheTachePipe } from './components/tache/recherche-tache.pipe';
 
 
 @NgModule({
-  declarations: [
-    FicheTacheComponent,
-    ListTacheComponent,
-    RechercheTachePipe,
     FicheEntretienComponent,
-    ListeFichesEntretienComponent,
-    RechercheFichePipe
-  ],
 
   imports: [
     CommonModule,
@@ -28,6 +21,7 @@ import { RechercheTachePipe } from './components/tache/recherche-tache.pipe';
   ],
 
   exports: [
+    ListTacheComponent,
 
     FicheTacheComponent,
     ListTacheComponent,

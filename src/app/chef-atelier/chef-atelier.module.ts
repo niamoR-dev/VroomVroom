@@ -11,6 +11,8 @@ import { CreerClientComponent } from './components/clients/creer-client/creer-cl
 import { ListeClientComponent } from './components/clients/liste-client/liste-client.component';
 import { RecherchePiecePipe } from "../shared/components/piece/recherche-piece.pipe";
 import { ModifierClientComponent } from './components/clients/modifier-client/modifier-client.component';
+import { FicheTacheComponent } from '../shared/components/tache/components/fiche-tache/fiche-tache.component';
+import { RechercheTachePipe } from '../shared/components/tache/recherche-tache.pipe';
 import { RechercheClientPipe } from './components/clients/recherche-client.pipe';
 import { SharedModule } from '../shared/shared.module';
 
@@ -24,6 +26,7 @@ import { SharedModule } from '../shared/shared.module';
     ListPieceComponent,
     EditPieceComponent,
     AddPieceComponent,
+    CreerClientComponent,
     RecherchePiecePipe,
     // A deplacer dans le shared
     ListeClientComponent,
