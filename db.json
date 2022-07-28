@@ -75,7 +75,7 @@
       "mobile": "0666666666",
       "telephone": "0266666666",
       "fiche_entretienId": 1,
-      "vehiculeId": 1
+      "vehiculeId": 1,
       "devis_clientId": ""
     },
     {
@@ -114,7 +114,7 @@
       "telephone": "0251984465",
       "clientAtelier": false,
       "clientVente": false,
-      "id": 4
+      "id": 4,
       "fiche_entretienId": 1
     }
   ],
@@ -226,7 +226,8 @@
       "tacheId": [
         1
       ],
-      "utilisateurId": 5
+      "utilisateurId": 5,
+      "vehiculeId": 1
     },
     {
       "id": 2,
@@ -239,7 +240,8 @@
       "tacheId": [
         1
       ],
-      "utilisateurId": 5
+      "utilisateurId": 5,
+      "vehiculeId": 1
     }
   ],
   "facture_entretien": [],

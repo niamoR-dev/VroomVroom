@@ -7,8 +7,8 @@ import { Tache } from './models/tache';
 export class RechercheTachePipe implements PipeTransform {
 
   transform(tache: Tache[], searchInput: string): any[] {
-    if(!tache) return [];
-    if(!searchInput) return tache;
+    if (!tache) return [];
+    if (!searchInput) return tache;
 
     searchInput = searchInput.toLowerCase();
 

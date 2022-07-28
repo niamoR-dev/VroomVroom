@@ -9,8 +9,9 @@ export class Tache extends Model {
   validationChefAtelier: boolean;
   prioriseParChefAtelier: boolean;
   montant: number;
+  ficheId: number = 0;
 
-  constructor(nom: string, description: string, commentaire: string, dateCreation: Date, validationOuvrier: boolean, validationChefAtelier: boolean, prioriseParChefAtelier: boolean, montant: number) {
+  constructor(nom: string, description: string, commentaire: string, dateCreation: Date, validationOuvrier: boolean, validationChefAtelier: boolean, prioriseParChefAtelier: boolean, montant: number, ficheId: number) {
     super();
     this.nom = nom;
     this.description = description;
@@ -20,6 +21,7 @@ export class Tache extends Model {
     this.validationChefAtelier = validationChefAtelier;
     this.prioriseParChefAtelier = prioriseParChefAtelier;
     this.montant = montant;
+    this.ficheId = ficheId;
   }
 
 }

@@ -1,8 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
+import { Fiche } from '../models/fiche';
+import { JointureFicheClient } from '../models/jointureFicheClient';
+import { ApiWebService } from './api.web-service';
 import { Client } from '../models/client';
-import { Vehicule } from 'src/app/chef-atelier/models/vehicule';
-import { Utilisateur } from 'src/app/core/models/utilisateur';
+import { Tache } from '../components/tache/models/tache';
+import { Utilisateur } from '../models/utilisateur';
+import { Vehicule } from '../models/vehicule';
+import { URL_LIST } from '../utils/url.list';
 
 @Injectable({
   providedIn: 'root'
@@ -12,17 +17,58 @@ import { Utilisateur } from 'src/app/core/models/utilisateur';
  */
 export class APIFicheComplete {
 
-  client!: Client;
-  vehicule!: Vehicule;
-  utilsateur!: Utilisateur;
 
+  constructor(private http: HttpClient, private sFiche: ApiWebService<Fiche>, private sClient: ApiWebService<Client>,
+    private sVehicule: ApiWebService<Vehicule>, private sUtilisateur: ApiWebService<Utilisateur>,
+    private sTache: ApiWebService<Tache>) {
 
-  constructor(private http: HttpClient) {
   }
 
 
 
   // a partir d'une fiche, si elle existe, de la charger, d'aller chercher toutes les info fiches (ID)
   // URL embed à aprtir de la fiche
+
+
+  async getFicheEntretien(id: number) {
+
+    let jfc: JointureFicheClient;
+    jfc = new JointureFicheClient();
+
+    jfc = await this.sFiche.getData(id, URL_LIST.fiche).toPromise() || new JointureFicheClient();
+    if (jfc.id != id) return null;
+
+    jfc.client = await this.sClient.getData(jfc.clientId, URL_LIST.client).toPromise() || new Client();
+    if (jfc.client.id == 0) return null;
+
+    jfc.vehicule = await this.sVehicule.getData(jfc.vehiculeId, URL_LIST.vehicule).toPromise() || new Vehicule();
+    if (jfc.vehicule.id == 0) return null;
+
+    jfc.utilsateur = await this.sUtilisateur.getData(jfc.utilisateurId, URL_LIST.utilisateur).toPromise() || new Utilisateur();
+    if (jfc.utilsateur.id == 0) return null;
+
+    //'fiche_entretien/1/?_embed=tache'
+    jfc.taches = await this.sTache.getAllData(`fiche_entretien/${id}/?_embed=tache`).toPromise() || new Array<Tache>();
+
+    return jfc;
+
+  }
+
+  async getFicheEntretienByTache(id: number) {
+
+    let jfc: JointureFicheClient | null;
+    jfc = new JointureFicheClient();
+
+    let tache: Tache | null;
+
+    tache = await this.sTache.getData(id, URL_LIST.tache).toPromise() || null;
+    if (tache == null) return null;
+
+    jfc = await this.getFicheEntretien(tache.ficheId);
+
+
+    return jfc;
+
+  }
 
 }

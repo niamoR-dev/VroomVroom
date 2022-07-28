@@ -1,7 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {ApiWebService} from "../../../../web-services/api.web-service";
-import {URL_LIST} from "../../../../utils/url.list";
-import {JointureFicheClient} from "../../../../models/jointureFicheClient";
+import { Component, OnInit } from '@angular/core';
+import { ApiWebService } from "../../../../web-services/api.web-service";
+import { URL_LIST } from "../../../../utils/url.list";
+import { JointureFicheClient } from "../../../../models/jointureFicheClient";
+import { APIFicheComplete } from 'src/app/shared/web-services/fiche-service ';
 
 @Component({
   selector: 'app-fiche-entretien',
@@ -12,11 +13,12 @@ export class FicheEntretienComponent implements OnInit {
   fiches = new Array<JointureFicheClient>();
   searchInput!: string;
 
-  constructor(private service: ApiWebService<JointureFicheClient>) {
+  constructor(private service: ApiWebService<JointureFicheClient>, private sFicheEntretien: APIFicheComplete) {
   }
 
   ngOnInit(): void {
-    this.getFiches()
+    this.getFiches();
+    console.log("coucou", this.sFicheEntretien.getFicheEntretien(1))
   }
 
   private getFiches() {
