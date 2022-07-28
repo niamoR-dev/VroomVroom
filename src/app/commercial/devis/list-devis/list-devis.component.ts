@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiWebService } from "../../../shared/web-services/api.web-service";
-import { Router } from "@angular/router";
-import { URL_LIST } from "../../../shared/utils/url.list";
-import { redirectTo } from "../../../shared/utils/methods";
-import { JointureDevisClient } from "../../../shared/models/jointureDevisClient";
+import {ApiWebService} from "../../../shared/web-services/api.web-service";
+import {ActivatedRoute, Router} from "@angular/router";
+import {URL_LIST} from "../../../shared/utils/url.list";
+import {Devis} from "../../../shared/models/devis";
+import {DevisService} from "../services/devis.service";
+import {redirectTo} from "../../../shared/utils/methods";
 
 @Component({
   selector: 'app-list-devis',
@@ -11,31 +12,35 @@ import { JointureDevisClient } from "../../../shared/models/jointureDevisClient"
   styleUrls: ['./list-devis.component.scss', '../../../app.component.scss']
 })
 export class ListDevisComponent implements OnInit {
-  devis = new Array<JointureDevisClient>();
+  devis = new Array<Devis>();
+  listeDevis = new Array<Devis>();
   searchInput!: string;
 
-  constructor(private service: ApiWebService<JointureDevisClient>,
-    private router: Router) { }
+  constructor(private service: ApiWebService<Devis>,
+              private devisService: DevisService,
+              private route: ActivatedRoute,
+              private router: Router) { }
 
   ngOnInit(): void {
-    this.getDevis();
+    this.getDevisResolver();
+    this.getAllDevis(this.listeDevis)
   }
 
-  private getDevis() {
-    this.service.getAllData(URL_LIST.jointureDevisClient).subscribe({
-      next: data => {
-        this.devis.splice(0, this.devis.length);
-        data.forEach(p => {
-          this.getVoitureDevis(p.clientId, p)
-          this.devis.push(p)
-        });
-      },
-      error: err => console.log('Erreur pendant le fetch des devis: ' + err),
-      complete: () => console.log('Fetch des devis réussi')
+  private getDevisResolver() {
+    this.route.data.subscribe({
+      next: data => this.listeDevis = data['listeDevis'],
+      error: err => console.log(`Erreur lors du fetch des liste de devis: ` + err),
+      complete: () => console.log('Fetch liste de devis réussi')
     })
   }
 
-  private getVoitureDevis(id: number | undefined, devis: JointureDevisClient) {
+  private getAllDevis(devis: Devis[]){
+    devis.forEach(d => {
+      this.devisService.getDevis(d.id, this.devis)
+    })
+  }
+
+  private getVoitureDevis(id: number | undefined, devis: Devis){
     return this.service.getDataJointure(<number>id, URL_LIST.vehicule, URL_LIST.jointureVoiture).subscribe({
       next: data => {
         devis.vehicule = data;
@@ -44,9 +49,15 @@ export class ListDevisComponent implements OnInit {
       complete: () => console.log('Fetch des véhicule réussi')
     })
   }
+  //
+  // deleteDevis(id: number){
+  //   this.service.deleteData(id, URL_LIST.devis);
+  //   redirectTo('commercial/devis', this.router)
+  // }
 
-  deleteDevis(id: number) {
-    this.service.deleteData(id, URL_LIST.devis);
+
+  deleteDevis(devis: Devis) {
+    this.devisService.delete(devis);
     redirectTo('commercial/devis', this.router)
   }
 

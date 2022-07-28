@@ -5,14 +5,14 @@ export class Vehicule extends Model {
   marque?: string;
   modele?: string;
   prixHt?: number;
-  quantite?: number;
+  devis_clientId?: number;
 
-  constructor(dateConstruction?: Date, marque?: string , modele?: string, prixHt?: number, quantite?: number) {
+  constructor(dateConstruction?: Date, marque?: string , modele?: string, prixHt?: number) {
     super();
     this.dateConstruction = dateConstruction;
     this.marque = marque;
     this.modele = modele;
     this.prixHt = prixHt;
-    this.quantite = quantite;
+    this.devis_clientId = 0;
   }
 }
