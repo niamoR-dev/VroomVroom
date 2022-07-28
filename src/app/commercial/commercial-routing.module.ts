@@ -1,10 +1,10 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {CommercialComponent} from "./components/commercial.component";
-import {ListVehiculeComponent} from "../vehicule/list-vehicule/list-vehicule.component";
-import {AddEditVehiculeComponent} from "../vehicule/add-edit-vehicule/add-edit-vehicule.component";
-import {ListeClientComponent} from "../shared/client/liste-client/liste-client.component";
-import {AddEditClientComponent} from "../shared/client/add-edit-client/add-edit-client.component";
+import {ListVehiculeComponent} from "../shared/components/vehicule/list-vehicule/list-vehicule.component";
+import {AddEditVehiculeComponent} from "../shared/components/vehicule/add-edit-vehicule/add-edit-vehicule.component";
+import {ListeClientComponent} from "../shared/components/client/liste-client/liste-client.component";
+import {AddEditClientComponent} from "../shared/components/client/add-edit-client/add-edit-client.component";
 import {ListDevisComponent} from "./devis/list-devis/list-devis.component";
 import {AddEditDevisComponent} from "./devis/add-edit-devis/add-edit-devis.component";
 import {ClientResolver} from "./devis/services/client.resolver";
