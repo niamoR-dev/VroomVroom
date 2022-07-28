@@ -3,7 +3,7 @@ import {ApiWebService} from "../../../shared/web-services/api.web-service";
 import {Router} from "@angular/router";
 import {URL_LIST} from "../../../shared/utils/url.list";
 import {redirectTo} from "../../../shared/utils/methods";
-import {JointureDevisClient} from "../../models/jointureDevisClient";
+import {JointureDevisClient} from "../../../shared/models/jointureDevisClient";
 
 @Component({
   selector: 'app-list-devis',
