@@ -7,5 +7,6 @@ export enum URL_LIST {
   devis = 'devis_client/',
   jointureFicheClient = 'fiche_entretien?_embed=client',
   jointureDevisClient = 'devis_client?_embed=client',
-  jointureVoiture = '?_embed=client'
+  jointureVoiture = '?_embed=client',
+  utilisateur = 'utilisateur/'
 }

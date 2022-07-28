@@ -13,6 +13,7 @@ export class RechercheClientPipe implements PipeTransform {
     searchInput = searchInput.toLowerCase();
 
     return client.filter(c => {
+      // @ts-ignore
       return c.nom.toLowerCase().includes(searchInput) || c.prenom.toLowerCase().includes(searchInput);
     })
   }
