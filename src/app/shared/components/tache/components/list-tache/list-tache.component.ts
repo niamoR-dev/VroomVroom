@@ -19,12 +19,17 @@ export class ListTacheComponent implements OnInit {
 
   ngOnInit(): void {
     this.getTaches();
+
+
   }
 
   deleteTache(id: number) {
     this.service.deleteData(id, URL_LIST.tache);
     redirectTo('tache/', this.router)
+
   }
+
+
 
   private getTaches() {
     this.service.getAllData(URL_LIST.tache).subscribe({
