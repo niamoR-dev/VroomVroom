@@ -22,9 +22,9 @@ const routes: Routes = [
     path: 'mecanicien',
     canActivate: [AuthGuard],
     data: {
-      ROLE: [Roles.MECANICIEN, Roles.ADMIN]
     },
-    loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
+      ROLE: [Roles.MECANICIEN, Roles.ADMIN]
+    loadChildren: () => import('../mecanicien/mecanicien.module').then(m => m.MecanicienModule)
   },
   {
     path: 'commercial',

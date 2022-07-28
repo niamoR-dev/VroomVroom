@@ -15,7 +15,7 @@ export class ListTacheComponent implements OnInit {
   searchInput!: string;
 
   constructor(private service: ApiWebService<Tache>,
-    private router: Router) { }
+    public router: Router) { }
 
   ngOnInit(): void {
     this.getTaches();

@@ -23,10 +23,6 @@ import { RechercheVehiculePipe } from './components/vehicule/recherche-vehicule.
 
 
 @NgModule({
-  declarations: [
-    FicheTacheComponent,
-    ListTacheComponent,
-    RechercheTachePipe,
     FicheEntretienComponent,
     ListeFichesEntretienComponent,
     RechercheFichePipe,

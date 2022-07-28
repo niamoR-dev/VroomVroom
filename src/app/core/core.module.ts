@@ -2,7 +2,7 @@
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule, Optional, SkipSelf } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import { CoreRoutingModule } from './core-routing.module';
 import { HeaderComponent } from './header/header.component';
@@ -18,6 +18,7 @@ import { HeaderComponent } from './header/header.component';
     ReactiveFormsModule,
     HttpClientModule,
     SharedModule,
+    FormsModule
     CommonModule,
   ],
 
@@ -25,6 +26,7 @@ import { HeaderComponent } from './header/header.component';
     HttpClientModule,
     ReactiveFormsModule,
     HeaderComponent,
+    FormsModule
   ]
 })
 export class CoreModule {

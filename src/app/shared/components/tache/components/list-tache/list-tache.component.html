@@ -3,19 +3,21 @@
     <h1 class="display-4 text-center">Liste des tâches</h1>
   </div>
   <div class="form-inline col-4 ">
-    <input class="form-control col-12" [(ngModel)]="searchInput" placeholder="Rechercher une tâche" type="search">
+    <input class="form-control col-12" [placeholder="Rechercher une tâche" type="search">
   </div>
+  <!-- (ngModel)]="searchInput"  -->
 </div>
+
+<div *ngIf="router.url === '/chefAtelier/liste-taches'">
 
 <table class="table table-striped">
   <thead class="">
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Nom de la tâche</th>
-      <th scope="col">Client</th>
-      <th scope="col">Date Création</th>
-      <th scope="col">Actions</th>
-    </tr>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Nom de la tâche</th>
+    <th scope="col">Date Création</th>
+    <th scope="col">Actions</th>
+  </tr>
   </thead>
 
 
@@ -31,6 +33,8 @@
       </td>
     </tr>
   </tbody>
+
+
   <ng-template #elseBlock>
     <tbody>
       <tr>
@@ -39,6 +43,8 @@
     </tbody>
   </ng-template>
 </table>
+</div>
 <div>
-  <button type="button" class="btn btn-info mr-2" [routerLink]="['add']">Ajouter une tâche</button>
+  <!-- [routerLink]="['add']" -->
+  <button type="button" class="btn btn-info mr-2" >Ajouter une tâche</button>
 </div>
