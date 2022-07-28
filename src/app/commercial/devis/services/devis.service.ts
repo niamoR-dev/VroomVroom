@@ -40,18 +40,18 @@ export class DevisService {
     return devis
   }
 
-  delete(devis: Devis) {
+  async delete(devis: Devis) {
     // @ts-ignore
     devis.client?.devis_clientId = 0;
     if (devis.client instanceof Client) {
-      this.sClient.updateData(devis.client, URL_LIST.devis);
+      await this.sClient.updateData(devis.client, URL_LIST.devis);
     }
     // @ts-ignore
     devis.vehicule?.devis_clientId = 0;
     if (devis.vehicule instanceof Vehicule) {
-      this.sVehicule.updateData(devis.vehicule, URL_LIST.vehicule);
+      await this.sVehicule.updateData(devis.vehicule, URL_LIST.vehicule);
     }
-     this.sDevis.deleteData(devis.id, URL_LIST.devis);
+     await this.sDevis.deleteData(devis.id, URL_LIST.devis);
 
   }
 

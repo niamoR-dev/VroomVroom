@@ -49,15 +49,9 @@ export class ListDevisComponent implements OnInit {
       complete: () => console.log('Fetch des véhicule réussi')
     })
   }
-  //
-  // deleteDevis(id: number){
-  //   this.service.deleteData(id, URL_LIST.devis);
-  //   redirectTo('commercial/devis', this.router)
-  // }
 
-
-  deleteDevis(devis: Devis) {
-    this.devisService.delete(devis);
+  async deleteDevis(devis: Devis) {
+    await this.devisService.delete(devis);
     redirectTo('commercial/devis', this.router)
   }
 
