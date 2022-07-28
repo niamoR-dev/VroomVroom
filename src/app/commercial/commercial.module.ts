@@ -36,7 +36,6 @@ import { AddEditDevisComponent } from './devis/add-edit-devis/add-edit-devis.com
     CommercialRoutingModule,
     FormsModule,
     RouterModule,
-    FormsModule,
     ReactiveFormsModule
   ]
 })

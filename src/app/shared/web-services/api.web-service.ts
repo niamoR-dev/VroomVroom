@@ -33,7 +33,7 @@ export class ApiWebService<T extends Model> {
   }
 
   /**
-   * Get data from specified object of given type with ID
+   * Jointure for json-server only
    * @param id
    * @param urlPart
    * @param urlJointure

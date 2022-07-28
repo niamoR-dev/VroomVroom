@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 import {CommercialComponent} from "./components/commercial.component";
 import {ListVehiculeComponent} from "../vehicule/list-vehicule/list-vehicule.component";
 import {AddEditVehiculeComponent} from "../vehicule/add-edit-vehicule/add-edit-vehicule.component";
@@ -7,6 +7,8 @@ import {ListeClientComponent} from "../shared/client/liste-client/liste-client.c
 import {AddEditClientComponent} from "../shared/client/add-edit-client/add-edit-client.component";
 import {ListDevisComponent} from "./devis/list-devis/list-devis.component";
 import {AddEditDevisComponent} from "./devis/add-edit-devis/add-edit-devis.component";
+import {ClientResolver} from "./devis/services/client.resolver";
+import {VehiculeResolver} from "./devis/services/vehicule.resolver";
 
 const routes: Routes = [{
   path: '',
@@ -30,11 +32,13 @@ const routes: Routes = [{
     },
     {
       path: 'devis/add',
-      component: AddEditDevisComponent
+      component: AddEditDevisComponent,
+      resolve: {clients: ClientResolver, vehicules: VehiculeResolver}
     },
     {
       path: 'devis/edit/:id',
-      component: AddEditDevisComponent
+      component: AddEditDevisComponent,
+      resolve: {clients: ClientResolver, vehicules: VehiculeResolver}
     },
     {
       path: 'clients',
@@ -45,7 +49,7 @@ const routes: Routes = [{
       component: AddEditClientComponent,
     },
     {
-      path:'clients/edit/:id',
+      path: 'clients/edit/:id',
       component: AddEditClientComponent
     }
   ]
@@ -55,4 +59,5 @@ const routes: Routes = [{
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class CommercialRoutingModule { }
+export class CommercialRoutingModule {
+}
