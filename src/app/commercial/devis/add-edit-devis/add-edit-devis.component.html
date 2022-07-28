@@ -1,0 +1,56 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 *ngIf="!isNew" class="display-4 text-center">Editer devis</h1>
+    <h1 *ngIf="isNew" class="display-4 text-center">Ajouter un devis</h1>
+  </div>
+</div>
+
+<div class="container">
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit(isNew)">
+
+    <div class="form-group">
+      <label class="col-md-4" for="client">Choisissez un client</label>
+      <select type="select" class="form-control" id="client"
+              [ngClass]="{'app-error': clientControl?.invalid && clientControl?.dirty}"
+              formControlName="client">
+        <option *ngFor="let client of clients" [ngValue]="client.id">{{client.nom}} {{client.prenom}}</option>
+      </select>
+      <span class="app-message-error" [hidden]="clientControl?.valid || clientControl?.pristine">
+        Veuillez choisir un client
+      </span>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-4" for="vehicule">Choisissez un véhicule</label>
+      <select type="select" class="form-control" id="vehicule"
+              [ngClass]="{'app-error': vehiculeControl?.invalid && vehiculeControl?.dirty}"
+              formControlName="vehicule">
+        <option *ngFor="let vehicule of vehicules" [ngValue]="vehicule.id">{{vehicule.marque}} {{vehicule.modele}} ({{vehicule.prixHt}}€)</option>
+      </select>
+      <span class="app-message-error" [hidden]="vehiculeControl?.valid || vehiculeControl?.pristine">
+        Veuillez choisir un véhicule
+      </span>
+    </div>
+
+
+    <div class="form-group">
+      <label class="col-md-4" for="prixHt">Prix HT</label>
+      <input *ngIf="isNew" type="number" class="form-control" id="prixHt"
+             [ngClass]="{'app-error': prixControl?.invalid && prixControl?.dirty}"
+             formControlName="prixHt">
+      <input *ngIf="!isNew" type="number" class="form-control" [(ngModel)]="devis.prixHt"
+             [ngClass]="{'app-error': prixControl?.invalid && prixControl?.dirty}"
+             formControlName="prixHt">
+      <span class="app-message-error" [hidden]="prixControl?.valid || prixControl?.pristine">
+        Veuillez correctement indiquer le prix
+      </span>
+    </div>
+
+    <div>
+      <button id="saveBtn" type="submit" class="btn btn-primary col-sm-3" [disabled]="!form.valid">
+        Sauvegarder
+      </button>
+    </div>
+  </form>
+</div>
