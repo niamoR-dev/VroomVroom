@@ -1,4 +1,4 @@
-import { Model } from "../../core/models/model";
+import { Model } from "./model";
 
 
 /**Classe model, on peut mettre les données en public */

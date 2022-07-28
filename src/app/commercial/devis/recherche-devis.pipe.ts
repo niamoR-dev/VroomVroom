@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import {JointureDevisClient} from "../models/jointureDevisClient";
+import {JointureDevisClient} from "../../shared/models/jointureDevisClient";
 
 @Pipe({
   name: 'rechercheDevis'
