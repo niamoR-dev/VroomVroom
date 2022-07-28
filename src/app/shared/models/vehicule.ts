@@ -1,4 +1,4 @@
-import {Model} from "../../core/models/model";
+import {Model} from "./model";
 
 export class Vehicule extends Model {
   dateConstruction?: Date;
