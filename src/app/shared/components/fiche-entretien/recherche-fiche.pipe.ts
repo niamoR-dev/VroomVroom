@@ -13,7 +13,7 @@ export class RechercheFichePipe implements PipeTransform {
     searchInput = searchInput.toLowerCase();
 
     return piece.filter(f => {
-      return f.description.toLowerCase().includes(searchInput);
+      return f.fiche.description.toLowerCase().includes(searchInput);
     })
   }
 

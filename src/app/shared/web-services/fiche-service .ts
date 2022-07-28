@@ -35,16 +35,16 @@ export class APIFicheComplete {
     let jfc: JointureFicheClient;
     jfc = new JointureFicheClient();
 
-    jfc = await this.sFiche.getData(id, URL_LIST.fiche).toPromise() || new JointureFicheClient();
-    if (jfc.id != id) return null;
+    jfc.fiche = await this.sFiche.getData(id, URL_LIST.fiche).toPromise() || new Fiche();
+    if (jfc.fiche.id != id) return null;
 
-    jfc.client = await this.sClient.getData(jfc.clientId, URL_LIST.client).toPromise() || new Client();
+    jfc.client = await this.sClient.getData(jfc.fiche.clientId, URL_LIST.client).toPromise() || new Client();
     if (jfc.client.id == 0) return null;
 
-    jfc.vehicule = await this.sVehicule.getData(jfc.vehiculeId, URL_LIST.vehicule).toPromise() || new Vehicule();
+    jfc.vehicule = await this.sVehicule.getData(jfc.fiche.vehiculeId, URL_LIST.vehicule).toPromise() || new Vehicule();
     if (jfc.vehicule.id == 0) return null;
 
-    jfc.utilsateur = await this.sUtilisateur.getData(jfc.utilisateurId, URL_LIST.utilisateur).toPromise() || new Utilisateur();
+    jfc.utilsateur = await this.sUtilisateur.getData(jfc.fiche.utilisateurId, URL_LIST.utilisateur).toPromise() || new Utilisateur();
     if (jfc.utilsateur.id == 0) return null;
 
     //'fiche_entretien/1/?_embed=tache'

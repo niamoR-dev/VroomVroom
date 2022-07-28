@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
   <form [formGroup]="tForm" (ngSubmit)="onSubmit()">
     <h1>Tâche {{tache.nom}}</h1>
 
@@ -6,15 +6,15 @@
       <label for="infoClientControl">Info du client</label>
       <input class="form-control" id="infoClientControl" type="text" formControlName="infoClientControl"
         [(ngModel)]="client.nom" />
-    </div>
+    </div> -->
 
-    <!-- <div class="form-group">
+<!-- <div class="form-group">
       <label for="vehiculeClientControl">Véhicule du client</label>
       <input class="form-control" id="vehiculeClientControl" type="text" formControlName="vehiculeClientControl"
         [(ngModel)]="vehicule.modele" />
     </div> -->
 
-    <div class="form-group">
+<!-- <div class="form-group">
       <label for="nomTacheControl">Nom de la tâche</label>
       <input class="form-control" id="nomTacheControl" type="email" formControlName="nomTacheControl"
         [(ngModel)]="tache.nom" />
@@ -30,10 +30,10 @@
       <label for="tacheDescriptionControl">Description de la tâche</label>
       <input class="form-control" id="tacheDescriptionControl" type="tel" formControlName="tacheDescriptionControl"
         [(ngModel)]="tache.description" />
-    </div>
+    </div> -->
 
 
-    <!-- <div class="form-group">
+<!-- <div class="form-group">
       <label for="etatTacheControl">État de la tâche</label>
       <input class="form-control" id="etatTacheControl" type="text" formControlName="adresseControl"
         [(ngModel)]="tache.validationOuvrier" />
@@ -45,30 +45,30 @@
         [(ngModel)]="tache.validationChef" />
     </div> -->
 
-    <div class="form-group">
+<!-- <div class="form-group">
       <label for="executantNomControl">Tâche prise en charge par : </label>
       <input class="form-control" id="utilisateurNom" type="text" formControlName="utilisateurNom"
         [(ngModel)]="utilisateur.prenom" />
-    </div>
+    </div> -->
 
-    <!-- <div class="form-group">
+<!-- <div class="form-group">
       <label for="dateControl">Le : </label>
       <input class="form-control" id="datePriseEnCharge" type="text" formControlName="datePriseEnCharge"
       [(ngModel)]="tache.validationChef"/>
     </div> -->
 
-    <div class="form-group">
+<!-- <div class="form-group">
       <label for="dateControl">Commentaires de l'exécutant </label>
       <input class="form-control" id="commentaireOuvrier" type="text" formControlName="commentaireOuvrier"
         [(ngModel)]="tache.commentaire" />
-    </div>
+    </div> -->
 
-    <!-- <div class="form-group">
+<!-- <div class="form-group">
       <label for="pieceUtiliseEnCharge">Besoin en pièces lié à la tâche : </label>
       <input class="form-control" id="pieceUtiliseEnCharge" type="text" formControlName="pieceUtiliseEnCharge"
       [(ngModel)]="piece.Commentaire" />
     </div> -->
-
+<!--
     <div class="form-group">
       <label for="pieceUtiliseEnCharge">Besoin en pièces lié à la tâche : </label>
 
@@ -81,10 +81,10 @@
             <th scope="col">Quantité</th>
             <th scope="col">Prix unitaire HT</th>
           </tr>
-        </thead>
+        </thead> -->
 
-        <!-- *ngIf="pieces.length > 0; else elseBlock" -->
-        <tbody>
+<!-- *ngIf="pieces.length > 0; else elseBlock" -->
+<!-- <tbody>
           <tr *ngFor="let piece of pieces, let i = 'index+1' ">
             <th scope="row">{{i}}{{piece.nom}}</th>
             <td>{{piece.date | date: 'longDate'}}</td>
@@ -94,8 +94,8 @@
               <button type="button" class="btn btn-danger mr-2" (click)="supprimerPiece(i)">Supprimer</button>
             </td>
           </tr>
-        </tbody>
-        <!--
+        </tbody> -->
+<!--
         <ng-template #elseBlock>
           <tbody>
             <tr>
@@ -104,7 +104,7 @@
           </tbody>
         </ng-template> -->
 
-        <button type="button" class="btn btn-secondary btn-lg btn-block" [routerLink]="['../../../stock-pieces']">
+<!-- <button type="button" class="btn btn-secondary btn-lg btn-block" [routerLink]="['../../../stock-pieces']">
           Ajouter une nouvelle pièce
           <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
             class="bi bi-plus-circle-dotted" viewBox="0 0 16 16">
@@ -127,4 +127,4 @@
 
 
 
-</div>
+</div> -->

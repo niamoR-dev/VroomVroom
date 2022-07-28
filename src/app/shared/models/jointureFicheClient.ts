@@ -4,18 +4,14 @@ import { Fiche } from "./fiche";
 import { Utilisateur } from "./utilisateur";
 import { Vehicule } from "./vehicule";
 
-export class JointureFicheClient extends Fiche {
+export class JointureFicheClient {
 
-  client?: Client;
-  vehicule?: Vehicule;
-  utilsateur?: Utilisateur;
-  taches?: Tache[];
+  client: Client = new Client();
+  vehicule: Vehicule = new Vehicule();
+  utilsateur: Utilisateur = new Utilisateur();
+  taches: Tache[] = new Array<Tache>();
+  fiche: Fiche = new Fiche();
 
-
-  constructor(idTache?: number[], idUtilisateur?: number, clientId?: number, description?: string, dateCreation?: Date, dateCloture?: Date, ficheTerminee?: boolean, montantTtc?: number, client?: Client) {
-    super(idTache, idUtilisateur, clientId, description, dateCreation, dateCloture, ficheTerminee, montantTtc);
-    this.client = client;
-  }
 
 
 

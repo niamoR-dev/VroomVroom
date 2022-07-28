@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { JointureFicheClient } from 'src/app/shared/models/jointureFicheClient';
 import { redirectTo } from 'src/app/shared/utils/methods';
 import { URL_LIST } from 'src/app/shared/utils/url.list';
 import { ApiWebService } from 'src/app/shared/web-services/api.web-service';
+import { APIFicheComplete } from 'src/app/shared/web-services/fiche-service ';
 import { Tache } from '../../models/tache';
 
 @Component({
@@ -23,18 +25,21 @@ export class FicheTacheComponent implements OnInit {
   fiche: any;
   id!: number;
   pieceAjouterParOuvrier!: any[];
+  dataFromAPI: JointureFicheClient = new JointureFicheClient();
   //niveauDePriorite: PRIORITE;
 
   constructor(private formBuilder: FormBuilder, private service: ApiWebService<Tache>,
-    private router: Router, private route: ActivatedRoute) { }
+    private router: Router, private route: ActivatedRoute, private dataServiceTache: APIFicheComplete) { }
 
 
 
-  ngOnInit(): void {
+
+  async ngOnInit() {
 
     this.id = this.route.snapshot.params['id'];
 
-    this.getTache(this.id);
+    this.dataFromAPI = await this.dataServiceTache.getFicheEntretienByTache(this.id) || new JointureFicheClient();
+
     this.initForm();
   }
 
@@ -66,71 +71,7 @@ export class FicheTacheComponent implements OnInit {
     });
   }
 
-  getTache(id: number) {
-    this.service.getData(id, URL_LIST.tache).subscribe({
-      next: data => {
-        this.tache = data;
 
-        console.log("-------Tache ------- ", this.tache);
-        this.getFiche(this.tache.ficheId)
-
-      },
-      error: err => console.log(`Error while getting tache: ` + err),
-      complete: () => console.log('Get tache completed')
-    })
-  }
-
-  getFiche(id: number) {
-    this.service.getData(id, URL_LIST.fiche).subscribe({
-      next: data => {
-        this.fiche = data;
-
-        console.log("-------FICHE ------- ", this.fiche);
-        this.getClient(this.fiche.clientId);
-        console.log(this.fiche.utilisateurId)
-        this.getUtilisateur(this.fiche.utilisateurId);
-
-      },
-      error: err => console.log(`Error while getting fiche: ` + err),
-      complete: () => console.log('Get fiche completed')
-    })
-  }
-
-  getUtilisateur(id: number) {
-    this.service.getData(id, URL_LIST.utilisateur).subscribe({
-      next: data => {
-        this.utilisateur = data;
-        console.log("-------UTILISATEUR ------- ", this.utilisateur);
-
-      },
-      error: err => console.log(`Error while getting UTILISATEUR: ` + err),
-      complete: () => console.log('Get UTILISATEUR completed')
-    })
-  }
-
-  getClient(id: number) {
-    this.service.getData(id, URL_LIST.client).subscribe({
-      next: data => {
-        this.client = data;
-        console.log("-------CLIENT ------- ", this.client);
-
-      },
-      error: err => console.log(`Error while getting client: ` + err),
-      complete: () => console.log('Get client completed')
-    })
-  }
-
-  getVehicule(id: number) {
-    this.service.getData(id, URL_LIST.vehicule).subscribe({
-      next: data => {
-        this.vehicule = data;
-        console.log("-------VEHICULE ------- ", this.vehicule);
-
-      },
-      error: err => console.log(`Error while getting vehicule: ` + err),
-      complete: () => console.log('Get vehicule completed')
-    })
-  }
 
 
 
@@ -149,9 +90,8 @@ export class FicheTacheComponent implements OnInit {
 
   onSubmit(): void {
 
-
-    this.client.nom = this.infoClientControl?.value;
-    this.vehicule.modele = this.vehiculeClientControl?.value;
+    this.dataFromAPI.client.nom = this.infoClientControl?.value || '';
+    this.dataFromAPI.vehicule.modele = this.vehiculeClientControl?.value;
     this.tache.email = this.nomTacheControl?.value;
     this.tache.telephone = this.niveauPrioriteControl?.value;
     this.tache.description = this.tacheDescriptionControl?.value;
