@@ -7,19 +7,20 @@ export class Devis extends Model {
   dateCreation: Date;
   etat: boolean = false;
   prixHt?: number;
-  tauxTva?: number = 20;
-  montatTtc?: number;
+  tauxTva?: number;
+  montantTtc?: number;
 
 
-  constructor(clientId?: number, utilisateurId?: number, vehiculeId?: number, prixHt?: number, tauxTva?: number, montatTtc?: number) {
+  constructor(clientId?: number, vehiculeId?: number, prixHt?: number) {
     super();
     this.clientId = clientId;
-    this.utilisateurId = utilisateurId;
+    this.utilisateurId = 4;
     this.vehiculeId = vehiculeId;
     this.dateCreation = new Date();
     this.etat = false;
     this.prixHt = prixHt;
-    this.tauxTva = tauxTva;
-    this.montatTtc = montatTtc;
+    this.tauxTva = 20;
+    // @ts-ignore
+    this.montantTtc = this.prixHt * (1 + (this.tauxTva / 100))
   }
 }

@@ -101,6 +101,19 @@
       "clientAtelier": false,
       "clientVente": false,
       "id": 3
+    },
+    {
+      "nom": "Plant",
+      "prenom": "Robert",
+      "adresse": "45 route du Test",
+      "codePostal": 89654,
+      "ville": "Laundres",
+      "email": "roro@lezpet.com",
+      "mobile": "0698465465",
+      "telephone": "0251984465",
+      "clientAtelier": false,
+      "clientVente": false,
+      "id": 4
     }
   ],
   "devis_client": [
@@ -143,6 +156,14 @@
       "prixHt": 15000,
       "id": 2,
       "devis_clientId": 1
+    },
+    {
+      "dateConstruction": "2022-02-05",
+      "marque": "Mercedes",
+      "modele": "A7",
+      "prixHt": 32530,
+      "quantite": 1,
+      "id": 3
     }
   ],
   "piece": [
