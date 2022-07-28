@@ -62,19 +62,6 @@
       </span>
     </div>
 
-    <div class="form-group">
-      <label class="col-md-4" for="quantite">Quantité</label>
-      <input *ngIf="isNew" type="number" class="form-control" id="quantite"
-             [ngClass]="{'app-error': quantiteControl?.invalid && quantiteControl?.dirty}"
-             formControlName="quantite">
-      <input *ngIf="!isNew" type="number" class="form-control" [(ngModel)]="vehicule.quantite"
-             [ngClass]="{'app-error': quantiteControl?.invalid && quantiteControl?.dirty}"
-             formControlName="quantite">
-      <span class="app-message-error" [hidden]="quantiteControl?.valid || quantiteControl?.pristine">
-        Veuillez correctement indiquer la quantité restante
-      </span>
-    </div>
-
     <div>
       <button id="saveBtn" type="submit" class="btn btn-primary col-sm-3" [disabled]="!form.valid">
         Sauvegarder

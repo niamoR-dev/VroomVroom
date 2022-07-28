@@ -9,6 +9,7 @@ import {ListDevisComponent} from "./devis/list-devis/list-devis.component";
 import {AddEditDevisComponent} from "./devis/add-edit-devis/add-edit-devis.component";
 import {ClientResolver} from "./devis/services/client.resolver";
 import {VehiculeResolver} from "./devis/services/vehicule.resolver";
+import {DevisResolver} from "./devis/services/devis.resolver";
 
 const routes: Routes = [{
   path: '',
@@ -28,17 +29,18 @@ const routes: Routes = [{
     },
     {
       path: 'devis',
-      component: ListDevisComponent
+      component: ListDevisComponent,
+      resolve: {listeDevis: DevisResolver}
     },
     {
       path: 'devis/add',
       component: AddEditDevisComponent,
-      resolve: {clients: ClientResolver, vehicules: VehiculeResolver}
+      resolve: {clients: ClientResolver, vehicules: VehiculeResolver, listeDevis: DevisResolver}
     },
     {
       path: 'devis/edit/:id',
       component: AddEditDevisComponent,
-      resolve: {clients: ClientResolver, vehicules: VehiculeResolver}
+      resolve: {clients: ClientResolver, vehicules: VehiculeResolver, listeDevis: DevisResolver}
     },
     {
       path: 'clients',

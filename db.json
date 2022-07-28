@@ -87,7 +87,8 @@
       "email": "sig@gmail.com",
       "mobile": "0687964532",
       "telephone": "0249875632",
-      "devis_clientId": 1
+      "devis_clientId": 1,
+      "fiche_entretienId": 0
     },
     {
       "nom": "Hendrix",
@@ -100,7 +101,9 @@
       "telephone": "0959587649",
       "clientAtelier": false,
       "clientVente": false,
-      "id": 3
+      "id": 3,
+      "devis_clientId": 0,
+      "fiche_entretienId": 0
     },
     {
       "nom": "Plant",
@@ -113,7 +116,9 @@
       "telephone": "0251984465",
       "clientAtelier": false,
       "clientVente": false,
-      "id": 4
+      "id": 4,
+      "devis_clientId": 3,
+      "fiche_entretienId": 0
     }
   ],
   "devis_client": [
@@ -127,6 +132,17 @@
       "prixHt": 13000,
       "tauxTva": 20,
       "montantTtc": 14500
+    },
+    {
+      "id": 2,
+      "utilisateurId": 4,
+      "clientId": 4,
+      "vehiculeId": 3,
+      "dateCreation": "June 22, 2022 13:50:37",
+      "etat": false,
+      "prixHt": 350,
+      "tauxTva": 20,
+      "montantTtc": 37500
     }
   ],
   "facture_vehicule": [
@@ -143,14 +159,12 @@
     {
       "id": 1,
       "dateConstruction": "2022-07-23",
-      "quantite": 1,
       "marque": "Citroën",
       "modele": "C3",
       "prixHt": 14500
     },
     {
       "dateConstruction": "2022-07-10",
-      "quantite": 1,
       "marque": "Citroën",
       "modele": "Cactus",
       "prixHt": 15000,
@@ -162,8 +176,24 @@
       "marque": "Mercedes",
       "modele": "A7",
       "prixHt": 32530,
-      "quantite": 1,
-      "id": 3
+      "id": 3,
+      "devis_clientId": 3
+    },
+    {
+      "dateConstruction": "2017-02-10",
+      "marque": "Peugeot",
+      "modele": "206",
+      "prixHt": 4500,
+      "devis_clientId": 0,
+      "id": 4
+    },
+    {
+      "dateConstruction": "1997-07-28",
+      "marque": "Peugeot",
+      "modele": "406 Coupé",
+      "prixHt": 3400,
+      "devis_clientId": 0,
+      "id": 5
     }
   ],
   "piece": [
