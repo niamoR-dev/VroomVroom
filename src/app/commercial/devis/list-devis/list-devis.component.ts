@@ -8,7 +8,7 @@ import {JointureDevisClient} from "../../models/jointureDevisClient";
 @Component({
   selector: 'app-list-devis',
   templateUrl: './list-devis.component.html',
-  styleUrls: ['./list-devis.component.scss']
+  styleUrls: ['./list-devis.component.scss', '../../../app.component.scss']
 })
 export class ListDevisComponent implements OnInit {
   devis = new Array<JointureDevisClient>();

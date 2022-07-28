@@ -7,8 +7,8 @@ export class JointureDevisClient extends Devis {
   vehicule?: Vehicule
 
 
-  constructor(clientId: number, utilisateurId: number, vehiculeId: number, prixHt: number, tauxTva: number, montatTtc: number, client?: [Client], vehicule?: Vehicule) {
-    super(clientId, utilisateurId, vehiculeId, prixHt, tauxTva, montatTtc);
+  constructor(clientId: number, utilisateurId: number, vehiculeId: number, prixHt: number, client: [Client], vehicule: Vehicule) {
+    super(clientId, vehiculeId, prixHt);
     this.client = client;
     this.vehicule = vehicule;
   }

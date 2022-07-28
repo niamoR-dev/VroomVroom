@@ -13,9 +13,9 @@
     <th scope="col">#</th>
     <th scope="col">Client</th>
     <th scope="col">Véhicule</th>
-    <th scope="col">Etat</th>
     <th scope="col">Prix Ht</th>
     <th scope="col">Date création du dossier</th>
+    <th scope="col">Statut</th>
     <th scope="col">Actions</th>
   </tr>
   </thead>
@@ -25,10 +25,10 @@
     <th scope="row">{{devis.id}}</th>
     <td *ngFor="let client of devis.client">{{client.nom}} {{client.prenom}}</td>
     <td>{{devis.vehicule.marque}} {{devis.vehicule.modele}}</td>
-    <td *ngIf="devis.etat == true">Validé</td>
-    <td *ngIf="devis.etat == false">En cours</td>
     <td>{{devis.prixHt}}€</td>
     <td>{{devis.dateCreation | date: 'longDate'}}</td>
+    <td id="trueState" *ngIf="devis.etat == true"><p>Validé</p></td>
+    <td id="falseState" *ngIf="devis.etat == false">En cours</td>
     <td>
       <button type="button" class="btn btn-primary mr-2" [routerLink]="['edit', devis.id]"><i class="fa fa-pencil" aria-hidden="true"></i></button>
       <button type="button" class="btn btn-danger mr-2" (click)="deleteDevis(devis.id)"><i class="fa fa-trash" aria-hidden="true"></i></button>
