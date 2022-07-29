@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {AuthComponent} from "./auth/component/auth.component";
-import {AuthGuard} from "./auth/services/auth.guard";
-import {Roles} from "./auth/enum/role";
+import { AuthComponent } from "./auth/component/auth.component";
+import { AuthGuard } from "./auth/services/auth.guard";
+import { Roles } from "./auth/enum/role";
 
 const routes: Routes = [
 
@@ -22,8 +22,9 @@ const routes: Routes = [
     path: 'mecanicien',
     canActivate: [AuthGuard],
     data: {
-    },
       ROLE: [Roles.MECANICIEN, Roles.ADMIN]
+    },
+
     loadChildren: () => import('../mecanicien/mecanicien.module').then(m => m.MecanicienModule)
   },
   {

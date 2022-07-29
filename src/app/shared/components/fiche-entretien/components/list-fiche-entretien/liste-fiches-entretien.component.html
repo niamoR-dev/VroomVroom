@@ -30,6 +30,7 @@
         {{c['nom']}} {{c['prenom']}}</td>
       <td>{{fiche.description}}</td>
       <td>{{fiche.dateCreation | date: 'longDate'}}</td>
+
       <td>{{fiche.idTache}}</td>
       <td>{{fiche.montantTtc}}</td>
       <td *ngIf="fiche.ficheTerminee == false">Non validée</td>
