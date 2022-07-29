@@ -16,12 +16,6 @@ import { AddPieceComponent } from './components/piece/components/add-piece/add-p
 import { EditPieceComponent } from './components/piece/components/edit-piece/edit-piece.component';
 import { ListPieceComponent } from './components/piece/components/list-piece/list-piece.component';
 import { RecherchePiecePipe } from './components/piece/recherche-piece.pipe';
-import { AddEditDevisComponent } from '../commercial/devis/add-edit-devis/add-edit-devis.component';
-import { ListDevisComponent } from '../commercial/devis/list-devis/list-devis.component';
-import { RechercheDevisPipe } from '../commercial/devis/recherche-devis.pipe';
-import { DetailFactureComponent } from '../commercial/facture/detail-facture/detail-facture.component';
-import { ListFactureComponent } from '../commercial/facture/list-facture/list-facture.component';
-import { RechercheFacturePipe } from '../commercial/facture/recherche-facture.pipe';
 import { AddEditClientComponent } from './components/client/add-edit-client/add-edit-client.component';
 import { AddEditVehiculeComponent } from './components/vehicule/add-edit-vehicule/add-edit-vehicule.component';
 import { ListVehiculeComponent } from './components/vehicule/list-vehicule/list-vehicule.component';
@@ -57,7 +51,8 @@ import { RechercheVehiculePipe } from './components/vehicule/recherche-vehicule.
     CommonModule,
     FormsModule,
     RouterModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+
   ],
 
   exports: [
@@ -81,6 +76,10 @@ import { RechercheVehiculePipe } from './components/vehicule/recherche-vehicule.
     ListeClientComponent,
     AddEditClientComponent,
     RechercheClientPipe,
+    CommonModule,
+    FormsModule,
+    RouterModule,
+    ReactiveFormsModule,
   ],
 
 })

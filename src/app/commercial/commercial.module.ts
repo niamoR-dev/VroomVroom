@@ -25,6 +25,7 @@ import { SharedModule } from '../shared/shared.module';
   declarations: [
     CommercialHeaderComponent,
     CommercialComponent,
+
     ListDevisComponent,
     RechercheDevisPipe,
     AddEditDevisComponent,
@@ -35,10 +36,10 @@ import { SharedModule } from '../shared/shared.module';
   ],
   imports: [
     CommonModule,
-    CommercialRoutingModule,
     FormsModule,
     RouterModule,
     ReactiveFormsModule,
+    CommercialRoutingModule,
     SharedModule
   ]
 })
