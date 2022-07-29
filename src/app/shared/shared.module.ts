@@ -50,12 +50,7 @@ import { RechercheVehiculePipe } from './components/vehicule/recherche-vehicule.
     ListeClientComponent,
     AddEditClientComponent,
     RechercheClientPipe,
-    ListDevisComponent,
-    RechercheDevisPipe,
-    AddEditDevisComponent,
-    ListFactureComponent,
-    RechercheFacturePipe,
-    DetailFactureComponent
+
   ],
 
   imports: [
@@ -86,12 +81,6 @@ import { RechercheVehiculePipe } from './components/vehicule/recherche-vehicule.
     ListeClientComponent,
     AddEditClientComponent,
     RechercheClientPipe,
-    ListDevisComponent,
-    RechercheDevisPipe,
-    AddEditDevisComponent,
-    ListFactureComponent,
-    RechercheFacturePipe,
-    DetailFactureComponent
   ],
 
 })

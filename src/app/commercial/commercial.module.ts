@@ -25,6 +25,12 @@ import { SharedModule } from '../shared/shared.module';
   declarations: [
     CommercialHeaderComponent,
     CommercialComponent,
+    ListDevisComponent,
+    RechercheDevisPipe,
+    AddEditDevisComponent,
+    ListFactureComponent,
+    RechercheFacturePipe,
+    DetailFactureComponent
 
   ],
   imports: [
