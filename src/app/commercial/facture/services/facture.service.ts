@@ -8,6 +8,8 @@ import {Utilisateur} from "../../../shared/models/utilisateur";
 import {URL_LIST} from "../../../shared/utils/url.list";
 import {Facture} from "../../../shared/models/facture";
 import {DevisService} from "../../devis/services/devis.service";
+import {FactureJointure} from "../../../shared/models/factureJointure";
+import {DevisJointure} from "../../../shared/models/devisJointure";
 
 @Injectable({
   providedIn: 'root'
@@ -23,19 +25,14 @@ export class FactureService {
               private sUtilisateur: ApiWebService<Utilisateur>) {
   }
 
-  async getFacture(id: number, listeFacture?: Facture[]) {
-    let facture: Facture;
+  async getFacture(id: number, listeFacture?: FactureJointure[]) {
+    let facture: FactureJointure;
 
     facture = await this.sFacture.getData(id, URL_LIST.facture).toPromise() || new Facture();
     if (facture.id != id) return null;
 
-    facture.vehicule = await this.sVehicule.getData(<number>facture.vehiculeId, URL_LIST.vehicule).toPromise() || new Vehicule();
-    if (facture.vehicule.id == 0) return null;
-
-    facture.devis = await this.sDevis.getData(<number>facture.devisId, URL_LIST.devis).toPromise() || new Devis();
+    facture.devis = await this.test.getDevis(<number>facture.devisId) || new DevisJointure();
     if (facture.devis.id == 0) return null;
-
-    facture.client = await this.sClient.getData(<number>facture.devis.clientId, URL_LIST.client).toPromise() || new Client();
 
     if(listeFacture) {
       listeFacture.push(facture)

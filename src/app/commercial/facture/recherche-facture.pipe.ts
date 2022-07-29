@@ -1,18 +1,18 @@
 import {Pipe, PipeTransform} from '@angular/core';
-import {Facture} from "../../shared/models/facture";
+import {FactureJointure} from "../../shared/models/factureJointure";
 
 @Pipe({
   name: 'rechercheFacture'
 })
 export class RechercheFacturePipe implements PipeTransform {
 
-  transform(facture: Facture[], searchInput: string): any[] {
+  transform(facture: FactureJointure[], searchInput: string): any[] {
     if (!facture) return [];
     if (!searchInput) return facture;
 
     return facture.filter(f => {
-      return f.client?.nom?.toLowerCase().includes(searchInput) || f.client?.prenom?.toLowerCase().includes(searchInput) ||
-        f.vehicule?.marque?.toLowerCase().includes(searchInput) || f.vehicule?.modele?.toLowerCase().includes(searchInput);
+      return f.devis?.client?.nom?.toLowerCase().includes(searchInput) || f.devis?.client?.prenom?.toLowerCase().includes(searchInput) ||
+        f.devis?.vehicule?.marque?.toLowerCase().includes(searchInput) || f.devis?.vehicule?.modele?.toLowerCase().includes(searchInput);
     })
   }
 

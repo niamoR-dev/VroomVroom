@@ -3,6 +3,7 @@ import {Facture} from "../../../shared/models/facture";
 import {FactureService} from "../services/facture.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {redirectTo} from "../../../shared/utils/methods";
+import {FactureJointure} from "../../../shared/models/factureJointure";
 
 @Component({
   selector: 'app-detail-facture',
@@ -10,8 +11,7 @@ import {redirectTo} from "../../../shared/utils/methods";
   styleUrls: ['./detail-facture.component.scss']
 })
 export class DetailFactureComponent implements OnInit {
-  facture!: null | Facture;
-  factureT = new Facture();
+  facture!: null | FactureJointure;
   id!: number;
 
   constructor(private service: FactureService,

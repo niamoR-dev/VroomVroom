@@ -135,26 +135,26 @@
       "montantTtc": 14500
     },
     {
+      "dateCreation": "June 22, 2022 13:50:37",
       "id": 2,
-      "utilisateurId": 4,
       "clientId": 4,
       "vehiculeId": 3,
-      "dateCreation": "June 22, 2022 13:50:37",
+      "utilisateurId": 4,
       "etat": false,
       "prixHt": 32530,
       "tauxTva": 20,
       "montantTtc": 37500
-      }
+    }
   ],
   "facture_vehicule": [
     {
-      "id": 1,
       "devisId": 1,
-      "detail": "Véhicule livré",
-      "dateCreation": "February 23, 2022 18:50:37",
-      "montantTtc": 13000,
+      "vehiculeId": 2,
+      "detail": "Facture pour Freud Sigmund (Citroën Cactus)",
+      "dateCreation": "2022-07-29T09:27:44.325Z",
       "tauxTva": 20,
-      "vehiculeId": 1
+      "montantTtc": 15600,
+      "id": 1
     }
   ],
   "vehicule": [

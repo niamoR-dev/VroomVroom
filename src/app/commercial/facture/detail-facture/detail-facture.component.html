@@ -1,6 +1,6 @@
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
-    <h1 class="display-4 text-center">Facture pour {{facture?.client?.nom}} {{facture?.client?.prenom}}</h1>
+    <h1 class="display-4 text-center">Facture pour {{facture?.devis?.client?.nom}} {{facture?.devis?.client?.prenom}}</h1>
   </div>
 </div>
 
@@ -15,15 +15,15 @@
         </tr>
         <tr>
           <td>Client :</td>
-          <td>{{facture?.client?.nom}} {{facture?.client?.prenom}}</td>
+          <td>{{facture?.devis?.client?.nom}} {{facture?.devis?.client?.prenom}}</td>
         </tr>
         <tr>
           <td>Adresse :</td>
-          <td>{{facture?.client?.adresse}}, {{facture?.client?.codePostal}} {{facture?.client?.ville}}</td>
+          <td>{{facture?.devis?.client?.adresse}}, {{facture?.devis?.client?.codePostal}} {{facture?.devis?.client?.ville}}</td>
         </tr>
         <tr>
           <td>Véhicule :</td>
-          <td>{{facture?.vehicule?.marque}} {{facture?.vehicule?.modele}} ({{facture?.vehicule?.dateConstruction | date: 'shortDate'}})</td>
+          <td>{{facture?.devis?.vehicule?.marque}} {{facture?.devis?.vehicule?.modele}} ({{facture?.devis?.vehicule?.dateConstruction | date: 'shortDate'}})</td>
         </tr>
         <tr>
           <td>Prix Ttc :</td>
