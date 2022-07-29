@@ -117,7 +117,7 @@
       "clientAtelier": false,
       "clientVente": false,
       "id": 4,
-      "devis_clientId": 3,
+      "devis_clientId": 2,
       "fiche_entretienId": 0
     }
   ],
@@ -140,19 +140,20 @@
       "vehiculeId": 3,
       "dateCreation": "June 22, 2022 13:50:37",
       "etat": false,
-      "prixHt": 350,
+      "prixHt": 32530,
       "tauxTva": 20,
       "montantTtc": 37500
-    }
+      }
   ],
   "facture_vehicule": [
     {
       "id": 1,
-      "idDevis": 1,
+      "devisId": 1,
       "detail": "Véhicule livré",
       "dateCreation": "February 23, 2022 18:50:37",
       "montantTtc": 13000,
-      "tauxTva": 20
+      "tauxTva": 20,
+      "vehiculeId": 1
     }
   ],
   "vehicule": [
@@ -161,7 +162,8 @@
       "dateConstruction": "2022-07-23",
       "marque": "Citroën",
       "modele": "C3",
-      "prixHt": 14500
+      "prixHt": 14500,
+      "isUsed": true
     },
     {
       "dateConstruction": "2022-07-10",
@@ -169,7 +171,8 @@
       "modele": "Cactus",
       "prixHt": 15000,
       "id": 2,
-      "devis_clientId": 1
+      "devis_clientId": 1,
+      "isUsed": true
     },
     {
       "dateConstruction": "2022-02-05",
@@ -177,7 +180,8 @@
       "modele": "A7",
       "prixHt": 32530,
       "id": 3,
-      "devis_clientId": 3
+      "devis_clientId": 3,
+      "isUsed": true
     },
     {
       "dateConstruction": "2017-02-10",
@@ -185,14 +189,15 @@
       "modele": "206",
       "prixHt": 4500,
       "devis_clientId": 0,
-      "id": 4
+      "id": 4,
+      "isUsed": false
     },
     {
       "dateConstruction": "1997-07-28",
       "marque": "Peugeot",
       "modele": "406 Coupé",
       "prixHt": 3400,
-      "devis_clientId": 0,
+      "devis_clientId": 2,
       "id": 5
     }
   ],

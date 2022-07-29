@@ -15,6 +15,9 @@ import {AddEditClientComponent} from "../shared/components/client/add-edit-clien
 import {ListDevisComponent} from "./devis/list-devis/list-devis.component";
 import {RechercheDevisPipe} from "./devis/recherche-devis.pipe";
 import { AddEditDevisComponent } from './devis/add-edit-devis/add-edit-devis.component';
+import { ListFactureComponent } from './facture/list-facture/list-facture.component';
+import { RechercheFacturePipe } from './facture/recherche-facture.pipe';
+import { DetailFactureComponent } from './facture/detail-facture/detail-facture.component';
 
 
 @NgModule({
@@ -29,7 +32,10 @@ import { AddEditDevisComponent } from './devis/add-edit-devis/add-edit-devis.com
     RechercheClientPipe,
     ListDevisComponent,
     RechercheDevisPipe,
-    AddEditDevisComponent
+    AddEditDevisComponent,
+    ListFactureComponent,
+    RechercheFacturePipe,
+    DetailFactureComponent
   ],
   imports: [
     CommonModule,
