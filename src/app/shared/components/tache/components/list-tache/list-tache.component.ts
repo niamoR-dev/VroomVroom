@@ -11,7 +11,8 @@ import { Tache } from 'src/app/shared/components/tache/models/tache';
   styleUrls: ['./list-tache.component.scss']
 })
 export class ListTacheComponent implements OnInit {
-  listeTaches: any;
+  tache!: Tache;
+  taches = new Array<Tache>();
   searchInput!: string;
 
   constructor(private service: ApiWebService<Tache>,
@@ -29,7 +30,18 @@ export class ListTacheComponent implements OnInit {
 
   }
 
+  revertBoolean(): void {
+    if(this.tache.selectionneParOuvrier == true) {
+      this.tache.selectionneParOuvrier = false;
+    } else {
+      this.tache.selectionneParOuvrier = true;
+    }
+    this.modifierTache(this.tache);
+  }
 
+  modifierTache(tache: Tache) {
+    this.service.updateData(tache, URL_LIST.tache);
+  }
 
   private getTaches() {
     this.service.getAllData(URL_LIST.client).subscribe({

@@ -268,8 +268,8 @@
       "quantite": 4,
       "montant": 700,
       "validationOuvrier": false,
-      "validationChefAtelier": false,
-      "prioriseParChefAtelier": false,
+      "validationChefAtelier": true,
+      "prioriseParChefAtelier": true,
       "selectionneParOuvrier": false
     }
   ],
