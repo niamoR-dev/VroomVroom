@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Piece } from "../../models/piece";
 import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
-import { ApiWebService } from "../../../../web-services/api.web-service";
 import { ActivatedRoute, Router } from "@angular/router";
 import { URL_LIST } from "../../../../utils/url.list";
 import { redirectTo } from "../../../../utils/methods";
+import { ApiWebService } from 'src/app/shared/web-services/api.web-service';
 
 @Component({
   selector: 'app-edit-piece',

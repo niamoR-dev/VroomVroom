@@ -5,7 +5,7 @@ import { JointureFicheClient } from 'src/app/shared/models/jointureFicheClient';
 import { redirectTo } from 'src/app/shared/utils/methods';
 import { URL_LIST } from 'src/app/shared/utils/url.list';
 import { ApiWebService } from 'src/app/shared/web-services/api.web-service';
-import { APIFicheComplete } from 'src/app/shared/web-services/fiche-complete-webservice ';
+import { APIFicheComplete } from 'src/app/shared/web-services/fiche-complete.web-service ';
 import { Tache } from '../../models/tache';
 
 @Component({

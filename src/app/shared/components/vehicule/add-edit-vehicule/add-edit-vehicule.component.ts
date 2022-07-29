@@ -1,10 +1,10 @@
-import {Component, OnInit} from '@angular/core';
-import {Vehicule} from "../../../models/vehicule";
-import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
-import {ApiWebService} from "../../../web-services/api.web-service";
-import {ActivatedRoute, Router} from "@angular/router";
-import {URL_LIST} from "../../../utils/url.list";
-import {redirectTo} from "../../../utils/methods";
+import { Component, OnInit } from '@angular/core';
+import { Vehicule } from "../../../models/vehicule";
+import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
+import { ApiWebService } from "../../../web-services/api.web-service";
+import { ActivatedRoute, Router } from "@angular/router";
+import { URL_LIST } from "../../../utils/url.list";
+import { redirectTo } from "../../../utils/methods";
 
 @Component({
   selector: 'app-add-edit-vehicule',
@@ -18,9 +18,9 @@ export class AddEditVehiculeComponent implements OnInit {
   id!: number;
 
   constructor(private formBuilder: FormBuilder,
-              private service: ApiWebService<Vehicule>,
-              private route: ActivatedRoute,
-              private router: Router) {
+    private service: ApiWebService<Vehicule>,
+    private route: ActivatedRoute,
+    private router: Router) {
   }
 
   ngOnInit(): void {

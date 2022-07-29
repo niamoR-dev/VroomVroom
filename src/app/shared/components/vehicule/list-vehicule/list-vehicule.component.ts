@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {Vehicule} from "../../../models/vehicule";
-import {ApiWebService} from "../../../web-services/api.web-service";
-import {Router} from "@angular/router";
-import {URL_LIST} from "../../../utils/url.list";
-import {redirectTo} from "../../../utils/methods";
+import { Vehicule } from "../../../models/vehicule";
+import { ApiWebService } from "../../../web-services/api.web-service";
+import { Router } from "@angular/router";
+import { URL_LIST } from "../../../utils/url.list";
+import { redirectTo } from "../../../utils/methods";
 
 @Component({
   selector: 'app-list-vehicule',
@@ -15,7 +15,7 @@ export class ListVehiculeComponent implements OnInit {
   searchInput!: string;
 
   constructor(private service: ApiWebService<Vehicule>,
-              private router: Router) { }
+    private router: Router) { }
 
   ngOnInit(): void {
     this.getVehicules();

@@ -1,12 +1,12 @@
-import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
-import {ApiWebService} from "../../../shared/web-services/api.web-service";
-import {Vehicule} from "../../../shared/models/vehicule";
-import {ActivatedRoute, Router} from "@angular/router";
-import {Devis} from "../../../shared/models/devis";
-import {Client} from "../../../shared/models/client";
-import {URL_LIST} from "../../../shared/utils/url.list";
-import {redirectTo} from "../../../shared/utils/methods";
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
+import { ApiWebService } from "../../../shared/web-services/api.web-service";
+import { Vehicule } from "../../../shared/models/vehicule";
+import { ActivatedRoute, Router } from "@angular/router";
+import { Devis } from "../../../shared/models/devis";
+import { Client } from "../../../shared/models/client";
+import { URL_LIST } from "../../../shared/utils/url.list";
+import { redirectTo } from "../../../shared/utils/methods";
 
 @Component({
   selector: 'app-add-edit-devis',
@@ -23,9 +23,9 @@ export class AddEditDevisComponent implements OnInit {
   id!: number;
 
   constructor(private formBuilder: FormBuilder,
-              private service: ApiWebService<Devis>,
-              private route: ActivatedRoute,
-              private router: Router) {
+    private service: ApiWebService<Devis>,
+    private route: ActivatedRoute,
+    private router: Router) {
   }
 
   ngOnInit(): void {
