@@ -3,9 +3,6 @@ import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
-import { ChefAtelierRoutingModule } from "../chef-atelier/chef-atelier-routing.module";
-import { CommercialRoutingModule } from "../commercial/commercial-routing.module";
-import { MecanicienRoutingModule } from "../mecanicien/mecanicien-routing.module";
 import { RechercheFichePipe } from "./components/fiche-entretien/recherche-fiche.pipe";
 import { AddPieceComponent } from "./components/piece/components/add-piece/add-piece.component";
 import { EditPieceComponent } from "./components/piece/components/edit-piece/edit-piece.component";
@@ -26,6 +23,7 @@ import { RechercheDevisPipe } from "../commercial/devis/recherche-devis.pipe";
 import { DetailFactureComponent } from "../commercial/facture/detail-facture/detail-facture.component";
 import { ListFactureComponent } from "../commercial/facture/list-facture/list-facture.component";
 import { RechercheFacturePipe } from "../commercial/facture/recherche-facture.pipe";
+import { CoreModule } from '../core/core.module';
 
 
 
@@ -74,9 +72,7 @@ import { RechercheFacturePipe } from "../commercial/facture/recherche-facture.pi
     FormsModule,
     RouterModule,
     ReactiveFormsModule,
-    ChefAtelierRoutingModule,
-    MecanicienRoutingModule,
-    CommercialRoutingModule
+    CoreModule
 
 
   ],

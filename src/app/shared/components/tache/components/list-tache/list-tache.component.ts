@@ -12,7 +12,7 @@ import { Tache } from 'src/app/shared/components/tache/models/tache';
 })
 export class ListTacheComponent implements OnInit {
   tache!: Tache;
-  taches = new Array<Tache>();
+  listeTaches: any;
   searchInput!: string;
 
   constructor(private service: ApiWebService<Tache>,
@@ -31,7 +31,7 @@ export class ListTacheComponent implements OnInit {
   }
 
   revertBoolean(): void {
-    if(this.tache.selectionneParOuvrier == true) {
+    if (this.tache.selectionneParOuvrier == true) {
       this.tache.selectionneParOuvrier = false;
     } else {
       this.tache.selectionneParOuvrier = true;
