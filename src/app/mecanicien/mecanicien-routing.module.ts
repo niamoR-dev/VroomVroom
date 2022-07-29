@@ -10,9 +10,13 @@ const routes: Routes = [{
   component: Mecanicien2Component,
   children: [
     {
-      path: 'test',
+      path: 'liste-taches-disponibles',
       component: ListTacheComponent,
-         }
+    },
+    {
+      path: 'taches-selectionnees',
+      component: ListTacheComponent,
+    }
     ]
   }
 ];

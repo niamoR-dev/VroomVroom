@@ -15,7 +15,7 @@ import { SharedModule } from '../shared/shared.module';
   declarations: [
     MecanicienHeaderComponent,
     TestComponent,
-    Mecanicien2Component
+    Mecanicien2Component,
   ],
   imports: [
     CommonModule,

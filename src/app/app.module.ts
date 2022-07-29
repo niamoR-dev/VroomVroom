@@ -17,7 +17,7 @@ registerLocaleData(localeFr)
     CommonModule,
     BrowserModule,
     AppRoutingModule,
-    CoreModule,
+    CoreModule
   ],
   providers: [{
     provide: LOCALE_ID,
