@@ -17,70 +17,67 @@
 </div>
 
 <!-- <div *ngIf="router.url === '/chefAtelier/liste-taches'"> -->
-<div *ngIf="taches.length > 0" >
-<table class="table table-striped">
-  <thead class="">
-  <tr>
-    <th scope="col">#</th>
-    <th scope="col">Nom de la tâche</th>
-    <th scope="col">Date Création</th>
-    <th scope="col">Priorité</th>
-    <th scope="col">Actions</th>
-  </tr>
-  </thead>
-
-
-  <!-- *ngIf="tache.prioriseParChefAtelier === true -->
-
-  <tbody *ngFor="let tache of taches">
-    <tr *ngIf="router.url === '/mecanicien/taches-selectionnees' && tache.prioriseParChefAtelier && tache.selectionneParOuvrier == true">
-      <th scope="row">{{tache.id}}</th>
-      <td>{{tache.description}}</td>
-      <td>{{tache.dateCreation }}</td>
-      <td>{{tache.prioriteId}}</td>
-      <td><button type="button" class="btn btn-primary mr-2" (click)="revertBoolean">Retirer</button></td>
-      <!-- | date: 'longDate' -->
-    </tr>
-
-    <tr *ngIf="router.url === '/mecanicien/liste-taches-disponibles' && tache.prioriseParChefAtelier && tache.selectionneParOuvrier == false">
-      <th scope="row">{{tache.id}}</th>
-      <td>{{tache.description}}</td>
-      <td>{{tache.dateCreation }}</td>
-      <td>{{tache.prioriteId}}</td>
-      <td><button type="button" class="btn btn-primary mr-2" (click)="revertBoolean">Ajouter</button></td>
-      <!-- | date: 'longDate' -->
-    </tr>
-
-    <tr *ngIf="router.url === '/chefAtelier/liste-taches'">
-      <th scope="row">{{tache.id}}</th>
-      <td>{{tache.description}}</td>
-      <td>{{tache.dateCreation }}</td>
-      <td>{{tache.prioriteId}}</td>
-      <!-- | date: 'longDate' -->
-      <button type="button" class="btn btn-primary mr-2">Modifier</button>
-      <button type="button" class="btn btn-danger mr-2" (click)="deleteTache(tache.id)">Supprimer</button>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-  <br>
-  Niveaux de priorité : <br>
-  1 : Non prioritaire<br>
-  2 : Normal<br>
-  3 : Urgent<br>
-  4 : Très urgent
-
-<ng-template #elseBlock>
-    <tbody>
+<div *ngIf="taches.length > 0">
+  <table class="table table-striped">
+    <thead class="">
       <tr>
-        <td colspan="3" class="text-center">Aucune tâche pour le moment...</td>
+        <th scope="col">#</th>
+        <th scope="col">Nom de la tâche</th>
+        <th scope="col">Date Création</th>
+        <th scope="col">Priorité</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+
+
+    <!-- *ngIf="tache.prioriseParChefAtelier === true -->
+
+    <tbody *ngFor="let tache of taches">
+      <tr
+        *ngIf="router.url === '/mecanicien/taches-selectionnees' && tache.prioriseParChefAtelier && tache.selectionneParOuvrier == true">
+        <th scope="row">{{tache.id}}</th>
+        <td>{{tache.nomTache}}</td>
+        <td>{{tache.dateCreation }}</td>
+        <td>{{tache.prioriteId}}</td>
+        <td><button type="button" class="btn btn-primary mr-2" (click)="revertBoolean">Retirer</button></td>
+        <!-- | date: 'longDate' -->
+      </tr>
+
+      <tr
+        *ngIf="router.url === '/mecanicien/liste-taches-disponibles' && tache.prioriseParChefAtelier && tache.selectionneParOuvrier == false">
+        <th scope="row">{{tache.id}}</th>
+        <td>{{tache.nomTache}}</td>
+        <td>{{tache.dateCreation }}</td>
+        <td>{{tache.prioriteId}}</td>
+        <td><button type="button" class="btn btn-primary mr-2" (click)="revertBoolean">Ajouter</button></td>
+        <!-- | date: 'longDate' -->
+      </tr>
+
+      <tr *ngIf="router.url === '/chefAtelier/liste-taches'">
+        <th scope="row">{{tache.id}}</th>
+        <td>{{tache.nomTache}}</td>
+        <td>{{tache.dateCreation }}</td>
+        <td>{{tache.prioriteId}}</td>
+        <!-- | date: 'longDate' -->
+        <button type="button" class="btn btn-primary mr-2">Modifier</button>
+        <button type="button" class="btn btn-danger mr-2" (click)="deleteTache(tache.id)">Supprimer</button>
       </tr>
     </tbody>
-  </ng-template>
+  </table>
+</div>
+
+<br>
+Niveaux de priorité : <br>
+1 : Non prioritaire<br>
+2 : Normal<br>
+3 : Urgent<br>
+4 : Très urgent
+
+<ng-template #elseBlock>
+  <tbody>
+    <tr>
+      <td colspan="3" class="text-center">Aucune tâche pour le moment...</td>
+    </tr>
+  </tbody>
+</ng-template>
 <!-- </div> -->
-
-
-
-
-

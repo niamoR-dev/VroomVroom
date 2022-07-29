@@ -1,11 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { RouterModule } from "@angular/router";
 import { CommercialRoutingModule } from './commercial-routing.module';
 import { CommercialHeaderComponent } from './header/commercial-header.component';
 import { CommercialComponent } from './components/commercial.component';
-import { RechercheVehiculePipe } from "../shared/components/vehicule/recherche-vehicule.pipe";
-import { ListVehiculeComponent } from "../shared/components/vehicule/list-vehicule/list-vehicule.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { AddEditVehiculeComponent } from "../shared/components/vehicule/add-edit-vehicule/add-edit-vehicule.component";
 import { RouterModule } from "@angular/router";
@@ -19,7 +17,6 @@ import { ListFactureComponent } from './facture/list-facture/list-facture.compon
 import { RechercheFacturePipe } from './facture/recherche-facture.pipe';
 import { DetailFactureComponent } from './facture/detail-facture/detail-facture.component';
 import { SharedModule } from '../shared/shared.module';
-
 
 @NgModule({
   declarations: [

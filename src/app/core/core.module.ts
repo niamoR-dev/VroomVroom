@@ -18,7 +18,7 @@ import { HeaderComponent } from './header/header.component';
     ReactiveFormsModule,
     HttpClientModule,
     SharedModule,
-    FormsModule
+    FormsModule,
     CommonModule,
   ],
 

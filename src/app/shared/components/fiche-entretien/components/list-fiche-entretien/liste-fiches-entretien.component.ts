@@ -1,9 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { ApiWebService } from "../../../../web-services/api.web-service";
-import { URL_LIST } from "../../../../utils/url.list";
-import { JointureFicheClient } from "../../../../models/jointureFicheClient";
-import { APIFicheComplete } from 'src/app/shared/web-services/fiche-complete.web-service';
-import { Fiche } from 'src/app/shared/models/fiche';
+import { Component, OnInit } from "@angular/core";
+import { Fiche } from "src/app/shared/models/fiche";
+import { URL_LIST } from "src/app/shared/utils/url.list";
+import { ApiWebService } from "src/app/shared/web-services/api.web-service";
+
 
 @Component({
   selector: 'app--liste-fiches-entretien',

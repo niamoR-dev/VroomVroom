@@ -21,10 +21,13 @@ import { SharedModule } from '../shared/shared.module';
   declarations: [
     HeaderComponent,
     ChefAtelierComponent,
+    // Client
     ListeClientComponent,
     ModifierClientComponent,
     RechercheClientPipe,
     CreerClientComponent,
+
+
   ],
   imports: [
     CommonModule,
