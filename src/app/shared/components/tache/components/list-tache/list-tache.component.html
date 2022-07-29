@@ -1,11 +1,14 @@
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
-    <div *ngIf="router.url === '/chefAtelier/liste-taches'; else mecanicien">
-    <h1 class="display-4 text-center">Liste des tâches</h1>
+    <div *ngIf="router.url === '/chefAtelier/liste-taches'">
+      <h1 class="display-4 text-center">Liste des tâches</h1>
     </div>
-    <ng-template #mecanicien>
+    <div *ngIf="router.url === '/mecanicien/liste-taches-disponibles'">
       <h1 class="display-4 text-center">Liste des tâches disponibles</h1>
-    </ng-template>
+    </div>
+    <div *ngIf="router.url === '/mecanicien/taches-selectionnees'">
+      <h1 class="display-4 text-center">Liste des tâches sélectionnées</h1>
+    </div>
   </div>
   <div class="form-inline col-4 ">
     <input class="form-control col-12" [(ngModel)]="searchInput" placeholder="Rechercher une tâche" type="search">
@@ -27,23 +30,47 @@
   </thead>
 
 
-  <tbody *ngIf="listeTaches.length > 0; else elseBlock">
-    <tr *ngFor="let tache of listeTaches">
+  <!-- *ngIf="tache.prioriseParChefAtelier === true -->
+
+  <tbody *ngFor="let tache of taches">
+    <tr *ngIf="router.url === '/mecanicien/taches-selectionnees' && tache.prioriseParChefAtelier && tache.selectionneParOuvrier == true">
       <th scope="row">{{tache.id}}</th>
-      <td>{{tache.nomTache}}</td>
-      <td>ZIZI</td>
-      <td>{{tache.dateCreation | date: 'longDate'}}</td>
-      <td>
-        <button type="button" class="btn btn-primary mr-2" [routerLink]="['edit', tache.id]">Modifier</button>
-        <button type="button" class="btn btn-danger mr-2" (click)="deleteTache(tache.id)">Supprimer</button>
-      </td>
+      <td>{{tache.description}}</td>
+      <td>{{tache.dateCreation }}</td>
+      <td>{{tache.prioriteId}}</td>
+      <td><button type="button" class="btn btn-primary mr-2" (click)="revertBoolean">Retirer</button></td>
+      <!-- | date: 'longDate' -->
+    </tr>
+
+    <tr *ngIf="router.url === '/mecanicien/liste-taches-disponibles' && tache.prioriseParChefAtelier && tache.selectionneParOuvrier == false">
+      <th scope="row">{{tache.id}}</th>
+      <td>{{tache.description}}</td>
+      <td>{{tache.dateCreation }}</td>
+      <td>{{tache.prioriteId}}</td>
+      <td><button type="button" class="btn btn-primary mr-2" (click)="revertBoolean">Ajouter</button></td>
+      <!-- | date: 'longDate' -->
+    </tr>
+
+    <tr *ngIf="router.url === '/chefAtelier/liste-taches'">
+      <th scope="row">{{tache.id}}</th>
+      <td>{{tache.description}}</td>
+      <td>{{tache.dateCreation }}</td>
+      <td>{{tache.prioriteId}}</td>
+      <!-- | date: 'longDate' -->
+      <button type="button" class="btn btn-primary mr-2">Modifier</button>
+      <button type="button" class="btn btn-danger mr-2" (click)="deleteTache(tache.id)">Supprimer</button>
     </tr>
   </tbody>
-
-
-
 </table>
 </div>
+
+  <br>
+  Niveaux de priorité : <br>
+  1 : Non prioritaire<br>
+  2 : Normal<br>
+  3 : Urgent<br>
+  4 : Très urgent
+
 <ng-template #elseBlock>
     <tbody>
       <tr>
@@ -52,19 +79,8 @@
     </tbody>
   </ng-template>
 <!-- </div> -->
-<div>
-  <!-- [routerLink]="['add']" -->
-  <div *ngIf="router.url === '/chefAtelier/liste-taches'; else mecanicienBoutons">
-  <button type="button" class="btn btn-info mr-2" >Ajouter une tâche</button>
-</div>
-<ng-template #mecanicienBoutons>
-  <button type="button" class="btn btn-primary mr-2" >Mes tâches</button>
-  <br>
-  Niveaux de priorité : <br>
-  1 : Non prioritaire<br>
-  2 : Normal<br>
-  3 : Urgent<br>
-  4 : Très urgent
-</ng-template>
-  </div>
+
+
+
+
 
