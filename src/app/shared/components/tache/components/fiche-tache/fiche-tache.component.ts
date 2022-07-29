@@ -5,7 +5,7 @@ import { JointureFicheClient } from 'src/app/shared/models/jointureFicheClient';
 import { redirectTo } from 'src/app/shared/utils/methods';
 import { URL_LIST } from 'src/app/shared/utils/url.list';
 import { ApiWebService } from 'src/app/shared/web-services/api.web-service';
-import { APIFicheComplete } from 'src/app/shared/web-services/fiche-service ';
+import { APIFicheComplete } from 'src/app/shared/web-services/fiche-complete-webservice ';
 import { Tache } from '../../models/tache';
 
 @Component({
@@ -17,16 +17,13 @@ export class FicheTacheComponent implements OnInit {
 
 
   tForm!: FormGroup;
-  tache: any;
-  client: any;
-  utilisateur: any;
-  vehicule: any;
-  pieces: any;
-  fiche: any;
-  id!: number;
+
+  idTache!: number;
   pieceAjouterParOuvrier!: any[];
   dataFromAPI: JointureFicheClient = new JointureFicheClient();
-  //niveauDePriorite: PRIORITE;
+  dataTache: any;
+  pieces: any;
+  niveauDePriorite!: string;
 
   constructor(private formBuilder: FormBuilder, private service: ApiWebService<Tache>,
     private router: Router, private route: ActivatedRoute, private dataServiceTache: APIFicheComplete) { }
@@ -36,43 +33,47 @@ export class FicheTacheComponent implements OnInit {
 
   async ngOnInit() {
 
-    this.id = this.route.snapshot.params['id'];
+    this.idTache = this.route.snapshot.params['id'];
 
-    this.dataFromAPI = await this.dataServiceTache.getFicheEntretienByTache(this.id) || new JointureFicheClient();
-
+    this.dataFromAPI = await this.dataServiceTache.getFicheEntretienByTache(this.idTache) || new JointureFicheClient();
+    console.log("DATA FROM API ---------", this.dataFromAPI)
+    this.getDataTache(this.idTache);
     this.initForm();
+
   }
 
 
-
-
+  getDataTache(idTache: number) {
+    this.dataTache = this.service.getData(idTache, URL_LIST.tache).subscribe({
+      next: data => {
+        this.dataTache = data;
+        console.log("DATA de TACHE ---------", data)
+      },
+      error: err => console.log(`Error while getting piece: ` + err),
+      complete: () => console.log('Get piece completed')
+    })
+  }
 
 
   initForm() {
 
-    this.tForm = this.formBuilder.group({
+    this.tForm = new FormGroup({
 
-      infoClientControl: new FormControl(''),
-
-      vehiculeClientControl: new FormControl(''),
-
-      nomTacheControl: new FormControl(''),
-
-      niveauPrioriteControl: new FormControl(''),
-
-      tacheDescriptionControl: new FormControl(''),
-      etatTacheControl: new FormControl(''),
-      validationTacheControl: new FormControl(''),
-      utilisateurNom: new FormControl(''),
-      datePriseEnCharge: new FormControl(''),
-      commentaireOuvrier: new FormControl(''),
-      pieceUtiliseEnCharge: new FormControl(''),
+      infoClientControl: new FormControl(),
+      vehiculeClientControl: new FormControl(),
+      nomTacheControl: new FormControl(),
+      niveauPrioriteControl: new FormControl(),
+      tacheDescriptionControl: new FormControl(),
+      etatTacheControl: new FormControl(),
+      validationOuvrier: new FormControl(),
+      validationChefAtelier: new FormControl(),
+      utilisateurNom: new FormControl(),
+      datePriseEnCharge: new FormControl(),
+      commentaireOuvrier: new FormControl(),
+      pieceUtiliseEnCharge: new FormControl(),
 
     });
   }
-
-
-
 
 
   get infoClientControl() { return this.tForm.get('infoClientControl'); }
@@ -81,7 +82,8 @@ export class FicheTacheComponent implements OnInit {
   get niveauPrioriteControl() { return this.tForm.get('niveauPrioriteControl'); }
   get tacheDescriptionControl() { return this.tForm.get('tacheDescriptionControl'); }
   get etatTacheControl() { return this.tForm.get('etatTacheControl'); }
-  get validationTacheControl() { return this.tForm.get('validationTacheControl'); }
+  get validationChefAtelier() { return this.tForm.get('validationChefAtelier'); }
+  get validationOuvrier() { return this.tForm.get('validationOuvrier'); }
   get utilisateurNom() { return this.tForm.get('utilisateurNom'); }
   get datePriseEnCharge() { return this.tForm.get('datePriseEnCharge'); }
   get commentaireOuvrier() { return this.tForm.get('commentaireOuvrier'); }
@@ -92,15 +94,16 @@ export class FicheTacheComponent implements OnInit {
 
     this.dataFromAPI.client.nom = this.infoClientControl?.value || '';
     this.dataFromAPI.vehicule.modele = this.vehiculeClientControl?.value;
-    this.tache.email = this.nomTacheControl?.value;
-    this.tache.telephone = this.niveauPrioriteControl?.value;
-    this.tache.description = this.tacheDescriptionControl?.value;
-    this.tache.adresse = this.etatTacheControl?.value;
-    this.tache.codePostal = this.validationTacheControl?.value;
-    this.utilisateur.nom = this.utilisateurNom?.value;
-    this.utilisateur.nom = this.datePriseEnCharge?.value;
-    this.utilisateur.nom = this.commentaireOuvrier?.value;
-    this.utilisateur.nom = this.pieceUtiliseEnCharge?.value;
+    this.dataFromAPI.client.email = this.nomTacheControl?.value;
+    this.dataTache.niveauPrioriteControl = this.niveauPrioriteControl?.value;
+    this.dataTache.description = this.tacheDescriptionControl?.value;
+    this.dataTache.etatTacheControl = this.etatTacheControl?.value;
+    this.dataTache.validationChefAtelier = this.validationChefAtelier?.value;
+    this.dataTache.validationOuvrier = this.validationOuvrier?.value;
+    this.dataTache.utilisateurNom = this.utilisateurNom?.value;
+    this.dataTache.datePriseEnCharge = this.datePriseEnCharge?.value;
+    this.dataTache.commentaireOuvrier = this.commentaireOuvrier?.value;
+    this.dataTache.pieceUtiliseEnCharge = this.pieceUtiliseEnCharge?.value;
 
     //this.modifierClient(this.tache);
 
@@ -113,6 +116,10 @@ export class FicheTacheComponent implements OnInit {
       error: err => console.log(`Erreur lors de l'ajout d'un nouveau client: ` + err),
       complete: () => console.log('Ajout d\'un client réussi')
     })
+  }
+
+  addPieceToTache() {
+
   }
 
   supprimerPiece(pieceId: number) {

@@ -44,11 +44,11 @@ export class APIFicheComplete {
     jfc.vehicule = await this.sVehicule.getData(jfc.fiche.vehiculeId, URL_LIST.vehicule).toPromise() || new Vehicule();
     if (jfc.vehicule.id == 0) return null;
 
-    jfc.utilsateur = await this.sUtilisateur.getData(jfc.fiche.utilisateurId, URL_LIST.utilisateur).toPromise() || new Utilisateur();
-    if (jfc.utilsateur.id == 0) return null;
+    jfc.utilisateur = await this.sUtilisateur.getData(jfc.fiche.utilisateurId, URL_LIST.utilisateur).toPromise() || new Utilisateur();
+    if (jfc.utilisateur.id == 0) return null;
 
     //'fiche_entretien/1/?_embed=tache'
-    jfc.taches = await this.sTache.getAllData(`fiche_entretien/${id}/?_embed=tache`).toPromise() || new Array<Tache>();
+    jfc.taches = await this.sTache.getAllData(`fiche/${id}/?_embed=tache`).toPromise() || new Array<Tache>();
 
     return jfc;
 

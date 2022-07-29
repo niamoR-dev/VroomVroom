@@ -1,74 +1,82 @@
-<!-- <div class="container">
+<div class="container">
   <form [formGroup]="tForm" (ngSubmit)="onSubmit()">
-    <h1>Tâche {{tache.nom}}</h1>
+    <h1>Tâche {{dataTache.nomTache}} - ID opération : {{dataTache.id}}</h1>
 
     <div class="form-group" ng>
       <label for="infoClientControl">Info du client</label>
       <input class="form-control" id="infoClientControl" type="text" formControlName="infoClientControl"
-        [(ngModel)]="client.nom" />
-    </div> -->
+        [(ngModel)]="dataFromAPI.client.nom" />
+    </div>
 
-<!-- <div class="form-group">
+    <div class="form-group">
       <label for="vehiculeClientControl">Véhicule du client</label>
       <input class="form-control" id="vehiculeClientControl" type="text" formControlName="vehiculeClientControl"
-        [(ngModel)]="vehicule.modele" />
-    </div> -->
+        [(ngModel)]="dataFromAPI.vehicule.modele" />
+    </div>
 
-<!-- <div class="form-group">
+    <div class="form-group">
       <label for="nomTacheControl">Nom de la tâche</label>
       <input class="form-control" id="nomTacheControl" type="email" formControlName="nomTacheControl"
-        [(ngModel)]="tache.nom" />
+        [(ngModel)]="dataTache.nomTache" />
+    </div>
+
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <label class="input-group-text" for="inputGroupSelect01">Indication de la priorité</label>
+      </div>
+      <select class="custom-select" id="inputGroupSelect01">
+        <option selected>Choisir</option>
+        <option value=" PRIORITE.TRESURGENT">Très urgent</option>
+        <option value="PRIORITE.URGENT">Urgent</option>
+        <option value="PRIORITE.NORMAL">Normal</option>
+        <option value="PRIORITE.URGENONPRIONT">Non prioritaire</option>
+      </select>
     </div>
 
     <div class="form-group">
       <label for="niveauPrioriteControl">Niveau de priorité</label>
       <input class="form-control" id="niveauPrioriteControl" type="tel" formControlName="niveauPrioriteControl"
-        [(ngModel)]="tache.prioriteId" />
+        [(ngModel)]="dataTache.prioriseParChefAtelier" />
     </div>
 
     <div class="form-group">
       <label for="tacheDescriptionControl">Description de la tâche</label>
       <input class="form-control" id="tacheDescriptionControl" type="tel" formControlName="tacheDescriptionControl"
-        [(ngModel)]="tache.description" />
-    </div> -->
+        [(ngModel)]="dataTache.description" />
+    </div>
 
 
-<!-- <div class="form-group">
+    <div class="form-group">
       <label for="etatTacheControl">État de la tâche</label>
-      <input class="form-control" id="etatTacheControl" type="text" formControlName="adresseControl"
-        [(ngModel)]="tache.validationOuvrier" />
+      <input class="form-control" id="etatTacheControl" type="text" formControlName="etatTacheControl"
+        [(ngModel)]="dataTache.prioriseParChefAtelier" />
+    </div>
+
+
+    <div class="form-group">
+      <label for="utilisateurNom">Tâche prise en charge par : </label>
+      <input class="form-control" id="utilisateurNom" type="text" formControlName="utilisateurNom"
+        [(ngModel)]="dataFromAPI.utilisateur.prenom" />
     </div>
 
     <div class="form-group">
-      <label for="validationTacheControl">Validation de la tâche </label>
-      <input class="form-control" id="validationTacheControl" type="number" formControlName="validationTacheControl"
-        [(ngModel)]="tache.validationChef" />
-    </div> -->
-
-<!-- <div class="form-group">
-      <label for="executantNomControl">Tâche prise en charge par : </label>
-      <input class="form-control" id="utilisateurNom" type="text" formControlName="utilisateurNom"
-        [(ngModel)]="utilisateur.prenom" />
-    </div> -->
-
-<!-- <div class="form-group">
-      <label for="dateControl">Le : </label>
+      <label for="datePriseEnCharge">Le : </label>
       <input class="form-control" id="datePriseEnCharge" type="text" formControlName="datePriseEnCharge"
-      [(ngModel)]="tache.validationChef"/>
-    </div> -->
+        [(ngModel)]="dataTache.datePriseEnCharge" />
+    </div>
 
-<!-- <div class="form-group">
-      <label for="dateControl">Commentaires de l'exécutant </label>
+    <div class="form-group">
+      <label for="commentaireOuvrier">Commentaires de l'exécutant </label>
       <input class="form-control" id="commentaireOuvrier" type="text" formControlName="commentaireOuvrier"
-        [(ngModel)]="tache.commentaire" />
-    </div> -->
+        [(ngModel)]="dataTache.commentaire" />
+    </div>
 
-<!-- <div class="form-group">
+    <!-- <div class="form-group">
       <label for="pieceUtiliseEnCharge">Besoin en pièces lié à la tâche : </label>
       <input class="form-control" id="pieceUtiliseEnCharge" type="text" formControlName="pieceUtiliseEnCharge"
-      [(ngModel)]="piece.Commentaire" />
+        [(ngModel)]="dataFromAPI.piece.commentaire" />
     </div> -->
-<!--
+
     <div class="form-group">
       <label for="pieceUtiliseEnCharge">Besoin en pièces lié à la tâche : </label>
 
@@ -81,10 +89,10 @@
             <th scope="col">Quantité</th>
             <th scope="col">Prix unitaire HT</th>
           </tr>
-        </thead> -->
+        </thead>
 
-<!-- *ngIf="pieces.length > 0; else elseBlock" -->
-<!-- <tbody>
+        <!-- *ngIf="pieces.length > 0; else elseBlock" -->
+        <tbody>
           <tr *ngFor="let piece of pieces, let i = 'index+1' ">
             <th scope="row">{{i}}{{piece.nom}}</th>
             <td>{{piece.date | date: 'longDate'}}</td>
@@ -94,17 +102,17 @@
               <button type="button" class="btn btn-danger mr-2" (click)="supprimerPiece(i)">Supprimer</button>
             </td>
           </tr>
-        </tbody> -->
-<!--
+        </tbody>
+
         <ng-template #elseBlock>
           <tbody>
             <tr>
-              <td colspan="3" class="text-center">Aucune tâche pour le moment...</td>
+              <td colspan="3" class="text-center">Aucune pièce pour le moment...</td>
             </tr>
           </tbody>
-        </ng-template> -->
+        </ng-template>
 
-<!-- <button type="button" class="btn btn-secondary btn-lg btn-block" [routerLink]="['../../../stock-pieces']">
+        <button type="button" class="btn btn-secondary btn-lg btn-block" [routerLink]="['../../../stock-pieces']">
           Ajouter une nouvelle pièce
           <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
             class="bi bi-plus-circle-dotted" viewBox="0 0 16 16">
@@ -113,6 +121,37 @@
           </svg>
         </button>
       </table>
+    </div>
+
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <label class="input-group-text" for="inputGroupSelect01">Validation de la tâche par l'opérateur</label>
+      </div>
+      <select class="custom-select" id="inputGroupSelect01">
+        <option selected>Choisir</option>
+        <option value="dataTache.validationOuvrier == true">Validé</option>
+        <option value="dataTache.validationOuvrier ==  false">En cours</option>
+      </select>
+    </div>
+
+    <div *ngIf="dataTache.validationOuvrier == true " class="form-group">
+      <label for="validationOuvrier">Validation de la tâche par l'opérateur - Tâche Validé</label>
+      <input class="form-control" id="validationOuvrier" type="number" formControlName="validationOuvrier"
+        [(ngModel)]="dataTache.validationOuvrier" />
+    </div>
+
+    <div *ngIf="dataTache.validationOuvrier == false " class="form-group">
+      <label for="validationOuvrier">Validation de la tâche par l'opérateur - Tâche à valider</label>
+      <input class="form-control" id="validationOuvrier" type="number" formControlName="validationOuvrier"
+        [(ngModel)]="dataTache.validationOuvrier" />
+    </div>
+
+
+
+    <div class="form-group">
+      <label for="validationChefAtelier">Validation de la tâche par le Chef d'atelier </label>
+      <input class="form-control" id="validationChefAtelier" type="number" formControlName="validationChefAtelier"
+        [(ngModel)]="dataTache.validationChefAtelier" />
     </div>
 
     <button type="submit" class="btn btn-primary" [disabled]="!tForm.valid">
@@ -127,4 +166,4 @@
 
 
 
-</div> -->
+</div>

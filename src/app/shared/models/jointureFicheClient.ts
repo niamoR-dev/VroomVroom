@@ -1,3 +1,4 @@
+import { Piece } from "../components/piece/models/piece";
 import { Tache } from "../components/tache/models/tache";
 import { Client } from "./client";
 import { Fiche } from "./fiche";
@@ -8,9 +9,10 @@ export class JointureFicheClient {
 
   client: Client = new Client();
   vehicule: Vehicule = new Vehicule();
-  utilsateur: Utilisateur = new Utilisateur();
+  utilisateur: Utilisateur = new Utilisateur();
   taches: Tache[] = new Array<Tache>();
   fiche: Fiche = new Fiche();
+  piece: Piece = new Piece();
 
 
 

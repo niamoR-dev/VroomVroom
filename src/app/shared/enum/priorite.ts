@@ -1,6 +1,6 @@
 enum PRIORITE {
-  TRESURGENT = "Très Urgent",
-  URGENT = "Urgent",
-  NORMAL = "Normal",
-  NONPRIO = "Non Prioritaire",
+  TRESURGENT = 4,
+  URGENT = 3,
+  NORMAL = 2,
+  NONPRIO = 1,
 }

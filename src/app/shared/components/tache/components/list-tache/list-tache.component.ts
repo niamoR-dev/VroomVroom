@@ -11,7 +11,7 @@ import { Tache } from 'src/app/shared/components/tache/models/tache';
   styleUrls: ['./list-tache.component.scss']
 })
 export class ListTacheComponent implements OnInit {
-  taches = new Array<Tache>();
+  listeTaches: any;
   searchInput!: string;
 
   constructor(private service: ApiWebService<Tache>,
@@ -32,16 +32,13 @@ export class ListTacheComponent implements OnInit {
 
 
   private getTaches() {
-    this.service.getAllData(URL_LIST.tache).subscribe({
+    this.service.getAllData(URL_LIST.client).subscribe({
       next: data => {
-        this.taches.splice(0, this.taches.length);
-        data.forEach(t => {
-          this.taches.push(t);
-        });
+
+        this.listeTaches = data;
       },
-      error: err => console.log('Error while getting task: ' + err),
-      complete: () => console.log('Getting task complete')
+      error: err => console.log('Error while getting clients: ' + err),
+      complete: () => console.log('Getting clients complete')
     })
   }
-
 }
