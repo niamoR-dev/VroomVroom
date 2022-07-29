@@ -6,7 +6,6 @@ import { RouterModule } from "@angular/router";
 import { ChefAtelierRoutingModule } from "../chef-atelier/chef-atelier-routing.module";
 import { CommercialRoutingModule } from "../commercial/commercial-routing.module";
 import { MecanicienRoutingModule } from "../mecanicien/mecanicien-routing.module";
-import { FicheEntretienComponent } from "./components/fiche-entretien/components/modifier-fiche-entretien/fiche-entretien.component";
 import { RechercheFichePipe } from "./components/fiche-entretien/recherche-fiche.pipe";
 import { AddPieceComponent } from "./components/piece/components/add-piece/add-piece.component";
 import { EditPieceComponent } from "./components/piece/components/edit-piece/edit-piece.component";
