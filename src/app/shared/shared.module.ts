@@ -4,10 +4,10 @@ import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FicheTacheComponent } from './components/tache/components/fiche-tache/fiche-tache.component';
 import { ListTacheComponent } from './components/tache/components/list-tache/list-tache.component';
-import { RechercheTachePipe } from './components/tache/recherche-tache.pipe';
-import { FicheEntretienComponent } from './components/fiche-entretien/components/modifier-fiche-entretien/fiche-entretien.component';
 import { RechercheFichePipe } from './components/fiche-entretien/recherche-fiche.pipe';
 import { ListeFichesEntretienComponent } from './components/fiche-entretien/components/list-fiche-entretien/liste-fiches-entretien.component';
+import { FicheEntretienComponent } from './components/fiche-entretien/components/modifier-fiche-entretien/fiche-entretien.component';
+import { RechercheTachePipe } from './components/tache/recherche-tache.pipe';
 
 
 @NgModule({
@@ -17,13 +17,14 @@ import { ListeFichesEntretienComponent } from './components/fiche-entretien/comp
     RechercheTachePipe,
     FicheEntretienComponent,
     ListeFichesEntretienComponent,
-    RechercheFichePipe,
+    RechercheFichePipe
   ],
 
-  imports: [CommonModule,
+  imports: [
+    CommonModule,
     FormsModule,
     RouterModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule
   ],
 
   exports: [
@@ -36,8 +37,8 @@ import { ListeFichesEntretienComponent } from './components/fiche-entretien/comp
     RouterModule,
     ReactiveFormsModule,
     FicheEntretienComponent,
-    RechercheFichePipe,
-    RechercheFichePipe,],
+    RechercheFichePipe
+  ],
 
 })
 export class SharedModule { }

@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ChefAtelierComponent } from "./components/chef-atelier.component";
-import { ListeFichesEntretienComponent } from "../shared/components/fiche-entretien/components/list-fiche-entretien/liste-fiches-entretien.component";
 import { EditPieceComponent } from "../shared/components/piece/components/edit-piece/edit-piece.component";
 import { AddPieceComponent } from "../shared/components/piece/components/add-piece/add-piece.component";
 import { CreerClientComponent } from './components/clients/creer-client/creer-client.component';
@@ -11,6 +10,7 @@ import { FicheTacheComponent } from '../shared/components/tache/components/fiche
 import { ListTacheComponent } from '../shared/components/tache/components/list-tache/list-tache.component';
 import { ListPieceComponent } from '../shared/components/piece/components/list-piece/list-piece.component';
 import { FicheEntretienComponent } from '../shared/components/fiche-entretien/components/modifier-fiche-entretien/fiche-entretien.component';
+import { ListeFichesEntretienComponent } from '../shared/components/fiche-entretien/components/list-fiche-entretien/liste-fiches-entretien.component';
 
 
 const routes: Routes = [
