@@ -19,17 +19,6 @@ import { SharedModule } from '../shared/shared.module';
   declarations: [
     HeaderComponent,
     ChefAtelierComponent,
-
-    // A deplacer dans le shared
-    ListPieceComponent,
-    EditPieceComponent,
-    AddPieceComponent,
-    RecherchePiecePipe,
-    // A deplacer dans le shared
-    ListeClientComponent,
-    ModifierClientComponent,
-    RechercheClientPipe,
-    CreerClientComponent,
   ],
   imports: [
     CommonModule,
