@@ -23,16 +23,20 @@ export class AuthComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.initForm()
+    this.initForm();
   }
 
   onSubmit(): void {
-    let userData = this.form.value
-    this.authService.loginFilter(userData.login, userData.mdp)
-    if (localStorage.getItem('ROLE') == Roles.CHEF_ATELIER) {
+    let userData = this.form.value;
+    this.authService.loginFilter(userData.login, userData.mdp);
+    console.log("youoyoyooyo", localStorage.getItem('ROLE'));
+    console.log("cxvcxvcv", Roles.CHEF_ATELIER);
+    if (localStorage.getItem('ROLE') === Roles.CHEF_ATELIER) {
+      console.log("coucou")
       redirectTo('chefAtelier', this.router);
     }
-    if (localStorage.getItem('ROLE') == Roles.COMMERCIAL || Roles.ADMIN) {
+    if (localStorage.getItem('ROLE') === Roles.COMMERCIAL || Roles.ADMIN) {
+      console.log("coucou2")
       redirectTo('commercial/devis', this.router);
     }
   }
