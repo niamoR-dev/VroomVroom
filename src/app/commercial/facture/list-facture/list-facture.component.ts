@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {ApiWebService} from "../../../shared/web-services/api.web-service";
-import {DevisService} from "../../devis/services/devis.service";
-import {ActivatedRoute, Router} from "@angular/router";
+import {ActivatedRoute} from "@angular/router";
 import {Facture} from "../../../shared/models/facture";
 import {FactureService} from "../services/facture.service";
+import {FactureJointure} from "../../../shared/models/factureJointure";
 
 @Component({
   selector: 'app-list-facture',
@@ -12,7 +12,7 @@ import {FactureService} from "../services/facture.service";
 })
 export class ListFactureComponent implements OnInit {
   listeFactures = new Array<Facture>();
-  factures = new Array<Facture>();
+  factures = new Array<FactureJointure>();
   searchInput!: string;
 
   constructor(private service: ApiWebService<Facture>,
@@ -23,6 +23,7 @@ export class ListFactureComponent implements OnInit {
   ngOnInit(): void {
     this.getFacturesResolver();
     this.getAllFactures(this.listeFactures);
+    console.log(this.factures)
   }
 
   getFacturesResolver() {

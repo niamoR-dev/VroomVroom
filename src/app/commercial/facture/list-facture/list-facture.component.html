@@ -22,8 +22,8 @@
   <tbody *ngIf="factures.length > 0; else elseBlock">
   <tr *ngFor="let facture of factures | rechercheFacture:searchInput">
     <th scope="row">{{facture.id}}</th>
-    <td><a [routerLink]="['detail', facture.id]">{{facture.client.nom}} {{facture.client.prenom}}</a></td>
-    <td>{{facture.vehicule.marque}} {{facture.vehicule.modele}}</td>
+    <td><a [routerLink]="['detail', facture.id]">{{facture.devis.client.nom}} {{facture.devis.client.prenom}}</a></td>
+    <td>{{facture.devis.vehicule.marque}} {{facture.devis.vehicule.modele}}</td>
     <td>{{facture.montantTtc}}€</td>
     <td>{{facture.dateCreation | date: 'longDate'}}</td>
     <td>

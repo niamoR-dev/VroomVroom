@@ -9,5 +9,6 @@ export enum URL_LIST {
   jointureDevisClient = 'devis_client?_embed=client',
   jointureVoiture = '?_embed=client',
   utilisateur = 'utilisateur/',
-  facture = 'facture_vehicule/'
+  facture = 'facture_vehicule/',
+  role = 'profil/'
 }

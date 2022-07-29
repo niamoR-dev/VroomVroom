@@ -15,7 +15,7 @@ import {DevisService} from "../services/devis.service";
   styleUrls: ['./add-edit-devis.component.scss']
 })
 export class AddEditDevisComponent implements OnInit {
-  devis = new Devis(0, 0, 0, undefined, undefined)
+  devis = new Devis();
   clients = new Array<Client>();
   listeDevis = new Array<Devis>();
   vehicules = new Array<Vehicule>();
