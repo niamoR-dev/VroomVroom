@@ -1,5 +1,8 @@
 <ul class="nav d-flex justify-content-center">
   <li class="nav-item">
-    <a class="nav-link alert-link">Gestion des tâches</a>
+    <a class="nav-link alert-link" [routerLink]="['liste-taches-disponibles']">Tâches disponibles</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link alert-link" [routerLink]="['taches-selectionnees']">Mes tâches à effectuer</a>
   </li>
 </ul>

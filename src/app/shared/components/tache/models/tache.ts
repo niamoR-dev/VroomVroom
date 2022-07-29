@@ -6,7 +6,6 @@ export class Tache extends Model {
   utilisateurId: number = 0;
   prioriteId: number = 0;
   pieceId: number = 0;
-
   nomTache: string = "";
   description: string = "";
   commentaire: string = "";
@@ -17,6 +16,4 @@ export class Tache extends Model {
   validationChefAtelier: boolean = false;
   prioriseParChefAtelier: boolean = false;
   selectionneParOuvrier: boolean = false;
-
-
 }
