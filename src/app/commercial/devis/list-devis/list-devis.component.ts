@@ -50,6 +50,15 @@ export class ListDevisComponent implements OnInit {
     })
   }
 
+  async changeEtat(devis: Devis) {
+    if(devis.etat == true){
+      await this.devisService.invalidateDevis(devis);
+    } else {
+      await this.devisService.validateDevis(devis);
+    }
+    redirectTo('commercial/devis', this.router)
+  }
+
   async deleteDevis(devis: Devis) {
     await this.devisService.delete(devis);
     redirectTo('commercial/devis', this.router)

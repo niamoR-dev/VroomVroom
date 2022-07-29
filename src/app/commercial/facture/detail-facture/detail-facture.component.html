@@ -1,0 +1,40 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4 text-center">Facture pour {{facture?.client?.nom}} {{facture?.client?.prenom}}</h1>
+  </div>
+</div>
+
+<div class="container">
+  <div class="card md-4">
+    <div class="card-body">
+      <table class="table user-view-table m-0">
+        <tbody>
+        <tr>
+          <td>Date de création de la facture :</td>
+          <td>{{facture?.dateCreation | date: ('longDate')}}</td>
+        </tr>
+        <tr>
+          <td>Client :</td>
+          <td>{{facture?.client?.nom}} {{facture?.client?.prenom}}</td>
+        </tr>
+        <tr>
+          <td>Adresse :</td>
+          <td>{{facture?.client?.adresse}}, {{facture?.client?.codePostal}} {{facture?.client?.ville}}</td>
+        </tr>
+        <tr>
+          <td>Véhicule :</td>
+          <td>{{facture?.vehicule?.marque}} {{facture?.vehicule?.modele}} ({{facture?.vehicule?.dateConstruction | date: 'shortDate'}})</td>
+        </tr>
+        <tr>
+          <td>Prix Ttc :</td>
+          <td>{{facture?.montantTtc}}€</td>
+        </tr>
+        <tr>
+          <td><a [routerLink]="['../../../devis/edit/' + facture?.devisId]">Voir le devis</a></td>
+          <td></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
