@@ -1,3 +1,4 @@
+import { FicheEntretienComponent } from './components/fiche-entretien/components/modifier-fiche-entretien/fiche-entretien.component';
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
@@ -70,6 +71,9 @@ import { RechercheFacturePipe } from "../commercial/facture/recherche-facture.pi
 
   ],
   imports: [
+    FicheTacheComponent,
+    ListTacheComponent,
+    RechercheTachePipe,
     CommonModule,
     FormsModule,
     RouterModule,
