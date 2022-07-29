@@ -70,9 +70,6 @@ import { RechercheFacturePipe } from "../commercial/facture/recherche-facture.pi
 
   ],
   imports: [
-    FicheTacheComponent,
-    ListTacheComponent,
-    RechercheTachePipe,
     CommonModule,
     FormsModule,
     RouterModule,
