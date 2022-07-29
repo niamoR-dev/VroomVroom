@@ -1,12 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
-import { ApiWebService } from "../../../shared/web-services/api.web-service";
-import { Vehicule } from "../../../shared/models/vehicule";
-import { ActivatedRoute, Router } from "@angular/router";
-import { Devis } from "../../../shared/models/devis";
-import { Client } from "../../../shared/models/client";
-import { URL_LIST } from "../../../shared/utils/url.list";
-import { redirectTo } from "../../../shared/utils/methods";
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {ApiWebService} from "../../../shared/web-services/api.web-service";
+import {Vehicule} from "../../../shared/models/vehicule";
+import {ActivatedRoute, Router} from "@angular/router";
+import {Devis} from "../../../shared/models/devis";
+import {Client} from "../../../shared/models/client";
+import {URL_LIST} from "../../../shared/utils/url.list";
+import {redirectTo} from "../../../shared/utils/methods";
+import {DevisService} from "../services/devis.service";
 
 @Component({
   selector: 'app-add-edit-devis',
@@ -16,21 +17,28 @@ import { redirectTo } from "../../../shared/utils/methods";
 export class AddEditDevisComponent implements OnInit {
   devis = new Devis();
   clients = new Array<Client>();
+  listeDevis = new Array<Devis>();
   vehicules = new Array<Vehicule>();
+  vehicule!: Vehicule;
+  client!: Client;
   prixHt: number | undefined;
   form!: FormGroup;
   isNew!: boolean;
   id!: number;
 
   constructor(private formBuilder: FormBuilder,
-    private service: ApiWebService<Devis>,
-    private route: ActivatedRoute,
-    private router: Router) {
+              private service: ApiWebService<Devis>,
+              private devisService: DevisService,
+              private clientService: ApiWebService<Client>,
+              private vehiculeService: ApiWebService<Vehicule>,
+              private route: ActivatedRoute,
+              private router: Router) {
   }
 
-  ngOnInit(): void {
+  async ngOnInit() {
     this.getClients();
     this.getVehicules();
+    this.getListDevis();
     this.id = this.route.snapshot.params['id'];
     this.isNew = !this.id
     if (!this.isNew) {
@@ -58,7 +66,8 @@ export class AddEditDevisComponent implements OnInit {
     } else {
       this.addDevis(this.devis);
     }
-
+    this.updateClient(this.devis);
+    this.updateVehicule(this.devis);
     redirectTo('commercial/devis', this.router)
   }
 
@@ -74,10 +83,30 @@ export class AddEditDevisComponent implements OnInit {
 
   private addDevis(devis: Devis) {
     this.service.addData(devis, URL_LIST.devis).subscribe({
-      next: () => this.service,
+      next: () => console.log(devis),
       error: err => console.log(`Erreur lors de l'ajout d'un nouveau devis: ` + err),
       complete: () => console.log('Ajout d\'un devis réussi')
     })
+  }
+
+  updateClient(devis: Devis) {
+    this.clients.filter(c => devis.clientId == c.id).map(c => this.client = c);
+    if (!this.isNew) {
+      this.client.devis_clientId = this.listeDevis[this.listeDevis.length - 1].id;
+    } else {
+      this.client.devis_clientId = this.listeDevis[this.listeDevis.length - 1].id + 1;
+    }
+    this.clientService.updateData(this.client, URL_LIST.client);
+  }
+
+  updateVehicule(devis: Devis) {
+    this.vehicules.filter(v => devis.vehiculeId = v.id).map(v => this.vehicule = v);
+    if (!this.isNew) {
+      this.vehicule.devis_clientId = this.listeDevis[this.listeDevis.length - 1].id;
+    } else {
+      this.vehicule.devis_clientId = this.listeDevis[this.listeDevis.length - 1].id + 1;
+    }
+    this.vehiculeService.updateData(this.vehicule, URL_LIST.vehicule);
   }
 
   /**
@@ -99,6 +128,18 @@ export class AddEditDevisComponent implements OnInit {
       next: data => this.vehicules = data['vehicules'],
       error: err => console.log(`Erreur lors du fetch des vehicules: ` + err),
       complete: () => console.log('Fetch vehicules réussi')
+    })
+  }
+
+
+  /**
+   * Get all devis from resolver
+   */
+  getListDevis() {
+    this.route.data.subscribe({
+      next: data => this.listeDevis = data['listeDevis'],
+      error: err => console.log(`Erreur lors du fetch des liste de devis: ` + err),
+      complete: () => console.log('Fetch liste de devis réussi')
     })
   }
 

@@ -38,13 +38,11 @@ export class AddEditVehiculeComponent implements OnInit {
       marque: new FormControl('', [Validators.required, Validators.minLength(3)]),
       modele: new FormControl('', [Validators.required, Validators.minLength(2)]),
       prixHt: new FormControl('', [Validators.required]),
-      quantite: new FormControl('', [Validators.required]),
     })
   }
 
   onSubmit(isNew: boolean) {
     this.vehicule.dateConstruction = this.dateControl?.value;
-    this.vehicule.quantite = this.quantiteControl?.value;
     this.vehicule.marque = this.marqueControl?.value;
     this.vehicule.modele = this.modeleControl?.value;
     this.vehicule.prixHt = this.prixControl?.value;
