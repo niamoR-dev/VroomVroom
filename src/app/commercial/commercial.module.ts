@@ -18,6 +18,7 @@ import { AddEditDevisComponent } from './devis/add-edit-devis/add-edit-devis.com
 import { ListFactureComponent } from './facture/list-facture/list-facture.component';
 import { RechercheFacturePipe } from './facture/recherche-facture.pipe';
 import { DetailFactureComponent } from './facture/detail-facture/detail-facture.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -25,30 +26,14 @@ import { DetailFactureComponent } from './facture/detail-facture/detail-facture.
     CommercialHeaderComponent,
     CommercialComponent,
 
-    // A deplacer dans le shared
-    RechercheVehiculePipe,
-    ListVehiculeComponent,
-    AddEditVehiculeComponent,
-
-    // A deplacer dans le shared
-    ListeClientComponent,
-    AddEditClientComponent,
-    RechercheClientPipe,
-
-    // A deplacer dans le shared
-    ListDevisComponent,
-    RechercheDevisPipe,
-    AddEditDevisComponent,
-    ListFactureComponent,
-    RechercheFacturePipe,
-    DetailFactureComponent
   ],
   imports: [
     CommonModule,
     CommercialRoutingModule,
     FormsModule,
     RouterModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedModule
   ]
 })
 export class CommercialModule { }
