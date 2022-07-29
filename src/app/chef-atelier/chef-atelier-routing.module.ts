@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ChefAtelierComponent } from "./components/chef-atelier.component";
-import { FicheEntretienComponent } from "../shared/components/fiche-entretien/components/list-fiche-entretien/fiche-entretien.component";
+import { ListeFichesEntretienComponent } from "../shared/components/fiche-entretien/components/list-fiche-entretien/liste-fiches-entretien.component";
 import { EditPieceComponent } from "../shared/components/piece/components/edit-piece/edit-piece.component";
 import { AddPieceComponent } from "../shared/components/piece/components/add-piece/add-piece.component";
 import { CreerClientComponent } from './components/clients/creer-client/creer-client.component';
@@ -10,6 +10,7 @@ import { ModifierClientComponent } from './components/clients/modifier-client/mo
 import { FicheTacheComponent } from '../shared/components/tache/components/fiche-tache/fiche-tache.component';
 import { ListTacheComponent } from '../shared/components/tache/components/list-tache/list-tache.component';
 import { ListPieceComponent } from '../shared/components/piece/components/list-piece/list-piece.component';
+import { FicheEntretienComponent } from '../shared/components/fiche-entretien/components/modifier-fiche-entretien/fiche-entretien.component';
 
 
 const routes: Routes = [
@@ -19,7 +20,15 @@ const routes: Routes = [
     children: [
       {
         path: 'fiches-entretien',
+        component: ListeFichesEntretienComponent
+      },
+      {
+        path: 'fiches-entretien/edit/:id',
         component: FicheEntretienComponent
+      },
+      {
+        path: 'stock-pieces',
+        component: ListPieceComponent
       },
       {
         path: 'stock-pieces',
@@ -50,7 +59,7 @@ const routes: Routes = [
         component: ModifierClientComponent
       },
       {
-        path: 'fiche-tache',
+        path: 'liste-taches/edit/:id',
         component: FicheTacheComponent
       }
     ]

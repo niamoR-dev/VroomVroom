@@ -1,0 +1,6 @@
+enum PRIORITE {
+  TRESURGENT = 4,
+  URGENT = 3,
+  NORMAL = 2,
+  NONPRIO = 1,
+}

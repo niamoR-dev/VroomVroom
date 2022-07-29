@@ -4,10 +4,6 @@ export const LINK_LIST = [
     rooting: ''
   },
   {
-    nameTab: 'Admin',
-    rooting: './../admin'
-  },
-  {
     nameTab: 'Chef d\'atelier',
     rooting: './../chefAtelier'
   },

@@ -4,9 +4,9 @@ import {
   RouterStateSnapshot,
   ActivatedRouteSnapshot
 } from '@angular/router';
-import {ApiWebService} from "../../../shared/web-services/api.web-service";
-import {URL_LIST} from "../../../shared/utils/url.list";
-import {Vehicule} from "../../../shared/models/vehicule";
+import { ApiWebService } from "../../../shared/web-services/api.web-service";
+import { URL_LIST } from "../../../shared/utils/url.list";
+import { Vehicule } from "../../../shared/models/vehicule";
 
 @Injectable({
   providedIn: 'root'

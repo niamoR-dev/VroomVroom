@@ -1,10 +1,10 @@
-import {Component, OnInit} from '@angular/core';
-import {Client} from "../../../models/client";
-import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
-import {ApiWebService} from "../../../web-services/api.web-service";
-import {ActivatedRoute, Router} from "@angular/router";
-import {URL_LIST} from "../../../utils/url.list";
-import {redirectTo} from "../../../utils/methods";
+import { Component, OnInit } from '@angular/core';
+import { Client } from "../../../models/client";
+import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
+import { ApiWebService } from "../../../web-services/api.web-service";
+import { ActivatedRoute, Router } from "@angular/router";
+import { URL_LIST } from "../../../utils/url.list";
+import { redirectTo } from "../../../utils/methods";
 
 @Component({
   selector: 'app-add-edit-client',
@@ -18,9 +18,9 @@ export class AddEditClientComponent implements OnInit {
   id!: number;
 
   constructor(private formBuilder: FormBuilder,
-              private service: ApiWebService<Client>,
-              private route: ActivatedRoute,
-              private router: Router) {
+    private service: ApiWebService<Client>,
+    private route: ActivatedRoute,
+    private router: Router) {
   }
 
   ngOnInit(): void {
@@ -54,7 +54,7 @@ export class AddEditClientComponent implements OnInit {
     this.client.adresse = this.adresseControl?.value;
     this.client.codePostal = this.codePostalControl?.value;
     this.client.ville = this.villeControl?.value;
-    if(!isNew){
+    if (!isNew) {
       this.service.updateData(this.client, URL_LIST.client)
     } else {
       this.addClient(this.client)
@@ -78,7 +78,7 @@ export class AddEditClientComponent implements OnInit {
 
   get villeControl() { return this.form.get('ville'); }
 
-  private addClient(client: Client){
+  private addClient(client: Client) {
     this.service.addData(client, URL_LIST.client).subscribe({
       next: () => console.log(client),
       error: err => console.log(`Erreur lors de l'ajout d'un nouveau client: ` + err),
@@ -86,7 +86,7 @@ export class AddEditClientComponent implements OnInit {
     })
   }
 
-  private getClient(id: number){
+  private getClient(id: number) {
     this.service.getData(id, URL_LIST.client).subscribe({
       next: data => {
         this.client = data;

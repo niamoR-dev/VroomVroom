@@ -75,6 +75,7 @@
       "mobile": "0666666666",
       "telephone": "0266666666",
       "fiche_entretienId": 1,
+      "vehiculeId": 1,
       "devis_clientId": ""
     },
     {
@@ -113,7 +114,8 @@
       "telephone": "0251984465",
       "clientAtelier": false,
       "clientVente": false,
-      "id": 4
+      "id": 4,
+      "fiche_entretienId": 1
     }
   ],
   "devis_client": [
@@ -172,12 +174,6 @@
       "dateSaisie": "2022-07-14",
       "libelle": "Courroie",
       "quantite": 2
-    },
-    {
-      "id": 2,
-      "date_saisie": "April 13, 2021 10:50:37",
-      "libelle": "Joint de culasse",
-      "quantite": 25
     }
   ],
   "commande_piece": [
@@ -207,17 +203,42 @@
       "pieceId": [
         1
       ],
-      "ficheId": 1,
+      "ficheId": [
+        1
+      ],
       "prioriteId": 2,
+      "nomTache": "Courroie de distribution",
       "description": "Courroie de distribution",
       "commentaire": "Courroie changée mais c'est bizarre, la voiture ne démarre plus",
       "quantite": 1,
       "montant": 700,
       "validationOuvrier": true,
-      "validationChef": false
+      "validationChefAtelier": true,
+      "prioriseParChefAtelier": true,
+      "selectionneParOuvrier": true
+    },
+    {
+      "id": 2,
+      "utilisateurId": 1,
+      "pieceId": [
+        1
+      ],
+      "ficheId": [
+        2
+      ],
+      "prioriteId": 2,
+      "nomTache": "Roues",
+      "description": "Changement de roues",
+      "commentaire": "Pneu okayyyyyy",
+      "quantite": 4,
+      "montant": 700,
+      "validationOuvrier": false,
+      "validationChefAtelier": false,
+      "prioriseParChefAtelier": false,
+      "selectionneParOuvrier": false
     }
   ],
-  "fiche_entretien": [
+  "fiche": [
     {
       "id": 1,
       "description": "Changement de courroie de distribution",
@@ -229,7 +250,22 @@
       "tacheId": [
         1
       ],
-      "utilisateurId": 5
+      "utilisateurId": 5,
+      "vehiculeId": 1
+    },
+    {
+      "id": 2,
+      "description": "distribution",
+      "dateCreation": "12/05/2010",
+      "montantTtc": 700,
+      "dateCloture": "",
+      "ficheTerminee": true,
+      "clientId": 1,
+      "tacheId": [
+        2
+      ],
+      "utilisateurId": 5,
+      "vehiculeId": 1
     }
   ],
   "facture_entretien": [],

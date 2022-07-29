@@ -1,0 +1,50 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4 text-center">Liste des fiches d'entretien</h1>
+  </div>
+  <div class="form-inline col-4 ">
+    <input class="form-control col-12" [(ngModel)]="searchInput" placeholder="Rechercher une fiche (description)"
+      type="search">
+  </div>
+</div>
+
+<table class="table table-striped">
+  <thead class="">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Client</th>
+      <th scope="col">Description</th>
+      <th scope="col">Date Création</th>
+      <th scope="col">Tâches restantes à faire</th>
+      <th scope="col">ID tâche</th>
+      <th scope="col">Montant TTC</th>
+      <th scope="col">Etat de la fiche</th>
+    </tr>
+  </thead>
+
+
+  <tbody *ngIf="fiches.length > 0; else elseBlock">
+    <tr *ngFor="let fiche of fiches | rechercheFiche: searchInput">
+      <th scope="row">{{fiche.id}}</th>
+      <td *ngFor="let c of fiche.client">
+        {{c['nom']}} {{c['prenom']}}</td>
+      <td>{{fiche.description}}</td>
+      <td>{{fiche.dateCreation | date: 'longDate'}}</td>
+      <td>{{fiche.idTache}}</td>
+      <td>{{fiche.montantTtc}}</td>
+      <td *ngIf="fiche.ficheTerminee == false">Non validée</td>
+      <td *ngIf="fiche.ficheTerminee == true">Validée</td>
+      <td>
+        <button type="button" class="btn btn-primary mr-2" [routerLink]="['edit', fiche.id]">Modifier</button>
+
+      </td>
+    </tr>
+  </tbody>
+  <ng-template #elseBlock>
+    <tbody>
+      <tr>
+        <td colspan="3" class="text-center">Aucune fiche pour le moment...</td>
+      </tr>
+    </tbody>
+  </ng-template>
+</table>

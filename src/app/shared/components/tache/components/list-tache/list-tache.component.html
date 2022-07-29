@@ -9,33 +9,33 @@
 
 <table class="table table-striped">
   <thead class="">
-  <tr>
-    <th scope="col">#</th>
-    <th scope="col">Nom de la tâche</th>
-    <th scope="col">Client</th>
-    <th scope="col">Date Création</th>
-    <th scope="col">Actions</th>
-  </tr>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nom de la tâche</th>
+      <th scope="col">Client</th>
+      <th scope="col">Date Création</th>
+      <th scope="col">Actions</th>
+    </tr>
   </thead>
 
 
-  <tbody *ngIf="taches.length > 0; else elseBlock">
-  <tr *ngFor="let tache of taches">
-    <th scope="row">{{tache.id}}</th>
-    <td>{{tache.description}}</td>
-    <td>ZIZI</td>
-    <td>{{tache.dateCreation | date: 'longDate'}}</td>
-    <td>
-      <button type="button" class="btn btn-primary mr-2" [routerLink]="['edit', tache.id]">Modifier</button>
-      <button type="button" class="btn btn-danger mr-2" (click)="deleteTache(tache.id)">Supprimer</button>
-    </td>
-  </tr>
+  <tbody *ngIf="listeTaches.length > 0; else elseBlock">
+    <tr *ngFor="let tache of listeTaches">
+      <th scope="row">{{tache.id}}</th>
+      <td>{{tache.description}}</td>
+      <td>ZIZI</td>
+      <td>{{tache.dateCreation | date: 'longDate'}}</td>
+      <td>
+        <button type="button" class="btn btn-primary mr-2" [routerLink]="['edit', tache.id]">Modifier</button>
+        <button type="button" class="btn btn-danger mr-2" (click)="deleteTache(tache.id)">Supprimer</button>
+      </td>
+    </tr>
   </tbody>
   <ng-template #elseBlock>
     <tbody>
-    <tr>
-      <td colspan="3" class="text-center">Aucune tâche pour le moment...</td>
-    </tr>
+      <tr>
+        <td colspan="3" class="text-center">Aucune tâche pour le moment...</td>
+      </tr>
     </tbody>
   </ng-template>
 </table>

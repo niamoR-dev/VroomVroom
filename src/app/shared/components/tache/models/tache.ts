@@ -1,23 +1,22 @@
 import { Model } from "../../../models/model";
 
 export class Tache extends Model {
-  description: string;
-  commentaire: string;
-  dateCreation: Date;
-  validationOuvrier: boolean;
-  validationChefAtelier: boolean;
-  prioriseParChefAtelier: boolean;
-  montant: number;
 
-  constructor(description: string, commentaire: string, dateCreation: Date, validationOuvrier: boolean, validationChefAtelier: boolean, prioriseParChefAtelier: boolean, montant: number) {
-    super();
-    this.description = description;
-    this.commentaire = commentaire;
-    this.dateCreation = dateCreation;
-    this.validationOuvrier = validationOuvrier;
-    this.validationChefAtelier = validationChefAtelier;
-    this.prioriseParChefAtelier = prioriseParChefAtelier;
-    this.montant = montant;
-  }
+  ficheId: number = 0;
+  utilisateurId: number = 0;
+  prioriteId: number = 0;
+  pieceId: number = 0;
+
+  nomTache: string = "";
+  description: string = "";
+  commentaire: string = "";
+  quantite: number = 0;
+  montant: number = 0;
+  dateCreation: Date = new Date();
+  validationOuvrier: boolean = false;
+  validationChefAtelier: boolean = false;
+  prioriseParChefAtelier: boolean = false;
+  selectionneParOuvrier: boolean = false;
+
 
 }

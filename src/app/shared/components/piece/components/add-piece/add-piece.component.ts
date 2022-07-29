@@ -1,10 +1,10 @@
-import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
-import {ApiWebService} from "../../../../web-services/api.web-service";
-import {Piece} from "../../models/piece";
-import {Router} from "@angular/router";
-import {URL_LIST} from "../../../../utils/url.list";
-import {redirectTo} from "../../../../utils/methods";
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
+import { ApiWebService } from "../../../../web-services/api.web-service";
+import { Piece } from "../../models/piece";
+import { Router } from "@angular/router";
+import { URL_LIST } from "../../../../utils/url.list";
+import { redirectTo } from "../../../../utils/methods";
 
 @Component({
   selector: 'app-add-piece',
@@ -19,8 +19,8 @@ export class AddPieceComponent implements OnInit {
   })
 
   constructor(private formBuilder: FormBuilder,
-              private service: ApiWebService<Piece>,
-              private router: Router) {
+    private service: ApiWebService<Piece>,
+    private router: Router) {
   }
 
   ngOnInit(): void {
@@ -33,7 +33,10 @@ export class AddPieceComponent implements OnInit {
   }
 
   private addPiece(libelle: string, quantite: number, dateSaisie: Date): void {
-    let piece = new Piece(dateSaisie, libelle, quantite);
+    let piece = new Piece();
+    piece.dateSaisie = dateSaisie;
+    piece.libelle = libelle;
+    piece.quantite = quantite;
     this.service.addData(piece, URL_LIST.piece).subscribe({
       next: () => console.log(piece),
       error: err => console.log(`Error while adding piece: ` + err),

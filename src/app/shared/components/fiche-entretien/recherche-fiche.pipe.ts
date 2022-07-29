@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import {JointureFicheClient} from "../../models/jointureFicheClient";
+import { JointureFicheClient } from "../../models/jointureFicheClient";
 
 @Pipe({
   name: 'rechercheFiche'
@@ -7,13 +7,13 @@ import {JointureFicheClient} from "../../models/jointureFicheClient";
 export class RechercheFichePipe implements PipeTransform {
 
   transform(piece: JointureFicheClient[], searchInput: string): any[] {
-    if(!piece) return [];
-    if(!searchInput) return piece;
+    if (!piece) return [];
+    if (!searchInput) return piece;
 
     searchInput = searchInput.toLowerCase();
 
     return piece.filter(f => {
-      return f.description.toLowerCase().includes(searchInput);
+      return f.fiche.description.toLowerCase().includes(searchInput);
     })
   }
 

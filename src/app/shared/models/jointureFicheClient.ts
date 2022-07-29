@@ -1,14 +1,19 @@
+import { Piece } from "../components/piece/models/piece";
+import { Tache } from "../components/tache/models/tache";
+import { Client } from "./client";
 import { Fiche } from "./fiche";
+import { Utilisateur } from "./utilisateur";
+import { Vehicule } from "./vehicule";
 
-export class JointureFicheClient extends Fiche {
+export class JointureFicheClient {
 
-  client!: [];
+  client: Client = new Client();
+  vehicule: Vehicule = new Vehicule();
+  utilisateur: Utilisateur = new Utilisateur();
+  taches: Tache[] = new Array<Tache>();
+  fiche: Fiche = new Fiche();
+  piece: Piece = new Piece();
 
-
-  constructor(idTache: number[], idUtilisateur: number, clientId: number, description: string, dateCreation: Date, dateCloture: Date, ficheTerminee: boolean, montantTtc: number, client: []) {
-    super(idTache, idUtilisateur, clientId, description, dateCreation, dateCloture, ficheTerminee, montantTtc);
-    this.client = client;
-  }
 
 
 
