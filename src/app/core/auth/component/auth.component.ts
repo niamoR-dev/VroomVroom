@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {ApiWebService} from "../../../shared/web-services/api.web-service";
-import {Utilisateur} from "../../../shared/models/utilisateur";
-import {AuthService} from "../services/auth.service";
-import {Roles} from "../enum/role";
-import {Router} from "@angular/router";
-import {redirectTo} from "../../../shared/utils/methods";
+import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { ApiWebService } from "../../../shared/web-services/api.web-service";
+import { Utilisateur } from "../../../shared/models/utilisateur";
+import { AuthService } from "../services/auth.service";
+import { Roles } from "../enum/role";
+import { Router } from "@angular/router";
+import { redirectTo } from "../../../shared/utils/methods";
 
 @Component({
   selector: 'app-auth',
@@ -18,8 +18,8 @@ export class AuthComponent implements OnInit {
 
 
   constructor(private service: ApiWebService<Utilisateur>,
-              private authService: AuthService,
-              private router: Router) {
+    private authService: AuthService,
+    private router: Router) {
   }
 
   ngOnInit() {
@@ -29,10 +29,10 @@ export class AuthComponent implements OnInit {
   onSubmit(): void {
     let userData = this.form.value
     this.authService.loginFilter(userData.login, userData.mdp)
-    if(localStorage.getItem('ROLE') == Roles.CHEF_ATELIER){
+    if (localStorage.getItem('ROLE') == Roles.CHEF_ATELIER) {
       redirectTo('chefAtelier', this.router);
     }
-    if(localStorage.getItem('ROLE') == Roles.COMMERCIAL || Roles.ADMIN){
+    if (localStorage.getItem('ROLE') == Roles.COMMERCIAL || Roles.ADMIN) {
       redirectTo('commercial/devis', this.router);
     }
   }
