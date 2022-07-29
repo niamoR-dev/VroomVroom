@@ -15,8 +15,8 @@
     <th scope="col">Modèle</th>
     <th scope="col">Prix HT</th>
     <th scope="col">Année de construction</th>
-    <th scope="col">Stock</th>
-    <th scope="col">Actions</th>
+    <th *ngIf="role == roles.COMMERCIAL" scope="col">Disponibilité</th>
+    <th *ngIf="role == roles.MAGASINIER" scope="col">Actions</th>
   </tr>
   </thead>
 
@@ -27,13 +27,23 @@
     <td>{{vehicule.modele}}</td>
     <td>{{vehicule.prixHt}}</td>
     <td>{{vehicule.dateConstruction | date: 'longDate'}}</td>
-    <td>{{vehicule.quantite}}</td>
-    <td>
+    <td *ngIf="role == roles.MAGASINIER">
       <button type="button" class="btn btn-primary mr-2" [routerLink]="['edit', vehicule.id]">
         <i class="fa fa-pencil" aria-hidden="true"></i>
       </button>
       <button type="button" class="btn btn-danger mr-2" (click)="deleteVehicule(vehicule.id)">
         <i class="fa fa-trash" aria-hidden="true">
+        </i>
+      </button>
+    </td>
+    <td *ngIf="role == roles.COMMERCIAL && vehicule.isUsed == false">
+      <button  type="button" class="btn btn-success mr-2" [routerLink]="['edit', vehicule.id]">
+        <i class="fa fa-check" aria-hidden="true"></i>
+      </button>
+    </td>
+    <td *ngIf="role == roles.COMMERCIAL && vehicule.isUsed == true">
+      <button type="button" class="btn btn-danger mr-2" (click)="deleteVehicule(vehicule.id)">
+        <i class="fa fa-ban" aria-hidden="true">
         </i>
       </button>
     </td>

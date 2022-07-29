@@ -199,7 +199,8 @@
       "modele": "406 Coupé",
       "prixHt": 3400,
       "devis_clientId": 2,
-      "id": 5
+      "id": 5,
+      "isUsed": false
     }
   ],
   "piece": [

@@ -4,6 +4,7 @@ import { ApiWebService } from "../../../web-services/api.web-service";
 import { Router } from "@angular/router";
 import { URL_LIST } from "../../../utils/url.list";
 import { redirectTo } from "../../../utils/methods";
+import {Roles} from "../../../../core/auth/enum/role";
 
 @Component({
   selector: 'app-list-vehicule',
@@ -13,6 +14,8 @@ import { redirectTo } from "../../../utils/methods";
 export class ListVehiculeComponent implements OnInit {
   vehicules = new Array<Vehicule>();
   searchInput!: string;
+  role = localStorage.getItem('ROLE');
+  roles = Roles;
 
   constructor(private service: ApiWebService<Vehicule>,
     private router: Router) { }
