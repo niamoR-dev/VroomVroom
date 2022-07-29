@@ -22,7 +22,7 @@
   <tbody *ngIf="listeTaches.length > 0; else elseBlock">
     <tr *ngFor="let tache of listeTaches">
       <th scope="row">{{tache.id}}</th>
-      <td>{{tache.description}}</td>
+      <td>{{tache.nomTache}}</td>
       <td>ZIZI</td>
       <td>{{tache.dateCreation | date: 'longDate'}}</td>
       <td>

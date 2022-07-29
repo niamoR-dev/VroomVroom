@@ -19,11 +19,11 @@ const routes: Routes = [
     component: ChefAtelierComponent,
     children: [
       {
-        path: 'fiches-entretien',
+        path: '',
         component: ListeFichesEntretienComponent
       },
       {
-        path: 'fiches-entretien/edit/:id',
+        path: 'edit/:id',
         component: FicheEntretienComponent
       },
       {
