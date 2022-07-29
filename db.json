@@ -19,8 +19,8 @@
     {
       "id": 3,
       "idProfil": 3,
-      "login": "Mécanicien",
-      "mdp": "mécanicien",
+      "login": "Mecanicien",
+      "mdp": "mecanicien",
       "nom": "LeMécanicien",
       "prenom": "Mario"
     },
