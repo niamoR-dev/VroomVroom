@@ -10,6 +10,9 @@ import {AddEditDevisComponent} from "./devis/add-edit-devis/add-edit-devis.compo
 import {ClientResolver} from "./devis/services/client.resolver";
 import {VehiculeResolver} from "./devis/services/vehicule.resolver";
 import {DevisResolver} from "./devis/services/devis.resolver";
+import {ListFactureComponent} from "./facture/list-facture/list-facture.component";
+import {FactureResolver} from "./facture/services/facture.resolver";
+import {DetailFactureComponent} from "./facture/detail-facture/detail-facture.component";
 
 const routes: Routes = [{
   path: '',
@@ -53,6 +56,15 @@ const routes: Routes = [{
     {
       path: 'clients/edit/:id',
       component: AddEditClientComponent
+    },
+    {
+      path: 'factures',
+      component: ListFactureComponent,
+      resolve: {listeFactures: FactureResolver}
+    },
+    {
+      path: 'factures/detail/:id',
+      component: DetailFactureComponent
     }
   ]
 }];

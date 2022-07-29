@@ -5,6 +5,9 @@ import {URL_LIST} from "../../../shared/utils/url.list";
 import {Devis} from "../../../shared/models/devis";
 import {DevisService} from "../services/devis.service";
 import {redirectTo} from "../../../shared/utils/methods";
+import {DevisJointure} from "../../../shared/models/devisJointure";
+import {environment} from "../../../../environments/environment";
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-list-devis',
@@ -12,14 +15,15 @@ import {redirectTo} from "../../../shared/utils/methods";
   styleUrls: ['./list-devis.component.scss', '../../../app.component.scss']
 })
 export class ListDevisComponent implements OnInit {
-  devis = new Array<Devis>();
+  devis = new Array<DevisJointure>();
   listeDevis = new Array<Devis>();
   searchInput!: string;
 
-  constructor(private service: ApiWebService<Devis>,
+  constructor(private service: ApiWebService<DevisJointure>,
               private devisService: DevisService,
               private route: ActivatedRoute,
-              private router: Router) { }
+              private router: Router,
+              private http: HttpClient) { }
 
   ngOnInit(): void {
     this.getDevisResolver();
@@ -34,20 +38,20 @@ export class ListDevisComponent implements OnInit {
     })
   }
 
-  private getAllDevis(devis: Devis[]){
+  private getAllDevis(devis: DevisJointure[]){
     devis.forEach(d => {
       this.devisService.getDevis(d.id, this.devis)
     })
   }
 
-  private getVoitureDevis(id: number | undefined, devis: Devis){
-    return this.service.getDataJointure(<number>id, URL_LIST.vehicule, URL_LIST.jointureVoiture).subscribe({
-      next: data => {
-        devis.vehicule = data;
-      },
-      error: err => console.log('Erreur pendant le fetch du véhicule: ' + err),
-      complete: () => console.log('Fetch des véhicule réussi')
-    })
+  async changeEtat(devis: DevisJointure) {
+    if(devis.etat == true){
+      this.devisService.invalidateDevis(devis);
+    } else {
+      let facture = this.devisService.validateDevis(devis);
+      await this.http.post(environment.gateway + URL_LIST.facture, facture).toPromise();
+    }
+    redirectTo('commercial/devis', this.router)
   }
 
   async deleteDevis(devis: Devis) {

@@ -1,12 +1,12 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import {Devis} from "../../shared/models/devis";
+import {DevisJointure} from "../../shared/models/devisJointure";
 
 @Pipe({
   name: 'rechercheDevis'
 })
 export class RechercheDevisPipe implements PipeTransform {
 
-  transform(devis: Devis[], searchInput: string): any[] {
+  transform(devis: DevisJointure[], searchInput: string): any[] {
     if(!devis) return [];
     if(!searchInput) return devis;
 

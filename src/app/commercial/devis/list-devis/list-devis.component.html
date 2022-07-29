@@ -30,6 +30,8 @@
     <td id="trueState" *ngIf="devis.etat == true"><p>Validé</p></td>
     <td id="falseState" *ngIf="devis.etat == false">En cours</td>
     <td>
+      <button id="validState" *ngIf="devis.etat == false" type="button" class="btn btn-success mr-2" (click)="changeEtat(devis)">Valider devis</button>
+      <button  id="invalidState" *ngIf="devis.etat == true" type="button" class="btn btn-warning mr-2" (click)="changeEtat(devis)">Invalider le devis</button>
       <button type="button" class="btn btn-primary mr-2" [routerLink]="['edit', devis.id]"><i class="fa fa-pencil" aria-hidden="true"></i></button>
       <button type="button" class="btn btn-danger mr-2" (click)="deleteDevis(devis)"><i class="fa fa-trash" aria-hidden="true"></i></button>
     </td>
